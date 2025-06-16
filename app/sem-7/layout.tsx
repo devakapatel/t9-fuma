@@ -1,11 +1,11 @@
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
+import { DocsLayout } from 'fumadocs-ui/layouts/notebook';
 import type { ReactNode } from 'react';
 import { baseOptions } from '@/app/layout.config';
-import { source } from '@/lib/source';
+import { sem7Source } from '@/lib/source';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <DocsLayout tree={source.pageTree} {...baseOptions}>
+    <DocsLayout tree={sem7Source.pageTree} {...baseOptions} nav={{ ...baseOptions.nav, mode: 'top' }}>
       {children}
     </DocsLayout>
   );
