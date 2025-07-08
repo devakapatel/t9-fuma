@@ -1,7 +1,5 @@
 import { aboutSource, sem6Source, sem7Source } from '@/lib/source';
 import { createSearchAPI } from 'fumadocs-core/search/server';
-
-export const runtime = "edge";
  
 export const { GET } = createSearchAPI('advanced', {
   indexes: [
