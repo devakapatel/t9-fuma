@@ -5,7 +5,7 @@ import { sem6Source } from '@/lib/source';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <DocsLayout tree={sem6Source.pageTree} {...baseOptions}>
+    <DocsLayout tree={sem6Source.pageTree} {...baseOptions} nav={{ ...baseOptions.nav, mode: 'top' }} >
       {children}
     </DocsLayout>
   );
