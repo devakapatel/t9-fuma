@@ -14,3 +14,5 @@ export const { staticGET:GET } = createSearchAPI('advanced', {
     structuredData: page.data.structuredData
   }))
 });
+
+export const revalidate = false;
