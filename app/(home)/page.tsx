@@ -1,25 +1,29 @@
-import Link from "next/link";
+import React from "react";
 
-export default function HomePage() {
+const Page: React.FC = () => {
   return (
-    <main className="flex flex-1 flex-col justify-center text-center">
-      <h1 className="mb-4 text-2xl font-bold">T9 Beta Testing</h1>
-      <p className="text-fd-muted-foreground">
-        <Link
-          href="/about"
-          className="text-fd-foreground font-semibold underline"
-        >
-          About
-        </Link>
-      </p>
-      <p className="text-fd-muted-foreground">
-        <Link
-          href="/sem-7"
-          className="text-fd-foreground font-semibold underline"
-        >
-          Semester 7
-        </Link>
-      </p>
-    </main>
+    <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center">
+      <div className="text-4xl font-bold text-center text-blue-600 mb-8">
+        Welcome to Our Website
+      </div>
+
+      <div className="text-lg text-center text-gray-700 mb-16">
+        Discover the best products and services tailored just for you.
+      </div>
+
+      <div className="bg-white shadow-lg rounded-lg p-8">
+        <div className="text-2xl font-semibold text-gray-800 mb-4">
+          Get Started Today
+        </div>
+        <p className="text-gray-600 mb-8">
+          Join our community and start exploring the benefits.
+        </p>
+        <button className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700">
+          Sign Up
+        </button>
+      </div>
+    </div>
   );
-}
+};
+
+export default Page;

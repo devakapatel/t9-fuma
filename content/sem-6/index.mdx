@@ -8,3 +8,108 @@ description: Components
 The content of this page is yet to be added, this page was created for the sake of initial testing purpose.
 
 _This page will be updated soon._
+
+## ⚠️ Whatever you see below this is just sample content, made for test purpose, please ignore it.
+
+```ts twoslash lineNumbers title="Typescript"
+const a = "Hello World";
+//    ^?
+console.log(a);
+```
+
+```java twoslash lineNumbers title="Java"
+// Student.java
+class Student {
+    private String name;
+    private int age;
+    private String id;
+    private double gpa;
+
+    // Constructor
+    public Student(String name, int age, String id, double gpa) {
+        this.name = name;
+        this.age = age;
+        this.id = id;
+        this.gpa = gpa;
+    }
+
+    // Getter methods
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public double getGpa() {
+        return gpa;
+    }
+
+    // Update GPA
+    public void updateGpa(double newGpa) {
+        this.gpa = newGpa;
+    }
+
+    // Display student details
+    public void displayInfo() {
+        System.out.println("Student Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("ID: " + id);
+        System.out.println("GPA: " + gpa);
+        System.out.println("--------------------");
+    }
+}
+
+// Main.java
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student("Amit", 20, "ST101", 3.6);
+        Student s2 = new Student("Priya", 21, "ST102", 3.9);
+
+        s1.displayInfo();
+        s2.displayInfo();
+
+        s1.updateGpa(3.8);
+        System.out.println("After GPA update for "+ s1.getName() + ":");
+        s1.displayInfo();
+    }
+}
+```
+
+<Mermaid
+  chart="
+flowchart TD
+    A[Start] --> B[Process Step 1]
+    B --> C{Decision?}
+    C -- Yes --> D[Process Step 2A]
+    C -- No  --> E[Process Step 2B]
+    D --> F[End]
+    E --> F"
+/>
+
+```tsx title="TSX"
+// highlight a line
+<div>Hello World</div> // [!code highlight]
+
+// highlight a word
+// [!code word:Fumadocs]
+<div>Fumadocs</div>
+
+// diff styles
+console.log('hewwo'); // [!code --]
+console.log('hello'); // [!code ++]
+
+// focus
+return new ResizeObserver(() => {}) // [!code focus]
+```
+
+Inline: $$c = \pm\sqrt{a^2 + b^2}$$
+
+```math
+c = \pm\sqrt{a^2 + b^2}
+```

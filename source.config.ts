@@ -3,12 +3,14 @@ import {
   defineDocs,
   frontmatterSchema,
   metaSchema,
-} from 'fumadocs-mdx/config';
+} from "fumadocs-mdx/config";
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
 
 // You can customise Zod schemas for frontmatter and `meta.json` here
 // see https://fumadocs.vercel.app/docs/mdx/collections#define-docs
 export const about = defineDocs({
-  dir: 'content/about',
+  dir: "content/about",
   docs: {
     schema: frontmatterSchema,
   },
@@ -18,7 +20,7 @@ export const about = defineDocs({
 });
 
 export const sem6 = defineDocs({
-  dir: 'content/sem-6',
+  dir: "content/sem-6",
   docs: {
     schema: frontmatterSchema,
   },
@@ -28,7 +30,7 @@ export const sem6 = defineDocs({
 });
 
 export const sem7 = defineDocs({
-  dir: 'content/sem-7',
+  dir: "content/sem-7",
   docs: {
     schema: frontmatterSchema,
   },
@@ -39,6 +41,9 @@ export const sem7 = defineDocs({
 
 export default defineConfig({
   mdxOptions: {
+    remarkPlugins: [remarkMath],
+    // Place it at first, it should be executed before the syntax highlighter
+    rehypePlugins: (v) => [rehypeKatex, ...v],
     // MDX options
   },
 });
