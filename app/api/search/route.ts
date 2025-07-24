@@ -1,6 +1,7 @@
 import { aboutSource, sem6Source, sem7Source } from "@/lib/source";
 import { createSearchAPI } from "fumadocs-core/search/server";
 
+export const revalidate = false;
 export const { staticGET: GET } = createSearchAPI("advanced", {
   indexes: [
     ...aboutSource.getPages(),

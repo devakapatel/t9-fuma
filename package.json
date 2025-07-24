@@ -10,7 +10,6 @@
     "pages:build": "npx @cloudflare/next-on-pages"
   },
   "dependencies": {
-    "@orama/orama": "^3.1.11",
     "fumadocs-core": "15.5.1",
     "fumadocs-mdx": "11.6.7",
     "fumadocs-ui": "15.5.1",
