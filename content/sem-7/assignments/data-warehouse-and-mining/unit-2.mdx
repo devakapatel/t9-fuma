@@ -1,0 +1,341 @@
+---
+title: Unit 2
+---
+
+## <mark> 1) What is Data Cleaning? Describe various methods of Data Cleaning. </mark>
+
+### What is Data Cleaning?
+
+Data cleaning, also known as data scrubbing, is the process of detecting and correcting (or removing) corrupt or inaccurate records from a dataset. The goal is to ensure that the data is consistent and free from errors, which is crucial for accurate analysis and decision-making. Data cleaning involves identifying and handling missing values, duplicate records, outliers, and inconsistencies in the dataset.
+
+### Various Methods of Data Cleaning
+
+1. **Handling Missing Values**
+   - **Deletion**: Remove rows or columns with missing values. This is simple but can lead to loss of valuable data.
+   - **Imputation**: Fill in missing values with estimated values. Common methods include:
+     - **Mean/Median/Mode Imputation**: Replace missing values with the mean, median, or mode of the column.
+     - **Predictive Imputation**: Use machine learning models to predict missing values based on other data.
+     - **K-Nearest Neighbors (KNN) Imputation**: Replace missing values with the average of the K-nearest neighbors.
+
+2. **Handling Duplicate Records**
+   - **Detection**: Identify duplicate records using unique identifiers or by comparing multiple columns.
+   - **Removal**: Delete duplicate records to ensure each entry is unique.
+
+3. **Correcting Inconsistent Data**
+   - **Standardization**: Ensure data is in a consistent format (e.g., dates, phone numbers, addresses).
+   - **Normalization**: Scale data to a standard range (e.g., 0 to 1) to make it easier to compare.
+
+4. **Handling Outliers**
+   - **Detection**: Identify outliers using statistical methods such as Z-scores, IQR (Interquartile Range), or visualization techniques like box plots.
+   - **Treatment**:
+     - **Remove**: Delete outliers if they are errors.
+     - **Cap**: Set a threshold and cap values above or below this threshold.
+     - **Transform**: Apply transformations (e.g., log, square root) to reduce the impact of outliers.
+
+5. **Data Type Conversion**
+   - Ensure that data is in the correct format (e.g., converting strings to dates, integers to floats).
+
+6. **Removing Noise**
+   - **Smoothing**: Apply techniques like moving averages to reduce noise in time-series data.
+   - **Filtering**: Use filters to remove unwanted data points.
+
+7. **Data Validation**
+   - **Range Checks**: Ensure data falls within a specified range.
+   - **Cross-Field Validation**: Check consistency between related fields (e.g., age should match birthdate).
+
+8. **Data Enrichment**
+   - **Augmentation**: Add additional data from external sources to enhance the dataset.
+   - **Normalization**: Use techniques like TF-IDF (Term Frequency-Inverse Document Frequency) for text data.
+
+9. **Data Transformation**
+   - **Aggregation**: Summarize data to a higher level (e.g., daily to monthly).
+   - **Discretization**: Convert continuous data into discrete bins (e.g., age groups).
+
+### Tools and Techniques for Data Cleaning
+
+- **Manual Cleaning**: Using spreadsheet tools like Microsoft Excel or Google Sheets for small datasets.
+- **Programming Languages**: Python (with libraries like Pandas, NumPy) and R are popular for data cleaning due to their powerful libraries and functions.
+- **Database Management Systems**: SQL queries can be used to identify and correct data issues.
+- **Specialized Tools**: Tools like OpenRefine, Trifacta, and Talend offer user-friendly interfaces for data cleaning.
+
+By applying these methods, you can ensure that your data is clean, consistent, and ready for analysis.
+
+## <mark> 2) Explain the process of Data Cleaning. List the tools used in the Data Cleaning process. </mark>
+
+### Process of Data Cleaning
+
+Data cleaning is a systematic process that involves several steps to ensure that the data is accurate, consistent, and ready for analysis. Here’s a detailed breakdown of the process:
+
+1. **Data Discovery**
+   - **Understand the Data**: Begin by understanding the structure, format, and content of the dataset. This includes identifying the types of data (e.g., numerical, categorical, text) and the relationships between different fields.
+   - **Identify Issues**: Look for common data quality issues such as missing values, duplicates, outliers, inconsistencies, and errors.
+
+2. **Data Profiling**
+   - **Statistical Analysis**: Perform statistical analysis to understand the distribution of data, identify patterns, and detect anomalies. This can include calculating mean, median, mode, standard deviation, and other descriptive statistics.
+   - **Visualization**: Use visualizations like histograms, box plots, and scatter plots to identify outliers and patterns in the data.
+
+3. **Handling Missing Values**
+   - **Detection**: Identify missing values in the dataset.
+   - **Strategy Selection**: Choose an appropriate strategy based on the nature of the data and the extent of missing values.
+     - **Deletion**: Remove rows or columns with missing values.
+     - **Imputation**: Fill in missing values using methods like mean/median/mode imputation, predictive imputation, or KNN imputation.
+
+4. **Handling Duplicate Records**
+   - **Detection**: Identify duplicate records using unique identifiers or by comparing multiple columns.
+   - **Removal**: Delete duplicate records to ensure each entry is unique.
+
+5. **Correcting Inconsistent Data**
+   - **Standardization**: Ensure data is in a consistent format (e.g., dates, phone numbers, addresses).
+   - **Normalization**: Scale data to a standard range (e.g., 0 to 1) to make it easier to compare.
+
+6. **Handling Outliers**
+   - **Detection**: Identify outliers using statistical methods such as Z-scores, IQR (Interquartile Range), or visualization techniques like box plots.
+   - **Treatment**:
+     - **Remove**: Delete outliers if they are errors.
+     - **Cap**: Set a threshold and cap values above or below this threshold.
+     - **Transform**: Apply transformations (e.g., log, square root) to reduce the impact of outliers.
+
+7. **Data Type Conversion**
+   - Ensure that data is in the correct format (e.g., converting strings to dates, integers to floats).
+
+8. **Removing Noise**
+   - **Smoothing**: Apply techniques like moving averages to reduce noise in time-series data.
+   - **Filtering**: Use filters to remove unwanted data points.
+
+9. **Data Validation**
+   - **Range Checks**: Ensure data falls within a specified range.
+   - **Cross-Field Validation**: Check consistency between related fields (e.g., age should match birthdate).
+
+10. **Data Enrichment**
+    - **Augmentation**: Add additional data from external sources to enhance the dataset.
+    - **Normalization**: Use techniques like TF-IDF (Term Frequency-Inverse Document Frequency) for text data.
+
+11. **Data Transformation**
+    - **Aggregation**: Summarize data to a higher level (e.g., daily to monthly).
+    - **Discretization**: Convert continuous data into discrete bins (e.g., age groups).
+
+12. **Review and Iterate**
+    - **Review**: After cleaning, review the data to ensure that the cleaning process has improved data quality.
+    - **Iterate**: Data cleaning is often an iterative process. You may need to revisit earlier steps based on new insights or issues discovered during the review.
+
+### Tools Used in the Data Cleaning Process
+
+1. **Programming Languages**
+   - **Python**: Libraries like Pandas, NumPy, and Scikit-learn provide powerful tools for data manipulation and cleaning.
+   - **R**: Packages like dplyr, tidyr, and caret offer extensive functions for data cleaning and preprocessing.
+
+2. **Spreadsheet Tools**
+   - **Microsoft Excel**: Useful for small datasets. Features like Find and Replace, Conditional Formatting, and Pivot Tables can help identify and correct data issues.
+   - **Google Sheets**: Similar to Excel, with the added benefit of collaboration features.
+
+3. **Database Management Systems**
+   - **SQL**: SQL queries can be used to identify and correct data issues, especially for large datasets stored in relational databases.
+
+4. **Specialized Data Cleaning Tools**
+   - **OpenRefine**: An open-source tool for working with messy data, cleaning it, and transforming it into a more usable format.
+   - **Trifacta**: A user-friendly data wrangling tool that provides a visual interface for data cleaning and transformation.
+   - **Talend**: Offers a suite of data integration tools, including data cleaning and quality assessment features.
+
+5. **Machine Learning Libraries**
+   - **Scikit-learn**: Provides tools for imputation and preprocessing.
+   - **TensorFlow/Keras**: Useful for more advanced data cleaning tasks, especially for large datasets or complex data types like images and text.
+
+6. **Visualization Tools**
+   - **Tableau**: Helps in visualizing data to identify patterns and anomalies.
+   - **Matplotlib/Seaborn (Python)**: Libraries for creating visualizations to detect outliers and inconsistencies.
+
+7. **Cloud-Based Platforms**
+   - **Google BigQuery**: For cleaning and transforming large datasets stored in the cloud.
+   - **AWS Glue**: A fully managed ETL (Extract, Transform, Load) service that makes it easy to prepare and load data for analytics.
+
+By following the data cleaning process and utilizing these tools, you can ensure that your data is accurate, consistent, and ready for analysis.
+
+## <mark> 3) Describe the following methods: <br /> (a) Filling out Missing values <br /> (b) Noisy Data Removal </mark>
+
+Sure, let's delve into the details of these two specific data cleaning methods:
+
+### (a) Filling Out Missing Values
+
+Missing values are a common issue in datasets and can significantly impact the accuracy and reliability of your analysis. There are several strategies to handle missing values, each with its own advantages and use cases.
+
+#### Methods for Filling Out Missing Values
+
+1. **Mean/Median/Mode Imputation**
+   - **Mean Imputation**: Replace missing values with the mean of the column. This is suitable for numerical data.
+     - **Pros**: Simple and fast.
+     - **Cons**: Can reduce variance and may not be suitable for skewed distributions.
+   - **Median Imputation**: Replace missing values with the median of the column. This is also suitable for numerical data.
+     - **Pros**: More robust to outliers compared to mean imputation.
+     - **Cons**: Can still reduce variance.
+   - **Mode Imputation**: Replace missing values with the mode of the column. This is suitable for categorical data.
+     - **Pros**: Simple and effective for categorical data.
+     - **Cons**: May not reflect the underlying distribution well.
+
+2. **Predictive Imputation**
+   - **Regression Imputation**: Use a regression model to predict missing values based on other columns.
+     - **Pros**: Can capture relationships between variables.
+     - **Cons**: Can be complex and computationally expensive.
+   - **K-Nearest Neighbors (KNN) Imputation**: Replace missing values with the average of the K-nearest neighbors.
+     - **Pros**: Can capture local patterns in the data.
+     - **Cons**: Computationally expensive and sensitive to the choice of K.
+
+3. **Interpolation**
+   - **Linear Interpolation**: For time-series data, fill missing values by linearly interpolating between known values.
+     - **Pros**: Simple and effective for time-series data.
+     - **Cons**: Assumes a linear relationship between points.
+   - **Spline Interpolation**: Use spline functions to interpolate missing values.
+     - **Pros**: Can capture more complex relationships.
+     - **Cons**: More complex and computationally expensive.
+
+4. **Forward/Backward Fill**
+   - **Forward Fill**: Propagate the last known value forward to fill missing values.
+     - **Pros**: Simple and effective for time-series data.
+     - **Cons**: Assumes data is constant between known points.
+   - **Backward Fill**: Propagate the next known value backward to fill missing values.
+     - **Pros**: Similar to forward fill but in the opposite direction.
+     - **Cons**: Assumes data is constant between known points.
+
+5. **Custom Imputation**
+   - **Domain-Specific Rules**: Use domain knowledge to fill missing values. For example, if a dataset contains age, you might fill missing values with the average age for a specific demographic group.
+     - **Pros**: Can be very effective if domain knowledge is accurate.
+     - **Cons**: Requires detailed domain knowledge.
+
+### (b) Noisy Data Removal
+
+Noisy data refers to data that contains errors, outliers, or irrelevant information. Removing noise is crucial for improving the quality and reliability of your analysis. Here are some methods for noisy data removal:
+
+#### Methods for Noisy Data Removal
+
+1. **Statistical Methods**
+   - **Z-Score**: Calculate the Z-score for each data point and remove those that fall outside a certain threshold (e.g., Z > 3).
+     - **Pros**: Simple and widely used.
+     - **Cons**: Assumes data is normally distributed.
+   - **Interquartile Range (IQR)**: Calculate the IQR and remove data points that fall below Q1 - 1.5 * IQR or above Q3 + 1.5 * IQR.
+     - **Pros**: More robust to outliers compared to Z-score.
+     - **Cons**: Can be less sensitive to extreme values.
+
+2. **Visualization Techniques**
+   - **Box Plots**: Visualize the distribution of data and identify outliers.
+     - **Pros**: Intuitive and easy to understand.
+     - **Cons**: Subjective interpretation.
+   - **Scatter Plots**: Plot data points and visually identify outliers.
+     - **Pros**: Can identify patterns and outliers.
+     - **Cons**: Can be time-consuming for large datasets.
+
+3. **Smoothing Techniques**
+   - **Moving Average**: Replace each data point with the average of its neighbors.
+     - **Pros**: Simple and effective for time-series data.
+     - **Cons**: Can smooth out important features.
+   - **Exponential Smoothing**: Give more weight to recent data points.
+     - **Pros**: More flexible than moving average.
+     - **Cons**: More complex to implement.
+
+4. **Filtering Techniques**
+   - **Low-Pass Filters**: Remove high-frequency noise by allowing only low-frequency signals to pass through.
+     - **Pros**: Effective for removing noise in time-series data.
+     - **Cons**: Can be complex to tune.
+   - **High-Pass Filters**: Remove low-frequency noise by allowing only high-frequency signals to pass through.
+     - **Pros**: Effective for removing trends.
+     - **Cons**: Can be complex to tune.
+
+5. **Machine Learning Techniques**
+   - **Isolation Forest**: An unsupervised learning algorithm that isolates anomalies by randomly selecting a feature and splitting it.
+     - **Pros**: Effective for high-dimensional data.
+     - **Cons**: Can be computationally expensive.
+   - **One-Class SVM**: An unsupervised learning algorithm that learns the decision boundary around the normal data points.
+     - **Pros**: Effective for anomaly detection.
+     - **Cons**: Can be sensitive to hyperparameters.
+
+6. **Domain-Specific Methods**
+   - **Thresholding**: Remove data points that fall outside a domain-specific threshold.
+     - **Pros**: Simple and effective if thresholds are well-defined.
+     - **Cons**: Requires domain knowledge.
+
+### Summary
+
+- **Filling Out Missing Values**: Choose a method based on the nature of your data and the extent of missing values. Simple methods like mean/median/mode imputation are quick but may reduce variance. More advanced methods like KNN imputation or predictive imputation can capture more complex relationships but are computationally expensive.
+- **Noisy Data Removal**: Use statistical methods like Z-score or IQR for quick identification of outliers. Visualization techniques like box plots and scatter plots can provide intuitive insights. Smoothing and filtering techniques are effective for time-series data, while machine learning methods like Isolation Forest and One-Class SVM can handle high-dimensional data.
+
+By carefully selecting and applying these methods, you can significantly improve the quality of your data, leading to more accurate and reliable analysis.
+
+## <mark> 4) What are outliers? Discuss the methods adopted for outlier detection. </mark>
+
+### What are Outliers?
+
+Outliers are data points that are significantly different from the majority of the data in a dataset. They can be unusually high or low values that deviate from the expected range of values. Outliers can occur due to various reasons, such as measurement errors, data entry errors, or natural variability in the data. Detecting and handling outliers is crucial because they can have a significant impact on statistical analyses and machine learning models.
+
+### Methods for Outlier Detection
+
+There are several methods for detecting outliers, ranging from simple statistical techniques to more advanced machine learning algorithms. Here are some commonly used methods:
+
+#### 1. **Statistical Methods**
+
+1. **Z-Score**
+   - **Description**: The Z-score measures how many standard deviations a data point is from the mean. A high Z-score indicates that the data point is far from the mean.
+   - **Formula**: \( Z = \frac{(X - \mu)}{\sigma} \)
+     - \( X \) is the data point.
+     - \( \mu \) is the mean of the dataset.
+     - \( \sigma \) is the standard deviation of the dataset.
+   - **Threshold**: Typically, a Z-score greater than 3 or less than -3 is considered an outlier.
+   - **Pros**: Simple and easy to implement.
+   - **Cons**: Assumes the data is normally distributed.
+
+2. **Interquartile Range (IQR)**
+   - **Description**: The IQR is the range between the first quartile (Q1) and the third quartile (Q3). Data points that fall below Q1 - 1.5 * IQR or above Q3 + 1.5 * IQR are considered outliers.
+   - **Formula**:
+     - \( Q1 \) is the 25th percentile.
+     - \( Q3 \) is the 75th percentile.
+     - \( IQR = Q3 - Q1 \)
+   - **Threshold**: Data points outside the range [Q1 - 1.5 * IQR, Q3 + 1.5 * IQR] are outliers.
+   - **Pros**: More robust to outliers compared to Z-score.
+   - **Cons**: Less sensitive to extreme values.
+
+3. **Box Plots**
+   - **Description**: A box plot visualizes the distribution of data and identifies outliers based on the IQR method.
+   - **Visualization**: Data points outside the whiskers (Q1 - 1.5 * IQR and Q3 + 1.5 * IQR) are plotted as individual points and considered outliers.
+   - **Pros**: Intuitive and easy to interpret.
+   - **Cons**: Subjective interpretation.
+
+#### 2. **Machine Learning Methods**
+
+1. **Isolation Forest**
+   - **Description**: An unsupervised learning algorithm that isolates anomalies by randomly selecting a feature and splitting it. Anomalies are easier to isolate and thus have shorter paths in the tree.
+   - **Pros**: Effective for high-dimensional data and does not assume any underlying distribution.
+   - **Cons**: Can be computationally expensive and requires tuning of hyperparameters.
+
+2. **One-Class SVM**
+   - **Description**: An unsupervised learning algorithm that learns the decision boundary around the normal data points. Data points outside this boundary are considered outliers.
+   - **Pros**: Effective for anomaly detection and does not require labeled data.
+   - **Cons**: Can be sensitive to hyperparameters and requires careful tuning.
+
+3. **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)**
+   - **Description**: A clustering algorithm that groups data points into clusters based on density. Points that do not belong to any cluster are considered outliers.
+   - **Pros**: Can identify clusters of arbitrary shapes and is robust to outliers.
+   - **Cons**: Requires tuning of parameters like epsilon and min_samples.
+
+4. **Local Outlier Factor (LOF)**
+   - **Description**: Measures the local deviation of density of a given data point with respect to its neighbors. Data points with a significantly higher LOF are considered outliers.
+   - **Pros**: Effective for detecting outliers in dense datasets.
+   - **Cons**: Can be computationally expensive for large datasets.
+
+#### 3. **Visualization Techniques**
+
+1. **Scatter Plots**
+   - **Description**: Plot data points on a graph to visually identify outliers.
+   - **Pros**: Intuitive and easy to interpret.
+   - **Cons**: Can be time-consuming for large datasets.
+
+2. **Histograms**
+   - **Description**: Visualize the distribution of data to identify data points that fall outside the expected range.
+   - **Pros**: Simple and easy to understand.
+   - **Cons**: Less precise for identifying specific outliers.
+
+### Summary
+
+- **Outliers**: Data points that are significantly different from the majority of the data. They can be caused by measurement errors, data entry errors, or natural variability.
+- **Detection Methods**:
+  - **Statistical Methods**: Z-score and IQR are simple and effective for detecting outliers in normally distributed data.
+  - **Machine Learning Methods**: Isolation Forest, One-Class SVM, DBSCAN, and LOF are more advanced techniques that can handle high-dimensional data and do not assume any underlying distribution.
+  - **Visualization Techniques**: Box plots, scatter plots, and histograms provide intuitive ways to identify outliers visually.
+
+By using these methods, you can effectively detect outliers in your dataset and decide on the appropriate action to take, whether it's removing them, transforming them, or investigating them further.
