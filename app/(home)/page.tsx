@@ -7,7 +7,6 @@ import {
   CustomCardDescription,
   CustomCardContent,
 } from "../../components/ui/card";
-
 const Page: React.FC = () => {
   return (
     <div className="min-h-screen bg-black text-white">
