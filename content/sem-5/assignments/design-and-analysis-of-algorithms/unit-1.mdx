@@ -1,0 +1,413 @@
+---
+title: Unit 1
+---
+
+## <mark> 1) Define the terms: <br /> i. Algorithm <br /> ii. Relation <br /> iii. Time Complexity <br /> iv. Space Complexity </mark>
+
+### i. Algorithm
+An **algorithm** is a finite sequence of well-defined instructions or steps, designed to solve a specific problem or perform a computation. It provides a systematic method for carrying out a task, where each step is unambiguous and executable.
+
+### ii. Relation
+A **relation** in mathematics and computer science refers to a connection between elements of two or more sets. More formally, a relation is a subset of the Cartesian product of sets, expressing associations such as equality, ordering, or correspondence between elements.
+
+### iii. Time Complexity
+**Time complexity** measures the amount of computational time an algorithm takes to run as a function of the size of its input. It is typically expressed using Big O notation (such as O(n), O(log n)), which describes the upper bound on the growth rate of the algorithm’s running time as input size increases.
+
+### iv. Space Complexity
+**Space complexity** refers to the total amount of memory or space an algorithm requires to run, as a function of the input size. It considers all memory used by an algorithm, including input storage, auxiliary space, and stack space, and is also expressed using Big O notation.
+
+## <mark> 2) Explain various properties of an algorithm. </mark>
+
+An algorithm is a well-defined computational procedure that takes some value or a set of values as input and produces some value or set of values as output. Here are the key properties of a valid algorithm:
+
+### 1. Finiteness ⏳
+An algorithm must terminate after a finite number of steps. Each step must also be finite in its execution. An infinite loop, for example, would violate this property.
+
+### 2. Definiteness 📝
+Every step of the algorithm must be precisely and unambiguously defined. The instructions should be clear and leave no room for subjective interpretation. For example, "add 5 to *x*" is definite, while "make *x* a little bigger" is not.
+
+### 3. Input 📥
+An algorithm must have zero or more well-defined inputs, which are the quantities supplied to it before the algorithm begins. These inputs are external to the algorithm.
+
+### 4. Output 📤
+An algorithm must have one or more well-defined outputs. These are the quantities that have a specified relation to the inputs. The output is the desired result of the algorithm.
+
+### 5. Effectiveness 🎯
+The operations of the algorithm must be sufficiently basic so that they can be performed in a finite amount of time by a person using a pencil and paper. This means each step should be simple and feasible, not requiring infinite time or resources. For example, "find the largest prime number" is not an effective step as it's not possible to perform in a finite time.
+
+### Additional Properties
+
+While the above are the core properties, an effective algorithm often has these additional characteristics:
+
+* **Correctness:** An algorithm is considered correct if, for every input instance, it halts with the correct output. An incorrect algorithm might not halt on some input instances or might halt with a wrong answer.
+* **Efficiency:** An algorithm should be efficient in terms of both **time complexity** (the time it takes to run) and **space complexity** (the memory it uses). An efficient algorithm is one that uses minimal time and space resources.
+* **Generality:** An algorithm should be general enough to solve a class of problems, not just a single, specific instance. For example, an algorithm to sort a list of 100 numbers is less general than one that can sort a list of any size.
+
+## <mark> 3) What is matrix? Explain the various operations which can be performed on the matrix. </mark>
+
+A **matrix** is a rectangular array of numbers, symbols, or expressions arranged in rows and columns. It's a fundamental concept in linear algebra used to represent and solve systems of linear equations and to perform linear transformations. The size, or **dimension**, of a matrix is given by the number of rows ($m$) and columns ($n$), written as $m \times n$. For example, a $2 \times 3$ matrix has 2 rows and 3 columns.
+
+### Common Matrix Operations
+
+Various operations can be performed on matrices, each with specific rules and applications.
+
+#### 1. Addition and Subtraction ➕➖
+Two matrices can be added or subtracted only if they have the **exact same dimensions**. The operation is performed by adding or subtracting the corresponding elements in each position.
+
+* **Example:** If $A$ and $B$ are two $2 \times 2$ matrices, their sum $C = A + B$ is given by:
+    $A = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}$, $B = \begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix}$
+    $C = A + B = \begin{bmatrix} a_{11}+b_{11} & a_{12}+b_{12} \\ a_{21}+b_{21} & a_{22}+b_{22} \end{bmatrix}$
+
+#### 2. Scalar Multiplication 🎯
+This operation involves multiplying every element of a matrix by a single number, called a **scalar**. The result is a new matrix of the same dimensions.
+
+* **Example:** If $A$ is a matrix and $c$ is a scalar, the product $cA$ is:
+    $A = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}$
+    $cA = \begin{bmatrix} ca_{11} & ca_{12} \\ ca_{21} & ca_{22} \end{bmatrix}$
+
+#### 3. Matrix Multiplication ✖️
+Multiplying two matrices is more complex than scalar multiplication. The product of two matrices, $A$ and $B$, is defined only if the number of **columns in $A$ equals the number of rows in $B$**. If $A$ is an $m \times n$ matrix and $B$ is an $n \times p$ matrix, the resulting product $C = AB$ will be an $m \times p$ matrix. Each element $c_{ij}$ of the product matrix $C$ is the sum of the products of the corresponding elements from the $i$-th row of $A$ and the $j$-th column of $B$.
+
+* **Note:** Matrix multiplication is **not commutative** ($AB \neq BA$ in most cases).
+
+#### 4. Transpose 🔄
+The **transpose** of a matrix is a new matrix created by flipping its rows into columns and its columns into rows. The transpose of matrix $A$ is denoted by $A^T$. If $A$ is an $m \times n$ matrix, its transpose $A^T$ will be an $n \times m$ matrix.
+
+* **Example:**
+    $A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}$
+    $A^T = \begin{bmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{bmatrix}$
+
+#### 5. Determinant and Inverse 🔺↩️
+These are special operations typically defined for **square matrices** (matrices with the same number of rows and columns).
+
+* **Determinant:** A determinant is a scalar value calculated from the elements of a square matrix. It provides important information about the matrix, such as whether it has an inverse. A matrix with a determinant of zero is called a **singular matrix** and does not have an inverse.
+* **Inverse:** The inverse of a square matrix $A$, denoted $A^{-1}$, is another square matrix that, when multiplied by $A$, results in the **identity matrix** ($I$). The identity matrix is the matrix equivalent of the number 1, with ones on the main diagonal and zeros elsewhere. An inverse exists only if the matrix's determinant is non-zero.
+
+## <mark> 4) List types of algorithms. </mark>
+
+There are many ways to classify algorithms, but they are often categorized based on their underlying design paradigm or the problem they are used to solve. Here are some of the most common types:
+
+### 1. Simple Recursive Algorithms ↩️
+These algorithms solve a problem by calling themselves repeatedly with smaller inputs until they reach a base case. A classic example is the algorithm for calculating the factorial of a number, where `factorial(n)` is defined in terms of `factorial(n-1)`.
+
+### 2. Backtracking Algorithms 👣
+Backtracking is a general algorithm for finding all (or some) solutions to some computational problems, notably constraint satisfaction problems. It incrementally builds a solution and, if at any point the solution is not valid, it "backs up" and tries a different path. This is often used for solving puzzles like Sudoku or the N-Queens problem.
+
+### 3. Divide and Conquer Algorithms ➗
+This powerful paradigm involves three steps:
+* **Divide:** Break the problem into smaller subproblems of the same type.
+* **Conquer:** Recursively solve these subproblems.
+* **Combine:** Merge the solutions of the subproblems to get the final solution.
+Examples include **Merge Sort** and **Quick Sort**.
+
+### 4. Dynamic Programming Algorithms 🧠
+Dynamic programming is used to solve complex problems by breaking them down into simpler subproblems. Unlike simple recursion, it stores the results of subproblems to avoid recomputing them. This approach is often used for optimization problems, such as the **Fibonacci sequence** or the **knapsack problem**.
+
+### 5. Greedy Algorithms ✨
+A greedy algorithm makes the locally optimal choice at each stage with the hope of finding a global optimum. It doesn't look ahead to see if the current choice will be beneficial in the long run. A good example is **Dijkstra's algorithm** for finding the shortest path in a graph.
+
+### 6. Brute Force Algorithms 💪
+This is the simplest and most straightforward approach, which tries all possible solutions to a problem until a satisfactory one is found. While often inefficient for large inputs, it's guaranteed to find a solution if one exists. A common example is trying every possible password in a password attack.
+
+### 7. Randomized Algorithms 🎲
+These algorithms make use of a random number generator to make decisions. They are particularly useful when a deterministic approach is too slow or complex. Examples include **Randomized Quick Sort** and some **primality testing algorithms**.
+
+### 8. Sorting and Searching Algorithms 🔍
+* **Sorting Algorithms:** Arrange data in a specific order (e.g., numerical or alphabetical). Examples include **Bubble Sort**, **Insertion Sort**, and **Heap Sort**.
+* **Searching Algorithms:** Find a specific element within a data structure. Examples include **Linear Search** and **Binary Search**.
+
+### 9. Cryptographic Algorithms 🔐
+These algorithms are designed to protect data and communication from unauthorized access. They use mathematical principles to encrypt and decrypt information. Examples include **AES (Advanced Encryption Standard)** and **RSA**.
+
+## <mark> 5) Explain the various operations which can be performed on the sets. </mark>
+
+Various operations can be performed on sets, which are unordered collections of unique elements. These operations allow you to combine, compare, and modify sets. Here are the primary ones:
+
+### 1. Union ∪
+The **union** of two sets, $A$ and $B$, is a new set that contains all the elements that are in $A$, or in $B$, or in both. The symbol for union is $∪$.
+* **Example:** If $A = \{1, 2, 3\}$ and $B = \{3, 4, 5\}$, then $A ∪ B = \{1, 2, 3, 4, 5\}$.
+
+### 2. Intersection ∩
+The **intersection** of two sets, $A$ and $B$, is a new set containing only the elements that are common to both $A$ and $B$. The symbol for intersection is $∩$.
+* **Example:** If $A = \{1, 2, 3\}$ and $B = \{3, 4, 5\}$, then $A ∩ B = \{3\}$.
+
+### 3. Difference -
+The **difference** of two sets, $A$ and $B$ (written as $A - B$), is the set of all elements that are in $A$ but not in $B$. Note that $A - B$ is not the same as $B - A$.
+* **Example:** If $A = \{1, 2, 3\}$ and $B = \{3, 4, 5\}$, then $A - B = \{1, 2\}$.
+
+### 4. Symmetric Difference ∆
+The **symmetric difference** of two sets, $A$ and $B$, is the set of elements that are in either $A$ or $B$, but not in their intersection. It can be expressed as $(A ∪ B) - (A ∩ B)$ or $(A - B) ∪ (B - A)$. The symbol for symmetric difference is $∆$.
+* **Example:** If $A = \{1, 2, 3\}$ and $B = \{3, 4, 5\}$, then $A ∆ B = \{1, 2, 4, 5\}$.
+
+### 5. Cartesian Product ×
+The **Cartesian product** of two sets, $A$ and $B$ (written as $A \times B$), is the set of all possible ordered pairs where the first element is from $A$ and the second element is from $B$.
+* **Example:** If $A = \{1, 2\}$ and $B = \{a, b\}$, then $A \times B = \{(1, a), (1, b), (2, a), (2, b)\}$.
+
+### 6. Subset ⊆ and Proper Subset ⊂
+A set $A$ is a **subset** of set $B$ if every element of $A$ is also an element of $B$. The symbol is $⊆$.
+A set $A$ is a **proper subset** of set $B$ if $A$ is a subset of $B$ and $A$ is not equal to $B$. The symbol is $⊂$.
+* **Example:** If $A = \{1, 2\}$ and $B = \{1, 2, 3\}$, then $A ⊆ B$ and $A ⊂ B$. If $C = \{1, 2\}$, then $C ⊆ A$, but $C$ is not a proper subset of $A$.
+
+## <mark> 6) Why do we use asymptotic notations in the study of algorithms? Briefly describe the commonly used asymptotic notations. </mark>
+
+We use **asymptotic notations** in the study of algorithms to analyze their **efficiency** and understand how their performance changes as the input size grows. Instead of measuring the exact runtime or memory usage, which can vary based on hardware and specific implementation, asymptotic notations provide a high-level, machine-independent way to describe the **growth rate** of an algorithm's complexity.
+
+This allows us to compare algorithms theoretically and determine which one is more efficient for large datasets, without needing to run them.
+
+### Commonly Used Asymptotic Notations
+
+#### 1. Big O Notation ($O$) 📈
+**Big O** notation describes the **upper bound** of an algorithm's running time. It gives the **worst-case** scenario for an algorithm's performance. When we say an algorithm is $O(n^2)$, we mean its runtime will not grow faster than a constant times $n^2$ for large values of $n$. It is the most common notation for describing an algorithm's complexity.
+
+#### 2. Omega Notation ($\Omega$) 📉
+**Omega** notation describes the **lower bound** of an algorithm's running time. It represents the **best-case** scenario. If an algorithm is $\Omega(n)$, it means its running time will be at least a constant times $n$ for large values of $n$.
+
+#### 3. Theta Notation ($\Theta$) ⚖️
+**Theta** notation describes the **tight bound** of an algorithm's running time. It is used when the upper bound (Big O) and the lower bound (Omega) are the same. An algorithm that is $\Theta(n \log n)$ means its runtime grows at a rate that is both bounded above and below by $n \log n$. It provides a more precise measure of an algorithm's performance.
+
+## <mark> 7) Arrange following growth rates in increasing order. <br /> (i) $O(n^{1/4}),\; O(n^{1.5}),\; O(n^{3}\log n),\; O(n^{1.02}),\;$ <br /> $\Omega(n^{6}),\; \Omega(n!),\; O(\sqrt{n}),\; O(n^{6/2}),\; \Omega(2^n)$ <br /> (ii) $2^n,\; n \log n,\; n^2,\; 1,\; n,\; \log n,\; n!,\; n^3$ </mark>
+
+**(i)**
+$O(n^{1/4}),\; O(\sqrt{n}),\; O(n^{1.02}),\; O(n^{1.5}),\; O(n^{6/2})\ (=O(n^3)),\; O(n^3\log n),\; \Omega(n^6),\; \Omega(2^n),\; \Omega(n!)$.
+
+**(ii)**
+$1,\; \log n,\; n,\; n\log n,\; n^2,\; n^3,\; 2^n,\; n!$.
+
+## <mark> 8) Check the correctness for the following equality: <br /> $5n^3 + 2n = O(n^3)$ </mark>
+
+Yes — the equality is correct.
+
+**Proof (Big-O).** We need constants $c>0$ and $n_0$ such that for all $n\ge n_0$,
+
+$$
+5n^3+2n \le c\,n^3.
+$$
+
+For $n\ge1$ we have $2n \le 2n^3$, so
+
+$$
+5n^3+2n \le 5n^3+2n^3 = 7n^3.
+$$
+
+Thus take $c=7$ and $n_0=1$. So $5n^3+2n = O(n^3)$.
+
+**Extra note.** Because $5n^3+2n \ge 5n^3$ for $n\ge1$, it is also $\Omega(n^3)$. Therefore $5n^3+2n = \Theta(n^3)$.
+
+## <mark> 9) <br /> (i) Find out big-oh notation of the function $f(n) = 3n^2 + 5n + 10$ <br /> (ii) Find Omega $(\Omega)$ notation of the function $f(n) = 2n + 6n \cdot \lg n + 6n$ <br /> (iii) Find out the $\Theta$-notation for the function $f(n) = 27n^2 + 16n$ </mark>
+
+### (i) Big-O of $f(n)=3n^2+5n+10$
+
+$$
+f(n)=3n^2+5n+10=O(n^2).
+$$
+
+**Proof:** for $n\ge1$, $5n\le5n^2$ and $10\le10n^2$. So
+
+$$
+3n^2+5n+10 \le (3+5+10)n^2 = 18n^2.
+$$
+
+Take $c=18,\; n_0=1$.
+
+### (ii) Omega of $f(n)=2n+6n\lg n+6n$
+
+First simplify: $f(n)=8n + 6n\lg n$.
+
+$$
+f(n)=\Omega(n\log n).
+$$
+
+**Proof:** all terms are nonnegative, so for $n\ge1$,
+
+$$
+f(n)\ge 6n\lg n.
+$$
+
+Take constant $c=6,\; n_0=1$.
+
+(So a valid lower bound is $\Omega(n\log n)$.)
+
+### (iii) $\Theta$-notation for $f(n)=27n^2+16n$
+
+$$
+f(n)=\Theta(n^2).
+$$
+
+**Proof (upper):** for $n\ge1$, $16n\le16n^2$, so $f(n)\le(27+16)n^2=43n^2$.
+**Proof (lower):** for $n\ge1$, $f(n)\ge27n^2$.
+Thus with $c_1=27,\; c_2=43,\; n_0=1$ we have $\,27n^2\le f(n)\le43n^2$.
+
+## <mark> 10) Write algorithm for insertion sort. Sort given array A = {27, 46, 11, 95,67, 32, 78} using insertion sort algorithm. Also perform analysis ofinsertion sort algorithm. </mark>
+
+### Algorithm for Insertion Sort
+
+1. Start with the second element (index 1) of the array as the key.
+2. Compare the key with elements before it.
+3. Move the elements larger than the key one position ahead to make space.
+4. Insert the key into the correct position.
+5. Repeat steps 1-4 for all elements in the array.
+
+### Insertion Sort Algorithm (Pseudocode)
+
+```
+InsertionSort(A)
+  for i = 1 to length(A) - 1
+    key = A[i]
+    j = i - 1
+    while j >= 0 and A[j] > key
+      A[j + 1] = A[j]
+      j = j - 1
+    A[j + 1] = key
+```
+
+### Sorting Array A = {27, 46, 11, 95, 67, 32, 78} Using Insertion Sort
+
+- Initial array: {27, 46, 11, 95, 67, 32, 78}
+
+Step-by-step sorting:
+
+- i=1, key=46; compare with 27 → 46 > 27, no change → {27, 46, 11, 95, 67, 32, 78}
+- i=2, key=11; compare with 46 and 27 → move 46, 27 right → insert 11 → {11, 27, 46, 95, 67, 32, 78}
+- i=3, key=95; compare with 46 → 95 > 46, no change → {11, 27, 46, 95, 67, 32, 78}
+- i=4, key=67; compare with 95 → move 95 right → insert 67 → {11, 27, 46, 67, 95, 32, 78}
+- i=5, key=32; compare with 95, 67, 46, 27 → move 95, 67, 46 right → insert 32 → {11, 27, 32, 46, 67, 95, 78}
+- i=6, key=78; compare with 95 → move 95 right → insert 78 → {11, 27, 32, 46, 67, 78, 95}
+
+Sorted array: {11, 27, 32, 46, 67, 78, 95}
+
+### Analysis of Insertion Sort Algorithm
+
+| Aspect            | Description                                            |
+|-------------------|--------------------------------------------------------|
+| **Time Complexity**| - Worst case: O(n²) (array is reverse sorted) <br /> - Best case: O(n) (array is already sorted) <br /> - Average case: O(n²) |
+| **Space Complexity**| O(1) (in-place sorting, uses constant extra space)    |
+| **Stable Sorting** | Yes (equal elements maintain their relative order)    |
+| **Adaptive**       | Yes (efficient for nearly sorted arrays)               |
+| **Use Cases**      | Small or partially sorted datasets                      |
+
+The algorithm iterates through the array, inserting each element into its correct position relative to sorted elements on the left. This leads to quadratic time in general but linear time if the array is almost sorted.
+
+## <mark> 11) Sort the letters of word “PROGRAMMING” in alphabetical order using bubble sort. Write an algorithm for Bubble sort. Also perform analysis of bubble sort algorithm. </mark>
+
+### Bubble Sort Algorithm ✍️
+
+Bubble sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm gets its name because smaller elements "bubble" to the top of the list with each iteration.
+
+Here is the algorithm:
+
+```
+Algorithm BubbleSort(A)
+  Input: An array A of n elements
+  Output: The sorted array A
+
+  for i = 1 to n-1
+    for j = 1 to n-i
+      if A[j] > A[j+1]
+        swap(A[j], A[j+1])
+```
+
+### Sorting "PROGRAMMING" with Bubble Sort 🎈
+
+Let's sort the letters of the word "PROGRAMMING". First, we'll represent the letters as an array: `P, R, O, G, R, A, M, M, I, N, G`.
+
+**Initial Array:** `[P, R, O, G, R, A, M, M, I, N, G]`
+
+**Pass 1:**
+
+  * Compare `P` and `R`: No swap. `[P, R, O, G, R, A, M, M, I, N, G]`
+  * Compare `R` and `O`: Swap. `[P, O, R, G, R, A, M, M, I, N, G]`
+  * Compare `R` and `G`: Swap. `[P, O, G, R, R, A, M, M, I, N, G]`
+  * Compare `R` and `R`: No swap. `[P, O, G, R, R, A, M, M, I, N, G]`
+  * Compare `R` and `A`: Swap. `[P, O, G, R, A, R, M, M, I, N, G]`
+  * Compare `R` and `M`: Swap. `[P, O, G, R, A, M, R, M, I, N, G]`
+  * Compare `R` and `M`: Swap. `[P, O, G, R, A, M, M, R, I, N, G]`
+  * Compare `R` and `I`: Swap. `[P, O, G, R, A, M, M, I, R, N, G]`
+  * Compare `R` and `N`: No swap. `[P, O, G, R, A, M, M, I, N, R, G]`
+  * Compare `R` and `G`: Swap. `[P, O, G, R, A, M, M, I, N, G, R]`
+    *After Pass 1, the largest element 'R' is at the end.*
+
+**Pass 2:**
+
+  * `[P, O, G, R, A, M, M, I, N, G, R]` ... and so on.
+
+This process continues for multiple passes. To show a simplified trace, let's skip to the result of each pass's swaps:
+
+  * **Initial:** `[P, R, O, G, R, A, M, M, I, N, G]`
+  * **End of Pass 1:** `[P, O, G, R, A, M, M, I, N, G, R]`
+  * **End of Pass 2:** `[O, P, G, R, A, M, M, I, N, G, R]`
+  * **End of Pass 3:** `[O, G, P, R, A, M, M, I, N, G, R]`
+  * **End of Pass 4:** `[G, O, P, A, R, M, M, I, N, G, R]`
+  * **End of Pass 5:** `[G, A, O, P, M, R, M, I, N, G, R]`
+  * **End of Pass 6:** `[A, G, O, P, M, M, R, I, N, G, R]`
+  * **End of Pass 7:** `[A, G, M, O, P, M, I, R, N, G, R]`
+  * **End of Pass 8:** `[A, G, M, O, M, P, I, N, R, G, R]`
+  * **End of Pass 9:** `[A, G, M, M, O, I, P, N, G, R, R]`
+  * **End of Pass 10:** `[A, G, M, M, I, O, N, P, G, R, R]`
+  * **End of Pass 11:** `[A, G, I, M, M, N, O, P, G, R, R]`
+  * **End of Pass 12:** `[A, G, I, M, M, N, O, P, G, R, R]` (no swaps)
+    *The algorithm terminates when a full pass is completed with no swaps.*
+
+**Final Sorted Array:** `[A, G, G, I, M, M, N, O, P, R, R]`
+
+### Analysis of Bubble Sort 📊
+
+The performance of bubble sort is generally poor compared to other sorting algorithms.
+
+  * **Best-Case Analysis:** This occurs when the array is **already sorted**. The algorithm still has to make a full pass to confirm that no swaps are needed. The number of comparisons is $O(n)$, making the time complexity **$O(n)$** if an optimization is included to stop early. If not, it will still take $O(n^2)$ time.
+
+  * **Worst-Case Analysis:** This occurs when the array is **sorted in reverse order**. In each pass, every element needs to be compared and potentially swapped. The total number of comparisons is about the sum of $n-1 + n-2 + ... + 1$, which is proportional to $n^2$. The time complexity is **$O(n^2)$**.
+
+  * **Average-Case Analysis:** On average, the number of comparisons and swaps is still proportional to $n^2$. Therefore, the average-case time complexity is also **$O(n^2)$**.
+
+**Space Complexity:** Bubble sort is an **in-place** algorithm. It requires only a constant amount of extra memory for temporary variables during swaps. The space complexity is **$O(1)$**.
+
+## <mark> 12) What is an amortized analysis? Explain accounting method and aggregate analysis with suitable example. </mark>
+
+### Amortized Analysis ✍️
+
+**Amortized analysis** is a method for analyzing the time complexity of an algorithm, particularly for a sequence of operations. Instead of looking at the worst-case cost of a single operation, it considers the average cost over a series of operations. This is useful for algorithms where occasional expensive operations are balanced out by many cheap operations, ensuring that the overall average cost per operation is low.
+
+Amortized analysis provides a stronger guarantee than average-case analysis because it doesn't depend on the probability distribution of the input. It gives a worst-case average performance for a sequence of operations.
+
+### 1. The Accounting Method 💰
+
+The **accounting method** is a form of amortized analysis that assigns different costs to different operations. We think of these costs as "credits" or "debits." A cheap operation is assigned a slightly higher amortized cost than its actual cost, and the difference is stored as a credit. An expensive operation is then assigned a lower amortized cost, and the stored credits are used to pay for its actual high cost. The total amortized cost for a sequence of operations must be greater than or equal to the total actual cost.
+
+* **Example: A Dynamic Array (Resizable Array)**
+
+    Consider a dynamic array that doubles in size when it gets full.
+    * **Actual Costs:**
+        * **Insertion:** Most insertions take a constant amount of time, $O(1)$.
+        * **Resizing:** When the array is full, inserting a new element requires creating a new, larger array and copying all $n$ elements. This costs $O(n)$.
+    * **Accounting Method:**
+        * Assign an amortized cost of **3 credits** to each insertion.
+        * **Scenario:** The array has a capacity of $m$.
+        * **Operation:** Insert an element.
+            * **Cost:** 1 credit to perform the insertion.
+            * **Credit:** 2 credits are banked.
+        * **Resizing:** When the array is full, we have $m$ elements. Let's say we have just inserted the $m^{th}$ element. We have banked $2 \times m$ credits.
+        * **Cost of Resizing:** The actual cost of copying $m$ elements to a new array is $m$.
+        * We can use the banked credits to pay for this. We use $m$ of the banked credits to pay for the copying, and we still have $m$ credits left over.
+        * Since we can always pay for the expensive resizing operation with the banked credits, the amortized cost of each insertion is constant, **$O(1)$**.
+
+### 2. The Aggregate Analysis ⚖️
+
+**Aggregate analysis** is the simplest form of amortized analysis. It calculates the total cost of a sequence of $n$ operations and then divides this total by $n$ to find the average amortized cost per operation. This method does not involve assigning individual costs or using a credit system.
+
+* **Example: A Dynamic Array (Resizable Array)**
+
+    Let's use the same example of a dynamic array that doubles in size.
+    * **Scenario:** We start with an empty array and perform a sequence of $n$ insertions.
+    * **Operations:** Most of the $n$ insertions will be cheap, costing $O(1)$.
+    * **Expensive Operations:** Resizing occurs when the array's capacity is a power of two (e.g., at capacities 1, 2, 4, 8, ...).
+        * The first resizing copies 1 element.
+        * The second resizing copies 2 elements.
+        * The third resizing copies 4 elements.
+        * ...and so on.
+    * **Total Cost:** The total cost for $n$ insertions is the sum of the constant costs for all insertions plus the costs of all resizing operations.
+        * The constant costs are $n$.
+        * The resizing costs are approximately $1+2+4+...+k$, where $k$ is the size of the array just before the final resizing. This sum is less than $2n$.
+    * **Total cost for $n$ operations:** $n + (1+2+4+...)$, which is bounded by $n + 2n = 3n$.
+    * **Amortized Cost:** The total cost is $O(n)$. To find the amortized cost per operation, we divide the total cost by the number of operations, $n$.
+        * Amortized cost = $O(n) / n = O(1)$.
+    * The amortized cost of a single insertion is **$O(1)$**.

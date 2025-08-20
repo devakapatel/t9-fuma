@@ -5,6 +5,7 @@ export const revalidate = false;
 export const { staticGET: GET } = createSearchAPI("advanced", {
   indexes: [
     ...aboutSource.getPages(),
+    ...sem5Source.getPages(),
     ...sem6Source.getPages(),
     ...sem7Source.getPages(),
   ].map((page) => ({
