@@ -106,21 +106,21 @@ const Page: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
-              {semesterButtons.map((sem, index) => (
-                <a
-                  key={sem.href}
-                  href={sem.href}
-                  className="group rounded-xl border border-white/10 bg-white/5 p-4 text-center transition-all duration-300 hover:border-white/20 hover:bg-white/10"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-xl font-bold text-indigo-400 transition-colors group-hover:bg-white/20 group-hover:text-indigo-300">
-                    {sem.icon}
-                  </div>
-                  <p className="font-medium text-gray-300 transition-colors group-hover:text-white">
-                    {sem.label}
-                  </p>
-                </a>
-              ))}
+                  {semesterButtons.map((sem, index) => (
+                    <Link
+                      key={sem.href}
+                      href={sem.href}
+                      className="group rounded-xl border border-white/10 bg-white/5 p-4 text-center transition-all duration-300 hover:border-white/20 hover:bg-white/10"
+                      style={{ animationDelay: `${index * 50}ms` }}
+                    >
+                      <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-xl font-bold text-indigo-400 transition-colors group-hover:bg-white/20 group-hover:text-indigo-300">
+                        {sem.icon}
+                      </div>
+                      <p className="font-medium text-gray-300 transition-colors group-hover:text-white">
+                        {sem.label}
+                      </p>
+                    </Link>
+                  ))}
             </div>
           </div>
 
@@ -135,7 +135,7 @@ const Page: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {actionButtons.map((action, index) => (
-                <a
+                <Link
                   key={action.href}
                   href={action.href}
                   className="group rounded-xl border border-white/10 bg-white/5 p-5 text-center transition-all duration-300 hover:border-white/20 hover:bg-white/10"
@@ -150,7 +150,7 @@ const Page: React.FC = () => {
                   <p className="text-sm text-gray-400 transition-colors group-hover:text-gray-300">
                     {action.description}
                   </p>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
