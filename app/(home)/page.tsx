@@ -10,6 +10,7 @@ import {
   Info,
   Send,
   Star,
+  TriangleAlert,
 } from "lucide-react";
 
 const Page: React.FC = () => {
@@ -98,6 +99,10 @@ const Page: React.FC = () => {
 
           {/* Semester Grid */}
           <div className="w-full max-w-6xl mb-12">
+            <div className="flex items-center gap-2 mb-4 text-yellow-500 justify-center">
+              <TriangleAlert className="w-5 h-5" />
+              <p className="font-semibold text-yellow-500">Migration in progress</p>
+            </div>
             <div className="flex items-center gap-3 mb-6 justify-center">
               <BookOpen className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
