@@ -1,6 +1,4 @@
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
-import { BookIcon } from "lucide-react";
-
 /**
  * Shared layout configurations
  *
@@ -11,7 +9,7 @@ import { BookIcon } from "lucide-react";
 export const baseOptions: BaseLayoutProps = {
   githubUrl: "https://github.com/devakapatel/t9-fuma",
   nav: {
-    title: <>T9</>,
+    title: <>T9 🏁</>,
   },
   // see https://fumadocs.dev/docs/ui/navigation/links
   links: [
