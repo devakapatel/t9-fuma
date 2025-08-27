@@ -8,7 +8,6 @@ import {
 import { notFound } from "next/navigation";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getMDXComponents } from "@/mdx-components";
-import { LLMCopyButton } from "../../../components/page-actions";
 import { ViewOptions } from "../../../components/page-actions";
 
 export default async function Page(props: {
@@ -33,9 +32,8 @@ export default async function Page(props: {
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
         <div className="flex flex-row gap-2 items-center border-b pt-2 pb-6">
-          <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
           <ViewOptions
-            markdownUrl={`${page.url}.mdx`}
+            markdownUrl={`${page.url}`}
             githubUrl={`https://github.com/${owner}/${repo}/tree/main/content${page.url}`}
           />
         </div>
