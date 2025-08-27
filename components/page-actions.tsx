@@ -57,7 +57,6 @@ export function ViewOptions({
       {
         title: "Open in ChatGPT",
         href: `https://chatgpt.com/?${new URLSearchParams({
-          hints: "search",
           q,
         })}`,
         icon: (
