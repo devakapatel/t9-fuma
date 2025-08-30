@@ -31,7 +31,7 @@ export default async function Page(props: {
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
-        <div className="flex flex-row gap-2 items-center border-b pt-2 pb-6">
+        <div className="flex flex-row gap-2 items-center pt-2 pb-6">
           <ViewOptions
             markdownUrl={`${page.url}`}
             githubUrl={`https://github.com/${owner}/${repo}/tree/main/content${page.url}`}
