@@ -3,6 +3,8 @@
 import Link from "next/link";
 import React from "react";
 import { BookOpen, Users, MessageCircle, Info, Send, Star } from "lucide-react";
+import { HomeLayout } from "fumadocs-ui/layouts/home";
+import { baseOptions } from "@/app/layout.config";
 
 const Page: React.FC = () => {
   const semesterButtons = [
@@ -44,14 +46,14 @@ const Page: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white dark:bg-black">
+    <HomeLayout {...baseOptions}>
       <div className="container mx-auto px-4 py-8">
         {/* Main Heading */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4 mt-8">
+          <h1 className="text-4xl font-bold text-fd-foreground mb-4 mt-8">
             Welcome to T9
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-fd-muted-foreground max-w-2xl mx-auto">
             Your comprehensive platform for accessing Question Banks,
             Assignments, Practicals, and more
           </p>
@@ -60,8 +62,8 @@ const Page: React.FC = () => {
         {/* Semester Grid */}
         <div className="mb-8">
           <div className="flex items-center justify-center mb-4">
-            <BookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-2" />
-            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+            <BookOpen className="w-6 h-6 text-fd-primary mr-2" />
+            <h2 className="text-xl font-semibold text-fd-foreground">
               Choose Your Semester
             </h2>
           </div>
@@ -71,9 +73,9 @@ const Page: React.FC = () => {
               <Link
                 key={sem.href}
                 href={sem.href}
-                className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700"
+                className="bg-fd-card p-4 rounded-lg shadow hover:shadow-md transition-shadow border border-fd-border"
               >
-                <p className="text-center font-medium text-gray-800 dark:text-white">
+                <p className="text-center font-medium text-fd-foreground">
                   {sem.label}
                 </p>
               </Link>
@@ -84,8 +86,8 @@ const Page: React.FC = () => {
         {/* Action Buttons */}
         <div>
           <div className="flex items-center justify-center mb-4">
-            <Users className="w-6 h-6 text-gray-600 dark:text-gray-400 mr-2" />
-            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+            <Users className="w-6 h-6 text-fd-muted-foreground mr-2" />
+            <h2 className="text-xl font-semibold text-fd-foreground">
               Connect & Contribute
             </h2>
           </div>
@@ -95,16 +97,16 @@ const Page: React.FC = () => {
               <Link
                 key={action.href}
                 href={action.href}
-                className="bg-white dark:bg-gray-900 p-5 rounded-lg shadow hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700"
+                className="bg-fd-card p-5 rounded-lg shadow hover:shadow-md transition-shadow border border-fd-border"
               >
                 <div className="flex flex-col items-center">
-                  <div className="mb-3 p-3 rounded-full bg-blue-50 dark:bg-blue-900/30">
-                    <action.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  <div className="mb-3 p-3 rounded-full bg-fd-secondary">
+                    <action.icon className="h-6 w-6 text-fd-primary" />
                   </div>
-                  <p className="mb-1 font-semibold text-gray-800 dark:text-white">
+                  <p className="mb-1 font-semibold text-fd-foreground">
                     {action.label}
                   </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 text-center">
+                  <p className="text-sm text-fd-muted-foreground text-center">
                     {action.description}
                   </p>
                 </div>
@@ -113,7 +115,7 @@ const Page: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </HomeLayout>
   );
 };
 
