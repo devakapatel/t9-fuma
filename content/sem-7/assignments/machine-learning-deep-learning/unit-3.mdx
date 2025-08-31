@@ -18,36 +18,36 @@ title: Unit 3
 
 - **Image Recognition and Computer Vision:**
 
-  - Powers facial recognition in phones, automatic photo tagging, and even autonomous vehicles that can detect pedestrians, traffic signs, and obstacles.[3][5]
-  - Medical imaging tools use deep learning to spot early signs of diseases like cancer in MRI and X-ray scans, sometimes surpassing human experts.[5][6][3]
+  - Powers facial recognition in phones, automatic photo tagging, and even autonomous vehicles that can detect pedestrians, traffic signs, and obstacles.
+  - Medical imaging tools use deep learning to spot early signs of diseases like cancer in MRI and X-ray scans, sometimes surpassing human experts.
 
 - **Natural Language Processing (NLP):**
 
-  - Virtual assistants like Siri and Alexa understand and respond to voice commands, chatbots provide customer support, and systems summarize long texts into concise insights.[6][3]
+  - Virtual assistants like Siri and Alexa understand and respond to voice commands, chatbots provide customer support, and systems summarize long texts into concise insights.
   - Translation apps break language barriers in real time.
 
 - **Speech Recognition:**
 
-  - Voice typing, real-time transcription in meetings, and smart home control are possible due to deep learning models that convert speech to text accurately, even across accents and in noisy environments.[3][6]
+  - Voice typing, real-time transcription in meetings, and smart home control are possible due to deep learning models that convert speech to text accurately, even across accents and in noisy environments.
 
 - **Recommendation Systems:**
 
-  - Streaming services like Netflix and YouTube suggest content tailored to each user, while e-commerce sites recommend products based on browsing and buying patterns.[5][3]
+  - Streaming services like Netflix and YouTube suggest content tailored to each user, while e-commerce sites recommend products based on browsing and buying patterns.
 
 - **Healthcare and Drug Discovery:**
 
-  - AI systems assist doctors in diagnosing diseases, propose effective drug combinations, and accelerate drug discovery, cutting costs and saving lives.[6][3][5]
+  - AI systems assist doctors in diagnosing diseases, propose effective drug combinations, and accelerate drug discovery, cutting costs and saving lives.
 
 - **Cybersecurity and Fraud Detection:**
 
-  - Deep learning models flag suspicious activities in banking and online transactions, protecting users from fraud by learning subtle, complex patterns.[6]
+  - Deep learning models flag suspicious activities in banking and online transactions, protecting users from fraud by learning subtle, complex patterns.
 
 - **Smart Cities and Industrial Automation:**
-  - Traffic signals are managed dynamically to reduce jams, and industrial robots automate warehouse work and precision manufacturing.[7]
+  - Traffic signals are managed dynamically to reduce jams, and industrial robots automate warehouse work and precision manufacturing.
 
 ### Summary
 
-Deep learning is important because it powers the technology behind medical breakthroughs, safer transportation, smarter recommendations, robust language tools, and greater automation. Its ability to learn directly from raw data keeps unlocking new possibilities in science, business, and daily life.[1][3][5]
+Deep learning is important because it powers the technology behind medical breakthroughs, safer transportation, smarter recommendations, robust language tools, and greater automation. Its ability to learn directly from raw data keeps unlocking new possibilities in science, business, and daily life.
 
 ## <mark> 2) Differentiate between structured, unstructured, and semi-structured data with examples. </mark>
 
@@ -63,7 +63,7 @@ Let’s break down the three major data types with definitions and real-world ex
   - Customer records: Name, Age, Phone Number
   - Bank transactions table
   - Inventory spreadsheets
-- **Features:** Easy to search, query, analyze; less flexible and harder to scale.[1][2][3][4][7]
+- **Features:** Easy to search, query, analyze; less flexible and harder to scale.
 
 ### 2. Semi-Structured Data
 
@@ -73,7 +73,7 @@ Let’s break down the three major data types with definitions and real-world ex
   - XML or JSON documents (e.g., data exported from an app)
   - Emails with metadata (subject, timestamp—structured; body text—less structured)
   - Digital photos with EXIF metadata (image content is unstructured, but tags like date/time/geotag add structure)
-- **Features:** More flexible than structured data, easier to scale, but harder to analyze than truly structured data; sits between structured and unstructured forms.[3][5][7][8][1]
+- **Features:** More flexible than structured data, easier to scale, but harder to analyze than truly structured data; sits between structured and unstructured forms.
 
 ### 3. Unstructured Data
 
@@ -83,7 +83,7 @@ Let’s break down the three major data types with definitions and real-world ex
   - Text documents, social media posts
   - Images, videos, audio files
   - PDF documents, Word files, media logs
-- **Features:** Most flexible and scalable; hard to query or analyze directly; often requires advanced processing tools like natural language processing or image recognition.[5][6][7][8][1][3]
+- **Features:** Most flexible and scalable; hard to query or analyze directly; often requires advanced processing tools like natural language processing or image recognition.
 
 ### Summary Table
 
@@ -111,17 +111,17 @@ A **Convolutional Neural Network (CNN)** is a specialized type of neural network
 
 - Apply several small filters (kernels) that slide over the input to extract low- to high-level features (edges, textures, shapes).
 - Each filter produces a **feature map**: an array highlighting where a specific pattern appears in the input.
-- These filters are **learned** automatically during training, allowing the network to detect ever more complex features as you go deeper.[1][3][4]
+- These filters are **learned** automatically during training, allowing the network to detect ever more complex features as you go deeper.
 
 ### 3. Activation Functions
 
-- After each convolution, an activation function (most commonly **ReLU: f(x) = max(0, x)**) introduces non-linearity, helping the network learn complex relationships.[3][5][7]
+- After each convolution, an activation function (most commonly **ReLU: f(x) = max(0, x)**) introduces non-linearity, helping the network learn complex relationships.
 
 ### 4. Pooling Layers
 
 - Reduce the spatial dimensions (width and height) of the feature maps, keeping the most important information while lowering computation.
 - **Max pooling** is common: it selects the maximum value from each patch.
-- Helps achieve translation invariance and reduces overfitting.[2][4][7]
+- Helps achieve translation invariance and reduces overfitting.
 
 ### 5. (Optional) Normalization & Dropout Layers
 
@@ -132,12 +132,12 @@ A **Convolutional Neural Network (CNN)** is a specialized type of neural network
 
 - Neurons are connected to all activations in the previous layer.
 - Combine and interpret extracted features from earlier layers.
-- Near the end of the network.[4][7][2][3]
+- Near the end of the network.
 
 ### 7. Output Layer
 
 - Produces the final predictions (e.g., class scores for classification tasks).
-- **Softmax activation** is used for multi-class problems, giving probabilities for each class.[5]
+- **Softmax activation** is used for multi-class problems, giving probabilities for each class.
 
 ### Typical Flow of Data in a CNN
 
@@ -162,25 +162,25 @@ Training a Convolutional Neural Network (CNN) involves several key steps, each c
 
 - The input (e.g., an image) passes sequentially through all CNN layers: convolutional, pooling, flatten, and fully connected layers.
 - Each layer applies filters, activations (like ReLU), and transformations, gradually mapping the input data to a meaningful representation.
-- The output layer produces predictions, such as class scores for each category.[2][3]
+- The output layer produces predictions, such as class scores for each category.
 
 ### 2. Loss Calculation
 
 - The network's prediction is compared with the true label using a **loss function** (e.g., cross-entropy for classification).
-- The loss function quantifies the error or difference between predicted outputs and actual labels; a smaller loss means better predictions.[5][2]
+- The loss function quantifies the error or difference between predicted outputs and actual labels; a smaller loss means better predictions.
 
 ### 3. Backpropagation
 
 - **Backpropagation** computes the gradients of the loss with respect to each weight and parameter in the network using the chain rule from calculus.
 - These gradients are used by an **optimizer** (like SGD or Adam) to update the weights, with the goal of minimizing the loss.
-- This step refines the filters and connections so the network improves predictions in the next round.[1][2][5]
+- This step refines the filters and connections so the network improves predictions in the next round.
 
 ### Summary Flow
 
 1. **Forward pass:** Compute predictions.
 2. **Calculate loss:** Measure prediction error.
 3. **Backpropagation:** Compute gradients and update weights.
-4. **Repeat:** Steps 1–3 are repeated with batches of data over many epochs, allowing the CNN to learn from the entire dataset.[1][5]
+4. **Repeat:** Steps 1–3 are repeated with batches of data over many epochs, allowing the CNN to learn from the entire dataset.
 
 ## <mark> 5) List and briefly describe two state-of-the-art CNN models and their applications. </mark>
 
@@ -188,13 +188,13 @@ Training a Convolutional Neural Network (CNN) involves several key steps, each c
 
 ### 1. **ConvNeXt**
 
-ConvNeXt is a modernized convolutional neural network inspired by both classic CNNs (like ResNet) and advances seen in transformer architectures. It incorporates larger filter sizes, depth-wise separable convolutions, GELU activations, and improved training techniques (such as AdamW and advanced data augmentation). These updates help ConvNeXt deliver state-of-the-art performance on image classification and other computer vision tasks—recent benchmarks show ConvNeXt outperforming transformer-based Swin-T models on major image recognition datasets.[5]
+ConvNeXt is a modernized convolutional neural network inspired by both classic CNNs (like ResNet) and advances seen in transformer architectures. It incorporates larger filter sizes, depth-wise separable convolutions, GELU activations, and improved training techniques (such as AdamW and advanced data augmentation). These updates help ConvNeXt deliver state-of-the-art performance on image classification and other computer vision tasks—recent benchmarks show ConvNeXt outperforming transformer-based Swin-T models on major image recognition datasets.
 
 - **Application Example:** ConvNeXt has been used in advanced visual recognition systems, such as medical imaging for disease diagnosis, automated quality inspection in manufacturing, and next-generation smart cameras.
 
 ### 2. **DenseNet121**
 
-DenseNet121 is part of the Densely Connected Convolutional Network (DenseNet) family, which connects each layer to every other layer in a feedforward fashion. This architecture encourages feature reuse and efficient gradient flow, making the network more compact and effective. DenseNet121 has demonstrated high accuracy in visual classification tasks and is especially known for medical image analysis, such as classifying X-rays or MRI scans.[4]
+DenseNet121 is part of the Densely Connected Convolutional Network (DenseNet) family, which connects each layer to every other layer in a feedforward fashion. This architecture encourages feature reuse and efficient gradient flow, making the network more compact and effective. DenseNet121 has demonstrated high accuracy in visual classification tasks and is especially known for medical image analysis, such as classifying X-rays or MRI scans.
 
 - **Application Example:** DenseNet121 is widely used in healthcare for detecting and diagnosing diseases from imaging data, resulting in improved classification accuracy for conditions like pneumonia, COVID-19, and cancers.
 
@@ -204,7 +204,7 @@ DenseNet121 is part of the Densely Connected Convolutional Network (DenseNet) fa
 
 ### Architecture of a Recurrent Neural Network (RNN) for Time-Series Modeling
 
-A **Recurrent Neural Network (RNN)** is uniquely designed for sequential data like time series. Its architecture enables the network to capture temporal patterns and dependencies, making it well-suited for forecasting and modeling sequences such as stock prices, weather data, and sensor measurements.[1][2][4]
+A **Recurrent Neural Network (RNN)** is uniquely designed for sequential data like time series. Its architecture enables the network to capture temporal patterns and dependencies, making it well-suited for forecasting and modeling sequences such as stock prices, weather data, and sensor measurements.
 
 ### Core Components of RNN Architecture
 
@@ -216,7 +216,7 @@ A **Recurrent Neural Network (RNN)** is uniquely designed for sequential data li
 
    - The heart of an RNN. Each neuron in this layer not only receives the current input $$ x*t $$ but also the **hidden state** from the previous time step ($$ h*{t-1} $$).
    - This structure lets the network retain and "remember" information across the sequence.
-   - Variants like **LSTM** and **GRU** cells are often used to solve standard RNNs' problems with long-term dependencies.[2][4][5]
+   - Variants like **LSTM** and **GRU** cells are often used to solve standard RNNs' problems with long-term dependencies.
 
 3. **Output Layer**
    - Produces the prediction for each time step (can be one output for the whole sequence, or per step). For example, to predict the next value in a sequence, the output layer receives the hidden state and transforms it into a forecasted value.
@@ -238,9 +238,9 @@ At each time step $$ t $$:
 
 ### Why RNNs Excel at Time-Series Modeling
 
-- **Sequential Memory**: The recurrent structure lets RNNs learn relationships that depend on previous time steps, such as trends, seasonality, and patterns in time series.[1][2]
+- **Sequential Memory**: The recurrent structure lets RNNs learn relationships that depend on previous time steps, such as trends, seasonality, and patterns in time series.
 - **Flexible Inputs**: RNNs handle variable-length input sequences, making them ideal for real-world time-series data.
-- **Extendable**: Variants like LSTM and GRU enable RNNs to capture long-term dependencies and mitigate vanishing/exploding gradients. Advanced architectures can also integrate attention mechanisms or hybrid with CNNs.[4][5][2]
+- **Extendable**: Variants like LSTM and GRU enable RNNs to capture long-term dependencies and mitigate vanishing/exploding gradients. Advanced architectures can also integrate attention mechanisms or hybrid with CNNs.
 
 ### Real-World Example
 
@@ -255,7 +255,7 @@ you're modeling daily sales: each day's sales plus the previous days' hidden sta
 
 - **Structure:** RNNs process sequential data by looping information (hidden state) from one step to the next. Each step takes the current input and previous hidden state to compute a new hidden state and output.
 - **Strengths:** Good for short-term dependencies and quick pattern recognition.
-- **Limitations:** Struggle with preserving information over long sequences due to the **vanishing gradient problem**—gradients become too small to update weights, so learning long-term patterns fails.[1][2][3]
+- **Limitations:** Struggle with preserving information over long sequences due to the **vanishing gradient problem**—gradients become too small to update weights, so learning long-term patterns fails.
 
 ### LSTM (Long Short-Term Memory) Architecture
 
@@ -264,14 +264,14 @@ you're modeling daily sales: each day's sales plus the previous days' hidden sta
   - **Input Gate:** Controls which new information enters the memory.
   - **Forget Gate:** Controls which old information should be removed.
   - **Output Gate:** Decides what part of the cell memory moves to the output.
-- **Strengths:** The gating mechanisms allow LSTMs to retain important information and forget irrelevant details, thus capturing long-term dependencies in data.[2][3][6][1]
-- **Limitations:** LSTMs are more complex (more parameters and computations) and thus can be slower to train and require more memory compared to basic RNNs.[5]
+- **Strengths:** The gating mechanisms allow LSTMs to retain important information and forget irrelevant details, thus capturing long-term dependencies in data.
+- **Limitations:** LSTMs are more complex (more parameters and computations) and thus can be slower to train and require more memory compared to basic RNNs.
 
 ### Key Advantages of LSTM over RNN
 
-- **Remembers Long-Term Patterns:** LSTMs can capture long-range dependencies better by mitigating the vanishing gradient problem; basic RNNs quickly "forget" earlier sequence data.[3][1][2]
+- **Remembers Long-Term Patterns:** LSTMs can capture long-range dependencies better by mitigating the vanishing gradient problem; basic RNNs quickly "forget" earlier sequence data.
 - **Selective Memory:** With input, forget, and output gates, LSTMs decide what to remember, update, and forget, allowing for better handling of noisy or irrelevant information.
-- **Better Real-World Performance:** LSTMs outperform RNNs in tasks like language modeling, machine translation, and speech recognition, where context from many steps in the past is crucial.[1][3]
+- **Better Real-World Performance:** LSTMs outperform RNNs in tasks like language modeling, machine translation, and speech recognition, where context from many steps in the past is crucial.
 
 ### Summary Table
 
@@ -287,7 +287,7 @@ you're modeling daily sales: each day's sales plus the previous days' hidden sta
 
 ### Working Principle of an Autoencoder for Unsupervised Learning
 
-An **autoencoder** is a type of neural network designed to learn efficient representations of data in an **unsupervised** manner—meaning it does not use labeled outputs during training. Here is how it works step by step:[3][6]
+An **autoencoder** is a type of neural network designed to learn efficient representations of data in an **unsupervised** manner—meaning it does not use labeled outputs during training. Here is how it works step by step:
 
 ### 1. **Architecture Overview**
 
@@ -301,13 +301,13 @@ Autoencoders consist of three main parts:
 
 - The input is first passed through the **encoder**, yielding the compressed (latent) code.
 - The **decoder** then uses this code to reconstruct the input.
-- The network is trained to minimize the **reconstruction error**—the difference between the original input and the reconstructed output (often using Mean Squared Error).[6]
+- The network is trained to minimize the **reconstruction error**—the difference between the original input and the reconstructed output (often using Mean Squared Error).
 - Weights of both encoder and decoder are updated so that the autoencoder produces reconstructions as close as possible to the original data.
 
 ### 3. **Key Points**
 
 - **Unsupervised Learning:** Autoencoders don’t require labeled data; they “supervise” themselves by trying to match their output to their own input.
-- **Feature Extraction & Dimensionality Reduction:** By learning to faithfully compress and reconstruct inputs, autoencoders extract meaningful and useful features—even from noisy or redundant data.[4][5]
+- **Feature Extraction & Dimensionality Reduction:** By learning to faithfully compress and reconstruct inputs, autoencoders extract meaningful and useful features—even from noisy or redundant data.
 
 ### 4. **Applications**
 
@@ -315,4 +315,201 @@ Autoencoders consist of three main parts:
 
 **Quick Recap:** You feed data in, the encoder compresses it, the decoder reconstructs it, and the network learns by minimizing the error between input and output—all without ever needing labeled outputs.
 
-## <mark> 9) </mark>
+## <mark> 9) Differentiate between a standard autoencoder and a convolutional autoencoder. </mark>
+
+### Standard Autoencoder vs. Convolutional Autoencoder: Key Differences
+
+### Standard (Feedforward) Autoencoder
+
+- **Architecture:** Uses fully connected (dense) layers in both encoder and decoder.
+- **Input Type:** Works with flat (vectorized) data like tabular features, or reshaped images as 1D vectors.
+- **Feature Learning:** Learns compressed representations by transforming the entire input space; does not explicitly capture spatial or local patterns—spatial structure in images may be lost.
+- **Typical Use Cases:** Dimensionality reduction, anomaly detection on tabular data, and when global feature compression is enough.
+
+### Convolutional Autoencoder (CAE)
+
+- **Architecture:** Uses convolutional layers in the encoder to extract spatial features and deconvolutional (upsampling) layers in the decoder for reconstruction.
+- **Input Type:** Designed for image, video, or any grid-like data with spatial locality (e.g., 2D images, 3D volumes);
+  input is kept in its original spatial shape (height x width x channels).
+- **Feature Learning:** Excels at capturing local spatial features (edges, textures, patterns). By sliding filters over images, it learns efficient representations directly from pixel neighborhoods.
+- **Typical Use Cases:** Image denoising, inpainting, super-resolution, and feature extraction for computer vision tasks.
+
+### Summary Table
+
+| Feature      | Standard Autoencoder      | Convolutional Autoencoder         |
+| ------------ | ------------------------- | --------------------------------- |
+| Layers       | Fully connected (dense)   | Convolutional & deconvolutional   |
+| Input Format | Flattened vectors         | Images/grid data (preserve 2D/3D) |
+| Spatial Info | Not preserved             | Preserved & exploited             |
+| Best For     | Generic, non-spatial data | Image and spatial data            |
+
+**In short:** CAEs are specialized autoencoders that use convolution to better process and reconstruct data with spatial structure, like images, while standard autoencoders use dense layers and are less suited for such tasks.
+
+## <mark> 10) How does deep learning handle training with unlabeled data? Explain with an example. </mark>
+
+### How Deep Learning Handles Training with Unlabeled Data
+
+Deep learning can effectively learn from **unlabeled data** using techniques from **unsupervised learning**. Unlike supervised learning, where models learn by mapping inputs to provided labels, unsupervised deep learning finds patterns, structures, and features in data **without any explicit labels or target outputs**.
+
+### Common Approaches in Deep Learning for Unlabeled Data
+
+1. **Clustering:** Deep models (like neural networks) can be used to group similar data points into clusters (e.g., images with similar features), revealing hidden patterns or categories. For example, deep clustering can segment customers by behavior, or group images by visual similarity.
+
+2. **Autoencoders:** An autoencoder is a type of neural network that learns to compress (encode) data into a smaller "latent space" and then reconstruct (decode) it back to the original form. During training, it never sees labels, only the input data itself. The network learns to preserve essential features, which can then be used for anomaly detection, noise reduction, or as learned features for other models.
+
+   **Example:** Given a large set of unlabeled handwritten digit images, an autoencoder learns to represent each image as a compact code by recreating the original input from this code. If you visualize codes for all images, you may see clusters corresponding to different digit types—without the model ever "knowing" what a digit is!
+
+3. **Generative Models (e.g., GANs):** Networks like Generative Adversarial Networks (GANs) learn to generate new examples that resemble the original dataset. These models can reveal the underlying structure of the data and are widely used for synthetic data creation and augmentation.
+
+### Why Is This Useful?
+
+- **Pattern Discovery:** Unlabeled data is much more plentiful and cheaper to collect than labeled data. Deep learning can extract useful features, spot anomalies, and reveal hidden groupings automatically.
+- **Foundation for Downstream Tasks:** After unsupervised training, the learned features or representations can be used to improve supervised learning, such as through pre-training or transfer learning. For example, features from an autoencoder trained on unlabeled medical images can boost diagnostic accuracy once a smaller set of labeled images becomes available.
+
+### Real-World Example
+
+Suppose an online retailer has millions of customer reviews but no labels about the sentiment (positive/negative). A deep learning model (like an autoencoder or clustering network) can analyze these reviews, organizing them into groups based on patterns—such as grouping similar phrases, tones, or topics. Later, these groupings can help in sentiment analysis, topic modeling, or even targeted marketing, all starting from **unlabeled data**.
+
+**Quick Recap:** Deep learning leverages unsupervised learning methods—like clustering, autoencoders, and generative models—to automatically uncover patterns, group similar items, or extract useful representations from raw unlabeled data.
+
+## <mark> 11) For an input image of size 32×32×3, with a convolutional layer of 5×5 filter, stride 1, padding 0, compute the output feature map size. </mark>
+
+Let's compute the output feature map size after applying a convolutional layer to an input image of size **32×32×3** using a **5×5 filter**, stride **1**, and padding **0** (no padding).
+
+### **Formula for Output Size**
+
+For each spatial dimension (height or width):
+
+$$
+\text{Output size} = \left\lfloor \frac{\text{Input size} - \text{Filter size}}{\text{Stride}} + 1 \right\rfloor
+$$
+
+**Plugging in the values:**
+
+- Input size = 32
+- Filter size = 5
+- Stride = 1
+- Padding = 0
+
+$$
+\text{Output size} = \left\lfloor \frac{32 - 5}{1} + 1 \right\rfloor = \left\lfloor 28 \right\rfloor = 28
+$$
+
+So, for both height and width, the output will be 28.
+
+For the depth (channels), the output depth depends on the number of filters used. If you use, for example, 1 filter, the output feature map will have a depth of 1; with N filters, depth is N.
+
+![3-11.png](./3-11.png)
+
+**Final output feature map size (assuming 1 filter):**
+
+- **28 × 28 × 1**
+
+If your layer uses multiple filters, the output depth will be that number (e.g., for 16 filters: 28 × 28 × 16).
+
+## <mark> 12) A CNN model uses 2 convolutional layers followed by max-pooling. Show the dimensionality changes for an input of 64×64×3 after each layer. </mark>
+
+Let's walk step-by-step through the dimensionality changes when a 64×64×3 image passes through **2 convolutional layers** (assuming common defaults: 3×3 filter, stride 1, padding 0) and then a **max-pooling** layer (assuming 2×2 pool size, stride 2).
+
+### **Step 1: Input Layer**
+
+- **Initial size:** 64 × 64 × 3
+
+### **Step 2: First Convolutional Layer**
+
+- **Assumption:** 3×3 filter, stride 1, padding 0 (valid)
+- **Output size formula:** `(Input - Filter) / Stride + 1`
+  - (64 - 3)/1 + 1 = 62 → so **62 × 62**
+- **Output depth:** Depends on number of filters (let's use 8 for this example)
+- **After Conv1:** 62 × 62 × 8
+
+### **Step 3: Second Convolutional Layer**
+
+- Again, 3×3 filter, stride 1, padding 0
+- (62 - 3)/1 + 1 = 60 → **60 × 60**
+- Use, say, 16 filters for this layer
+- **After Conv2:** 60 × 60 × 16
+
+### **Step 4: Max-Pooling Layer**
+
+- Typical pooling: 2×2 filter, stride 2
+- (60 - 2)/2 + 1 = 30 → **30 × 30 × 16**
+
+### **Summary Table**
+
+| Layer       | Output Size  |
+| ----------- | ------------ |
+| Input       | 64 × 64 × 3  |
+| Conv1       | 62 × 62 × 8  |
+| Conv2       | 60 × 60 × 16 |
+| Max Pooling | 30 × 30 × 16 |
+
+**Note:** Output channel numbers depend on the number of filters chosen; commonly, each convolutional layer increases the depth. You can plug in different filter, stride, or padding values to see how the dimensionality changes at each step.
+
+## <mark> 13) Given a sequence [0.2, 0.4, 0.6], compute the hidden states of a simple RNN with weight = 0.5, initial hidden = 0, and sigmoid activation. </mark>
+
+Let's compute the hidden states for a simple RNN given:
+
+- Input sequence: [0.2, 0.4, 0.6]
+- Weight: 0.5 (applies to both input and the hidden state)
+- Initial hidden state: 0
+- Activation: **sigmoid**
+
+### Formula Used
+
+At each step $$ t $$:
+
+$$
+h_t = \sigma(w \cdot x_t + w \cdot h_{t-1})
+$$
+
+with $$ \sigma(z) = 1 / (1 + e^{-z}) $$
+
+Let's walk through each step:
+
+#### **Step 1** $$(t=1)$$:
+
+- Input $$ x_1 = 0.2 $$
+- Previous hidden $$ h_0 = 0 $$
+
+$$
+\text{net}_1 = 0.5 \times 0.2 + 0.5 \times 0 = 0.1
+$$
+
+$$
+h_1 = \sigma(0.1) \approx 0.52498
+$$
+
+#### **Step 2** $$(t=2)$$:
+
+- Input $$ x_2 = 0.4 $$
+- Previous hidden $$ h_1 \approx 0.52498 $$
+
+$$
+\text{net}_2 = 0.5 \times 0.4 + 0.5 \times 0.52498 = 0.2 + 0.26249 = 0.46249
+$$
+
+$$
+h_2 = \sigma(0.46249) \approx 0.61355
+$$
+
+#### **Step 3** $$(t=3)$$:
+
+- Input $$ x_3 = 0.6 $$
+- Previous hidden $$ h_2 \approx 0.61355 $$
+
+$$
+\text{net}_3 = 0.5 \times 0.6 + 0.5 \times 0.61355 = 0.3 + 0.30678 = 0.60678
+$$
+
+$$
+h_3 = \sigma(0.60678) \approx 0.64721
+$$
+
+### Final Hidden States
+
+- **h1 ≈ 0.525**
+- **h2 ≈ 0.614**
+- **h3 ≈ 0.647**
+
+**Quick Check:** Notice how the hidden state at each step carries forward information from both the current input and all previous steps. This is what gives RNNs their memory for handling sequences.
