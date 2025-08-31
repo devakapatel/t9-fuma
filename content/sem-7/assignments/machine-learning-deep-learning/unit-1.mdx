@@ -1,0 +1,663 @@
+---
+title: Unit 1
+---
+
+## _Work in progress_
+
+## <mark> 1) Explain the difference between classification, regression, interpolation, and density estimation with examples.​ </mark>
+
+Let's break down **classification**, **regression**, **interpolation**, and **density estimation** with concise definitions and examples, making sure you can distinguish them clearly.
+
+### 1. Classification
+
+- **Definition:** Assigns data points to discrete categories or classes (qualitative groups).
+- **Example:** Email spam detection ("spam" or "not spam"), or diagnosing if a tumor is "benign" or "malignant".
+
+_Classification answers: "Which category does this belong to?"_
+
+### 2. Regression
+
+- **Definition:** Predicts **continuous numerical values** based on input data.
+- **Example:** Predicting the price of a house from features like size and location, or forecasting tomorrow's temperature.
+
+_Regression answers: "What is the numeric value of this outcome?"_
+
+### 3. Interpolation
+
+- **Definition:** Estimates the value of a function **within** the range of observed data points, using known data points for reference (fills in "gaps").
+- **Example:** Given the temperature at 1 PM and 3 PM, predicting the temperature at 2 PM assuming the relationship is smooth.
+
+_Interpolation is not about predicting outside (extrapolation) or learning categories/value functions—it fills in missing values "between" known points._
+
+### 4. Density Estimation
+
+- **Definition:** Estimates the **probability distribution** (how data points are spread) of a dataset, often without assumptions about the exact form of the distribution.
+- **Example:** Building a histogram or kernel density estimate to understand how students' exam scores are distributed, or detecting outliers in a dataset.
+
+_Density estimation answers: "How is my data distributed?"_
+
+### Mini-Review
+
+- **Classification:** Category/label prediction (e.g., spam or not spam).
+- **Regression:** Continuous value prediction (e.g., house price).
+- **Interpolation:** Estimate unknowns **between** known data points.
+- **Density Estimation:** Model the distribution/spread of data.
+
+## <mark> 2) Derive the equation for the simple linear regression model and explain the meaning of each term.​ </mark>
+
+### Simple Linear Regression Model: Derivation & Terms
+
+The **simple linear regression** model tries to fit a straight line that best predicts the dependent variable $$ y $$ based on an independent variable $$ x $$.
+
+#### The Model Equation
+
+$$
+    y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
+$$
+
+- $$ y_i $$: Actual value of the dependent variable for observation $$ i $$
+- $$ x_i $$: Value of the independent variable for observation $$ i $$
+- $$ \beta_0 $$: Intercept (value of $$ y $$ when $$ x = 0 $$)
+- $$ \beta_1 $$: Slope (change in $$ y $$ for a one unit increase in $$ x $$)
+- $$ \varepsilon_i $$: Error term (difference between actual and predicted value)
+
+#### Objective: Find Best-Fitting Line
+
+We estimate $$ \beta_0 $$ and $$ \beta_1 $$ by **minimizing the sum of squared errors**:
+
+$$
+E = \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)^2
+$$
+
+**By taking derivatives of $$ E $$ with respect to $$ \beta_0 $$ and $$ \beta_1 $$ and setting to zero, we get:**
+
+$$
+\beta_1 = \frac{ \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y}) }{ \sum_{i=1}^n (x_i - \bar{x})^2 }
+$$
+
+$$
+\beta_0 = \bar{y} - \beta_1 \bar{x}
+$$
+
+Where $$ \bar{x} $$ and $$ \bar{y} $$ are the sample means of $$ x $$ and $$ y $$.
+
+#### What Each Term Means
+
+- **$$ \beta_0 $$ (Intercept):** Predicted value of $$ y $$ when $$ x = 0 $$.
+- **$$ \beta_1 $$ (Slope):** How much $$ y $$ is expected to change when $$ x $$ increases by 1.
+- **$$ \varepsilon_i $$ (Residual/Error):** How far off the prediction is for observation $$ i $$.
+
+## <mark> 3) What is the classification evaluation process? Explain accuracy, precision, recall, and F1-score with formulas.​ </mark>
+
+### Classification Evaluation Process
+
+**Evaluating a classification model** involves quantifying how well its predictions match true class labels. The typical process is:
+
+1. **Predict:** Use the trained model to predict classes on a labeled test set.
+2. **Build a confusion matrix:** This matrix summarizes counts of true positives (TP), false positives (FP), true negatives (TN), and false negatives (FN).
+3. **Calculate metrics:** Use the confusion matrix to compute evaluation scores.
+
+Let's focus on four key metrics that you should know for your exam: **accuracy, precision, recall, and F1-score**.
+
+### Accuracy
+
+- Measures the overall proportion of correct predictions.
+- **Formula:**
+
+  $$
+  \text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Number of Predictions}} = \frac{TP + TN}{TP + TN + FP + FN}
+  $$
+
+### Precision
+
+- Focuses on how many of the predicted positives are actually positive.
+- **Formula:**
+
+  $$
+  \text{Precision} = \frac{TP}{TP + FP}
+  $$
+
+- Useful when **false positives** are a bigger concern.
+
+### Recall (Sensitivity)
+
+- Measures how many actual positives were correctly identified.
+- **Formula:**
+
+  $$
+  \text{Recall} = \frac{TP}{TP + FN}
+  $$
+
+- Crucial when missing a positive case has a high cost.
+
+### F1-Score
+
+- The **harmonic mean** of precision and recall. Balances both concerns.
+- **Formula:**
+
+  $$
+  \text{F1-score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
+  $$
+
+- Useful when data is imbalanced and you want a single combined metric.
+
+### Quick Example
+
+Suppose a binary classifier predicts whether photos contain cats. Consider:
+
+- **TP (true positive):** Predicted cat, it was a cat.
+- **FP (false positive):** Predicted cat, but it wasn't a cat.
+- **TN (true negative):** Predicted not cat, and it wasn't a cat.
+- **FN (false negative):** Predicted not cat, but it was a cat.
+
+## <mark> 4) Differentiate between supervised, unsupervised, and reinforcement learning with suitable examples.​ </mark>
+
+### Key Differences: Supervised, Unsupervised, and Reinforcement Learning
+
+Let's clarify these **three main types of machine learning**. For your BTech exam, it's important to not only know the definitions but also be able to give solid examples for each one.
+
+### 1. **Supervised Learning**
+
+- **Definition:** The algorithm trains on data that includes both input variables (features) and known output labels.
+- **Goal:** Learn to predict outputs for new, unseen inputs.
+- **Example:**
+  - _Spam email detection:_ The model is given emails labeled as "spam" or "not spam," learns the patterns, and can classify new emails.
+  - _House price prediction:_ Model learns from houses with known prices and features, then predicts the price of a new house.
+
+### 2. **Unsupervised Learning**
+
+- **Definition:** The algorithm trains on data without labels or predefined outcomes. It tries to find structure or patterns in the data on its own.
+- **Goal:** Group data, find underlying structures, or reduce dimensionality.
+- **Example:**
+  - _Customer segmentation (Clustering):_ A store analyzes customer buying data to discover distinct groups ("customer segments")—without knowing who belongs to which group beforehand.
+  - _Market basket analysis:_ Finds which products are often bought together, without predefined categories.
+
+### 3. **Reinforcement Learning**
+
+- **Definition:** An agent learns by interacting with its environment, receiving feedback through rewards or penalties depending on its actions.
+- **Goal:** Discover the best sequence of actions (policy) to maximize cumulative reward over time.
+- **Example:**
+  - _Game playing (Chess/Go):_ The model repeatedly tries different moves and strategies, learning to win more games by maximizing its score.
+  - _Robotics:_ A robot learns to walk by trying movements and getting feedback on stability and progress.
+
+### **Quick Recap Table**
+
+| Type          | How It Learns                            | Example                            |
+| ------------- | ---------------------------------------- | ---------------------------------- |
+| Supervised    | From labeled input/output pairs          | Email spam detection, house prices |
+| Unsupervised  | Finds patterns in unlabeled data         | Customer segmentation, clustering  |
+| Reinforcement | Interacts; learns from rewards/penalties | Playing chess, robot walking       |
+
+## <mark> 5) Explain Bayesian Decision Theory with the concept of Minimum Error Rate Classification.​ </mark>
+
+### Bayesian Decision Theory & Minimum Error Rate Classification
+
+**Bayesian Decision Theory** is a statistical framework used in machine learning for making optimal classification decisions in the presence of uncertainty. It incorporates **prior knowledge**, **likelihood of evidence**, and potential **costs (losses) or risks** linked to decisions.
+
+### Core Elements
+
+- **Prior Probability (P(C))**: How likely each class is, before seeing data.
+- **Likelihood (P(X|C))**: How probable the observed data is, given the class.
+- **Posterior Probability (P(C|X))**: Updated probability of class given observed data, found using Bayes' theorem:
+
+  $$
+  P(C|X) = \frac{P(X|C) \cdot P(C)}{P(X)}
+  $$
+
+- **Loss/Cost Function**: Assigns a penalty to wrong decisions.
+
+### Minimum Error Rate Classification
+
+In classification, the **minimum error rate rule** (Bayes classifier) chooses the class with the highest posterior probability for each new observation. This minimizes the chance of making an incorrect classification (i.e., achieves lowest possible error, known as the "Bayes error").
+
+**Rule:**
+
+- For a data point $$x$$, assign it to the class $$C_i$$ with:
+  $$
+  C^* = \arg\max_{C_i} P(C_i|x)
+  $$
+
+This means: for every input, pick the class with the biggest chance (posterior probability). This approach always gives the best possible prediction—if the probabilities are known accurately.
+
+#### Practical Example
+
+Suppose you want to recognize if an email is "spam" or "not spam":
+
+- Compute posterior probabilities: $$P(\text{spam}|x)$$ and $$P(\text{not spam}|x)$$.
+- Classify as "spam" if $$P(\text{spam}|x) > P(\text{not spam}|x)$$; otherwise, classify as "not spam".
+
+### Why Is This Important?
+
+- It provides a **principled way** to include uncertainty and all available information for decisions.
+- Extending to **risk minimization**, you can include different costs for different types of errors, too (not just minimum error, but also minimum cost/classification risk).
+
+## <mark> 6) Write the working principle of a Naïve Bayes classifier. Give one advantage and one limitation. </mark>
+
+### Working Principle of a Naïve Bayes Classifier
+
+The **Naïve Bayes classifier** is a probabilistic machine learning model based on Bayes' Theorem. It works by calculating the probability of each class for a given data point and selecting the class with the highest probability. Its key assumption is that **all features are conditionally independent given the class label**—hence 'naïve.'
+
+### Steps in Working:
+
+1. **Calculate Prior Probabilities**: Compute the probability of each class in the training set (e.g., $$P(\text{Yes})$$, $$P(\text{No})$$).
+2. **Compute Likelihoods**: For each feature, estimate the probability of feature value given the class (e.g., $$P(x_i|y)$$ for all features $$x_i$$).
+   - Independence assumption: $$P(x_1,x_2,...,x_n|y) = P(x_1|y) \times P(x_2|y) ... \times P(x_n|y)$$.
+3. **Apply Bayes’ Theorem:** Combine priors and likelihoods:
+   $$
+   P(y|x_1,...,x_n) \propto P(y) \times \prod_{i=1}^n P(x_i|y)
+   $$
+4. **Classify:** For a new data point, calculate the above formula for each class and assign the data point to the class with the highest probability.
+
+#### Example Use-case
+
+Spam detection, where features are words in an email and classes are "spam" or "not spam."
+
+### One Advantage
+
+- **Efficiency and Simplicity:** Naïve Bayes works well with small datasets and high-dimensional data. It is easy to implement and extremely fast for both training and prediction.
+
+### One Limitation
+
+- **Strong Independence Assumption:** It assumes all features contribute independently to the outcome, which is rarely the case in real-world data. This can sometimes reduce accuracy if features are correlated.
+
+## <mark> 7) Explain logistic regression with the cost function and decision boundary.​ </mark>
+
+### Logistic Regression: Principle, Cost Function, and Decision Boundary
+
+### Principle
+
+**Logistic regression** is a classification algorithm used to predict the probability that an instance belongs to a particular class (often 0 or 1). It models the relationship between input features and the probability using the **sigmoid (logistic) function**:
+
+$$
+P(y=1|x) = h_\theta(x) = \frac{1}{1+e^{-\theta^T x}}
+$$
+
+This outputs values between 0 and 1, which are interpreted as probabilities.
+
+### Cost Function (Log Loss / Cross-Entropy)
+
+To train a logistic regression model, we use a **cost function** that penalizes wrong predictions heavily. For a single data point with true label $$ y $$ (0 or 1) and prediction $$ h\_\theta(x) $$, the loss is:
+
+$$
+\text{Cost}(h_\theta(x), y) = \begin{cases} -\log(h_\theta(x)) & \text{if } y=1 \\
+-\log(1-h_\theta(x)) & \text{if } y=0 \end{cases}
+$$
+
+For all data points, the average cost (the one we actually minimize) is:
+
+$$
+J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \left[y^{(i)} \log(h_\theta(x^{(i)})) + (1-y^{(i)}) \log(1-h_\theta(x^{(i)}))\right]
+$$
+
+This is called the **log loss** or **cross-entropy loss**.
+
+### Decision Boundary
+
+The decision boundary is the surface (or line, in 2D) that separates predicted classes. In logistic regression, we typically classify as class 1 if the predicted probability is $$\geq 0.5$$, and as class 0 otherwise:
+
+$$
+h_\theta(x) \geq 0.5 \implies \theta^T x \geq 0
+$$
+
+So the **decision boundary** is defined by $$ \theta^T x = 0 $$. This means the model draws a straight line (in 2D), or a hyperplane (in higher dimensions), that separates the predicted classes.
+
+### Quick Summary Table
+
+| Concept              | Formula / Description                                    |
+| -------------------- | -------------------------------------------------------- |
+| Sigmoid function     | $$ h\_\theta(x) = \frac{1}{1+e^{-\theta^T x}} $$         |
+| Cost function (loss) | $$ -[y \log(h_\theta(x)) + (1-y) \log(1-h_\theta(x))] $$ |
+| Decision boundary    | $$ \theta^T x = 0 $$                                     |
+
+## <mark> 8) What is Maximum Likelihood Estimation (MLE)? Explain its steps with a suitable example.​ </mark>
+
+### What is Maximum Likelihood Estimation (MLE)?
+
+**Maximum Likelihood Estimation (MLE)** is a statistical method for estimating the parameters of a probability distribution or model. The goal is to find the parameter values that make the observed data most probable according to the assumed model.
+
+### Key Steps in MLE
+
+1. **Assume a Probability Distribution:**
+   Decide what kind of model or distribution your data comes from (e.g., normal, Bernoulli, Poisson, etc.).
+
+2. **Write the Likelihood Function:**
+   The likelihood is the probability of observing your actual data as a function of the model parameters.
+
+   If your data is $$ X = \{x_1, x_2, ..., x_n\} $$ and parameters are $$ \theta $$, the likelihood is:
+
+   $$
+   L(\theta|X) = P(X|\theta)
+   $$
+
+3. **Log-Likelihood (Optional but Common):**
+   For easier calculations, take the logarithm:
+
+   $$
+   \log L(\theta|X) = \sum_{i=1}^n \log P(x_i|\theta)
+   $$
+
+4. **Maximize the Likelihood:**
+   Find parameter values that maximize the (log) likelihood. This can be done by taking derivatives (if possible), or using optimization techniques.
+
+5. **Interpret:**
+   The parameter values that maximize this function are the MLE estimates—these are the values most likely to have generated your data.
+
+### Example: Estimating a Coin's Bias
+
+Imagine you flip a coin 100 times and get 70 heads. You want to estimate the probability $$p$$ that the coin lands heads (i.e., maybe it's not a fair coin!).
+
+- **Step 1:** Assume distribution: Each flip is a Bernoulli trial, parameter = $$p$$.
+- **Step 2:** Write the likelihood:
+  $$
+  L(p) = p^{70}(1-p)^{30}
+  $$
+- **Step 3:** Log-likelihood:
+  $$
+  \log L(p) = 70 \log(p) + 30 \log(1-p)
+  $$
+- **Step 4:** Maximize (set derivative to zero and solve for $$p$$):
+  $$
+  \frac{d}{dp}\log L(p) = \frac{70}{p} - \frac{30}{1-p} = 0
+  $$
+  This gives $$ p = 0.7 $$. So, 0.7 is the MLE for the probability of heads based on your data.
+
+**In summary:** MLE finds the parameter values that make the observed data as likely as possible under the chosen statistical model.
+
+## <mark> 9) Explain the working of Principal Component Analysis (PCA) for dimensionality reduction.​ </mark>
+
+### Principal Component Analysis (PCA) for Dimensionality Reduction
+
+**Principal Component Analysis (PCA)** is a statistical technique that reduces the number of variables (dimensions) in a dataset, while retaining as much variability (information) as possible. This helps simplify data analysis, visualization, and speeds up machine learning algorithms.
+
+### Working Steps of PCA
+
+1. **Standardize the Data**
+
+   - Adjust each feature to have a mean of 0 and standard deviation of 1 (so all features contribute equally).
+
+2. **Compute the Covariance Matrix**
+
+   - Calculate how variables relate to each other (which pairs of variables change together).
+
+3. **Calculate Eigenvectors and Eigenvalues**
+
+   - Find the directions (eigenvectors) where data varies the most, and how much variance is in those directions (eigenvalues).
+   - Each eigenvector is a new axis (principal component); its eigenvalue shows the "strength" or importance.
+
+4. **Select Top Principal Components**
+
+   - Rank principal components by their eigenvalues. Keep only the first few components, which capture the most variance (information).
+
+5. **Project Data onto Principal Components**
+   - Transform the original data to the new axes. The new data has fewer dimensions but still retains most of the important information.
+
+### Key Ideas
+
+- **Principal Components** are new variables, each a combination of the original features, chosen to capture maximum spread (variance) of the data.
+- The first principal component captures the most variance, the second the next most (and is uncorrelated with the first), and so on.
+- By keeping only the top principal components, you reduce dimensionality while minimizing loss of information.
+
+### Example
+
+Suppose you have measurements of 100 people including height, weight, and age. These three features may be correlated. PCA can transform your data into three principal components—often, the first two may capture almost all the variation, letting you work with just two dimensions instead of three.
+
+## <mark> 10) ​Compare discriminant functions and Bayesian classifiers with examples. </mark>
+
+### Discriminant Functions vs Bayesian Classifiers
+
+Let's compare these two concepts used in classification:
+
+### Discriminant Functions
+
+- **Definition:** A discriminant function is any rule or mathematical function used to assign a data point to one of several classes based on its input features.
+- **Examples:**
+  - **Linear Discriminant Analysis (LDA):** Finds a linear combination of features that best separates two or more classes. The decision rule is based on which class's discriminant function yields the highest value for a given input.
+  - **Quadratic Discriminant Analysis (QDA):** Like LDA but allows each class its own covariance, leading to quadratic decision boundaries.
+- **How it Works:**
+  - LDA assumes features are normally distributed, with the same covariance for all classes. It uses estimated mean, covariance, and prior probability to form discriminant functions. It essentially computes posteriors under these assumptions and selects the class with the highest probability.
+- **Summary:** Discriminant analysis models the distribution of features for each class and differentiates classes by the resulting boundaries (often linear or quadratic).
+
+### Bayesian Classifiers
+
+- **Definition:** Any classification approach that applies Bayes' theorem to compute the (posterior) probability that a data point belongs to each class, given its features, and selects the class with highest probability.
+- **Examples:**
+  - **Naïve Bayes:** Assumes features are conditionally independent given the class label. Often used for text or categorical data.
+  - **Bayes Optimal Classifier:** Uses full knowledge of all class-conditional densities and selects the class with the highest posterior probability.
+- **How it Works:**
+  - For observed features $$X$$ and label $$Y$$, it calculates $$P(Y=k|X)$$ using Bayes' theorem and classifies to the class with the highest value.
+  - Naïve Bayes is a Bayesian classifier with a strong independence assumption.
+
+### Key Differences and Examples
+
+| Aspect               | Discriminant Function (e.g., LDA, QDA)                       | Bayesian Classifier (e.g., Naïve Bayes)         |
+| -------------------- | ------------------------------------------------------------ | ----------------------------------------------- |
+| Underlying Principle | Models $P(X \mid Y)$ for each class (focus on distributions) | Uses Bayes' theorem to compute $P(Y \mid X)$    |
+| Assumption           | Often normality, shared or separate covariances for LDA/QDA  | Often independence between features (naïve)     |
+| Output               | Decision based on largest discriminant score                 | Decision based on largest posterior probability |
+| Flexibility          | LDA: Linear boundary, QDA: Quadratic boundary                | Naïve Bayes: Can be used with both types        |
+| Example              | LDA for iris classification                                  | Naïve Bayes for spam filtering                  |
+
+**Summary:**
+
+- Both methods aim to classify but differ in modeling assumptions: LDA (discriminant) uses normality assumption, Naïve Bayes (Bayesian) uses feature independence, but both ultimately use probabilities and can produce similar results in some cases.
+
+## <mark> 11) Explain different types of discriminant functions. </mark>
+
+### Types of Discriminant Functions
+
+**Discriminant functions** are mathematical rules used for classification—they assign input data to one of several possible categories or classes based on feature values, usually by defining decision boundaries in feature space. Here are the main types:
+
+### 1. Linear Discriminant Function
+
+- **Form:** $$ y(\mathbf{x}) = \mathbf{w}^T \mathbf{x} + w_0 $$
+- **Decision Boundary:** A hyperplane (straight line in 2D, flat surface in higher dimensions) that separates classes.
+- **Assumptions:** Classes can be separated by a linear boundary; covariances of each class are assumed to be equal (as in Linear Discriminant Analysis or LDA).
+- **Example:** Classifying emails as spam or not spam using a weighted sum of features (words).
+
+### 2. Quadratic Discriminant Function
+
+- **Form:** The boundary between classes is defined by a quadratic equation (involving squares and cross-terms of features).
+- **Decision Boundary:** A curved surface—can be an ellipse, parabola, etc.
+- **Assumptions:** Each class can have its own covariance matrix, allowing for more flexible (non-linear) boundaries (as in Quadratic Discriminant Analysis or QDA).
+- **Example:** Distinguishing between two types of plants where linear separation isn’t sufficient.
+
+### 3. Nonlinear Discriminant Functions (e.g., $$\varphi$$ functions, Kernel Methods, Neural Networks)
+
+- **Form:** Use nonlinear transformations or basis functions to create more complex (curved/irregular) boundaries.
+- **Decision Boundary:** Can be any shape, even highly complex, to fit the patterns in data.
+- **Example:** A neural network classifier learns flexible, nonlinear boundaries for image recognition.
+
+### Summary Table
+
+| Type      | Key Formula                         | Decision Boundary             | Example Application                                   |
+| --------- | ----------------------------------- | ----------------------------- | ----------------------------------------------------- |
+| Linear    | $$ \mathbf{w}^T \mathbf{x} + w_0 $$ | Hyperplane, flat line/surface | Handwritten digit recognition (if linearly separable) |
+| Quadratic | Quadratic in $$ \mathbf{x} $$       | Curved (ellipse, etc.)        | Plant species classification                          |
+| Nonlinear | Varies (e.g., kernels, NN)          | Curved, flexible/complex      | Image or speech recognition                           |
+
+## <mark> 12) Given a dataset of study hours vs exam scores:​ (2,50), (4,60), (6,70), (8,80)​ Derive the linear regression line and predict the score for 5 hours of study.​ </mark>
+
+Let's work through the **linear regression** estimation step by step using your dataset of study hours (x) and exam scores (y):
+
+$$(2, 50),\ (4, 60),\ (6, 70),\ (8, 80)$$
+
+### 1. Write the Linear Regression Formula
+
+The regression line is:
+
+$$
+y = a + bx
+$$
+
+where $$ b $$ is the slope and $$ a $$ is the intercept.
+
+### 2. Calculate Slope $$ b $$ and Intercept $$ a $$
+
+First, let's collect necessary sums (do this systematically for clarity):
+
+| x   | y   | x^2 | x\*y |
+| --- | --- | --- | ---- |
+| 2   | 50  | 4   | 100  |
+| 4   | 60  | 16  | 240  |
+| 6   | 70  | 36  | 420  |
+| 8   | 80  | 64  | 640  |
+
+Now find:
+
+- $$ \sum x = 2 + 4 + 6 + 8 = 20 $$
+- $$ \sum y = 50 + 60 + 70 + 80 = 260 $$
+- $$ \sum x^2 = 4 + 16 + 36 + 64 = 120 $$
+- $$ \sum xy = 100 + 240 + 420 + 640 = 1400 $$
+- $$ n = 4 $$
+
+Using the formulas
+
+$$
+b = \frac{n \sum xy - (\sum x)(\sum y)}{n \sum x^2 - (\sum x)^2}
+$$
+
+$$
+a = \frac{\sum y \cdot \sum x^2 - \sum x \cdot \sum xy}{n \sum x^2 - (\sum x)^2}
+$$
+
+Plug in values:
+
+$$
+b = \frac{4 \times 1400 - 20 \times 260}{4 \times 120 - 20^2} = \frac{5600 - 5200}{480 - 400} = \frac{400}{80} = 5
+$$
+
+$$
+a = \frac{260 \times 120 - 20 \times 1400}{4 \times 120 - 20^2} = \frac{31200 - 28000}{80} = \frac{3200}{80} = 40
+$$
+
+**Regression line:**
+
+$$
+y = 40 + 5x
+$$
+
+### 3. Predict for 5 Hours of Study
+
+Plug $$ x = 5 $$ into the equation:
+
+$$
+y = 40 + 5 \times 5 = 40 + 25 = 65
+$$
+
+### 4. Quick Recap
+
+- **Regression Equation:** $$ y = 40 + 5x $$
+- **Predicted score** for 5 hours: **65**
+
+## <mark> 13) A classifier produces the following confusion matrix:​ TP = 40, FP = 10, FN = 20, TN = 30.​ Compute accuracy, precision, recall, and F1-score.​ </mark>
+
+Let's work through each metric step by step from your confusion matrix:
+
+- **TP (True Positives) = 40**
+- **FP (False Positives) = 10**
+- **FN (False Negatives) = 20**
+- **TN (True Negatives) = 30**
+
+### 1. Accuracy
+
+The overall fraction of correctly predicted cases:
+
+$$
+\text{Accuracy} = \frac{TP + TN}{TP + FP + FN + TN} = \frac{40 + 30}{40 + 10 + 20 + 30} = \frac{70}{100} = 0.70
+$$
+
+So, **accuracy is 0.70 (70%)**.
+
+### 2. Precision
+
+Of the cases predicted positive, how many were actually positive?
+
+$$
+\text{Precision} = \frac{TP}{TP + FP} = \frac{40}{40 + 10} = \frac{40}{50} = 0.80
+$$
+
+So, **precision is 0.80 (80%)**.
+
+### 3. Recall
+
+Of the actual positives, how many did we catch?
+
+$$
+\text{Recall} = \frac{TP}{TP + FN} = \frac{40}{40 + 20} = \frac{40}{60} \approx 0.67
+$$
+
+So, **recall is about 0.67 (67%)**.
+
+### 4. F1-Score
+
+The harmonic mean of precision and recall:
+
+$$
+\text{F1} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = 2 \times \frac{0.80 \times 0.67}{0.80 + 0.67} \approx 2 \times \frac{0.536}{1.47} \approx 2 \times 0.365 \approx 0.73
+$$
+
+So, **F1-score is approximately 0.73 (73%)**.
+
+**Summary Table:**
+
+| Metric    | Value |
+| --------- | ----- |
+| Accuracy  | 0.70  |
+| Precision | 0.80  |
+| Recall    | 0.67  |
+| F1-Score  | 0.73  |
+
+## <mark> 14) Apply Naïve Bayes to classify whether a student passes or fails given features: (hours studied, attendance). Assume independence of features.​ </mark>
+
+Let's apply the **Naïve Bayes classifier** step-by-step for classifying whether a student "passes" or "fails" based on features: **hours studied** and **attendance**.
+
+Assume:
+
+- We have a dataset with both features and a class label (pass/fail).
+- Features are conditionally independent given the class.
+
+### 1. Naïve Bayes Classifier Rule
+
+For a new student with features X = (hours, attendance), compute for each class $$ y $$ the probability:
+
+$$
+P(y|X) \propto P(y) \times P(\text{hours}|y) \times P(\text{attendance}|y)
+$$
+
+Choose the class with the highest value.
+
+### 2. Steps Involved
+
+**Step 1:** Compute the prior probabilities for each class (e.g., $$ P(\text{pass}) $$, $$ P(\text{fail}) $$), by counting the fraction of pass/fail in your data.
+
+**Step 2:** For each feature (e.g., hours, attendance), compute the likelihood of the feature value given the class. This might look like:
+
+- $$ P(\text{hours} = 8|\text{pass}) $$
+- $$ P(\text{attendance} = 90\%|\text{pass}) $$, etc.
+
+**Step 3:** Multiply the priors and likelihoods:
+
+$$
+P(\text{pass}|X) \propto P(\text{pass}) \times P(\text{hours}|\text{pass}) \times P(\text{attendance}|\text{pass})
+$$
+
+Repeat for "fail".
+
+**Step 4:** Compare probabilities, predict the class with the highest value.
+
+### **Example** (Abstracted)
+
+Suppose your data tells you:
+
+- $$ P(\text{pass}) = 0.7 $$, $$ P(\text{fail}) = 0.3 $$
+- $$ P(\text{hours}=6|\text{pass}) = 0.3 $$, $$ P(\text{attendance}=90\%|\text{pass}) = 0.4 $$
+- $$ P(\text{hours}=6|\text{fail}) = 0.1 $$, $$ P(\text{attendance}=90\%|\text{fail}) = 0.2 $$
+
+New student: hours = 6, attendance = 90%.
+
+Compute for each class:
+
+- For pass: $$ 0.7 \times 0.3 \times 0.4 = 0.084 $$
+- For fail: $$ 0.3 \times 0.1 \times 0.2 = 0.006 $$
+
+Since 0.084 > 0.006, **predict 'pass'.**
