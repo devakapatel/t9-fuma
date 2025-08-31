@@ -6,7 +6,7 @@ title: Unit 2
 
 ### K-Nearest Neighbour (KNN) Algorithm: Working Principle
 
-**K-Nearest Neighbour (KNN)** is a simple, non-parametric, supervised learning algorithm used mostly for **classification**, but also for regression. It predicts the label of a new data point based on the labels of its closest neighbors in the training data.[1][2][5][6]
+**K-Nearest Neighbour (KNN)** is a simple, non-parametric, supervised learning algorithm used mostly for **classification**, but also for regression. It predicts the label of a new data point based on the labels of its closest neighbors in the training data.
 
 ### Step-by-Step Working
 
@@ -28,7 +28,7 @@ Imagine you have data on fruit shapes and want to classify a new fruit:
 
 - **Instance-Based:** KNN stores all training data and makes decisions only when predicting (no model is learned in advance).
 - **No Distribution Assumptions:** It doesn’t assume anything about the underlying data distribution.
-- **Choice of 'k':** Too low (k=1) makes it sensitive to noise; too high can make it overlook patterns. Cross-validation is used to select a good value of k.[2]
+- **Choice of 'k':** Too low (k=1) makes it sensitive to noise; too high can make it overlook patterns. Cross-validation is used to select a good value of k.
 
 ### Visual Recap
 
@@ -73,7 +73,7 @@ $$
 - At each split in the tree, these metrics compute the impurity of the dataset before and after the split.
 - The algorithm tries various features/thresholds, then calculates the **weighted average impurity** of resulting child nodes.
 - The best split **minimizes impurity** (i.e., maximizes purity).
-  - **Entropy:** Used to compute **information gain** (reduction in entropy). The split with the highest information gain is preferred.[1][2][4]
+  - **Entropy:** Used to compute **information gain** (reduction in entropy). The split with the highest information gain is preferred.
   - **Gini Impurity:** The split resulting in the lowest Gini impurity (highest purity) is chosen.
 
 Both metrics aim to make child nodes as "pure" as possible, so that each path down the tree leads to more definitive classifications, improving decision accuracy.
@@ -82,7 +82,7 @@ Both metrics aim to make child nodes as "pure" as possible, so that each path do
 
 ### What is Density Estimation?
 
-**Density estimation** is the process of using a dataset to estimate the probability density function (PDF) of the underlying population from which the data were drawn. It's a fundamental task in statistics and machine learning, especially for understanding data distributions, anomaly detection, and generative modeling.[1][3][5]
+**Density estimation** is the process of using a dataset to estimate the probability density function (PDF) of the underlying population from which the data were drawn. It's a fundamental task in statistics and machine learning, especially for understanding data distributions, anomaly detection, and generative modeling.
 
 ### Types of Density Estimation
 
@@ -98,7 +98,7 @@ Density estimation methods are broadly classified into **parametric** and **non-
     f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
     $$
 - **Advantage:** Simple, efficient if correct model is chosen.
-- **Limitation:** May give poor results if the assumed form does not match the true distribution.[5][1]
+- **Limitation:** May give poor results if the assumed form does not match the true distribution.
 
 ### 2. Non-Parametric Density Estimation
 
@@ -109,7 +109,7 @@ Density estimation methods are broadly classified into **parametric** and **non-
   - **Kernel Density Estimation (KDE):** Put a small 'bump' (kernel, e.g., a Gaussian) on each data point, sum these to build a smooth density estimate.
   - **k-Nearest Neighbors:** Density at a point depends on distances to its k-nearest points.
 - **Advantage:** Can model complex, unknown distributions.
-- **Limitation:** Requires more data for accurate estimation, and choice of tuning parameters (like bin width or kernel bandwidth) affects results.[7][8][1]
+- **Limitation:** Requires more data for accurate estimation, and choice of tuning parameters (like bin width or kernel bandwidth) affects results.
 
 ### In Summary
 
@@ -145,7 +145,7 @@ This iterative process ensures that similar points are grouped together, as demo
 
 ### SVM Architecture and Decision Boundary
 
-**Support Vector Machines (SVM)** are supervised learning models used for classification and regression. Their main objective is to find the best separation between data classes by constructing an optimal decision boundary in feature space.[1][3][5]
+**Support Vector Machines (SVM)** are supervised learning models used for classification and regression. Their main objective is to find the best separation between data classes by constructing an optimal decision boundary in feature space.
 
 ### Architecture
 
@@ -174,13 +174,13 @@ This iterative process ensures that similar points are grouped together, as demo
 | Kernel           | Maps data to higher dimension for nonlinear cases  |
 | Soft/Hard Margin | Balance between separation and tolerance of errors |
 
-**In SVM, only support vectors determine the decision boundary—other points have no effect on its position.**[6][1]
+**In SVM, only support vectors determine the decision boundary—other points have no effect on its position.**
 
 ## <mark> 6) What is Random Forest? Explain how bagging improves its performance. </mark>
 
 ### What is Random Forest?
 
-**Random Forest** is a powerful ensemble machine learning algorithm that combines the predictions of many individual decision trees to achieve better overall accuracy and reliability. Each tree is trained on a different random subset of the data, and for classification, the final prediction is typically made by majority voting among the trees, while for regression, the average of their predictions is used.[1][2][3]
+**Random Forest** is a powerful ensemble machine learning algorithm that combines the predictions of many individual decision trees to achieve better overall accuracy and reliability. Each tree is trained on a different random subset of the data, and for classification, the final prediction is typically made by majority voting among the trees, while for regression, the average of their predictions is used.
 
 ### How Bagging Improves Random Forest Performance
 
@@ -189,7 +189,7 @@ This iterative process ensures that similar points are grouped together, as demo
 1. **Random Sampling with Replacement:** For each tree, the algorithm creates a new dataset by randomly sampling (with replacement) from the original data—this creates diversity.
 2. **Model Independence:** Each tree is built independently using its own data subset and a random selection of features at each split, further reducing similarity among the trees.
 3. **Combining Predictions:** Once all trees are trained, their results are aggregated (majority vote or average). This aggregation cancels out individual tree errors and reduces the risk of overfitting.
-4. **Result:** The final model is more robust, generalizes better to new data, and is less sensitive to noise in the training set compared to a single decision tree.[3][6][1]
+4. **Result:** The final model is more robust, generalizes better to new data, and is less sensitive to noise in the training set compared to a single decision tree.
 
 > **In short:** Bagging makes each tree different and less likely to repeat the same errors, so the "forest" is more accurate and stable than any one tree alone.
 
@@ -236,13 +236,13 @@ Both **Bagging** (Bootstrap Aggregating) and **Boosting** are popular ensemble m
 
 The **Perceptron Convergence Theorem** is a fundamental result in machine learning and neural networks. It states:
 
-> **If the training data is linearly separable, the perceptron learning algorithm will converge to a set of weights that perfectly classifies the data in a finite number of steps.**[1][3][5]
+> **If the training data is linearly separable, the perceptron learning algorithm will converge to a set of weights that perfectly classifies the data in a finite number of steps.**
 
 ### Key Points
 
-- **Linear Separability:** There exists a straight line (in 2D), plane (in 3D), or hyperplane (in higher dimensions) that can perfectly separate the two classes of data points.[3][1]
-- **Guaranteed Convergence:** The perceptron will make a finite number of mistakes (weight updates) before finding such a separator. The theorem even gives a bound for the maximum number of updates, depending on the geometry of the data set.[6][3]
-- **If Not Linearly Separable:** If no such separator exists, the theorem does not guarantee convergence—the algorithm may continue updating indefinitely.[1]
+- **Linear Separability:** There exists a straight line (in 2D), plane (in 3D), or hyperplane (in higher dimensions) that can perfectly separate the two classes of data points.
+- **Guaranteed Convergence:** The perceptron will make a finite number of mistakes (weight updates) before finding such a separator. The theorem even gives a bound for the maximum number of updates, depending on the geometry of the data set.
+- **If Not Linearly Separable:** If no such separator exists, the theorem does not guarantee convergence—the algorithm may continue updating indefinitely.
 
 ### How the Perceptron Learns
 
@@ -253,7 +253,7 @@ The **Perceptron Convergence Theorem** is a fundamental result in machine learni
 
 ### Mathematical Bound (Optional)
 
-The number of weight updates before convergence is at most $$\frac{R^2}{\gamma^2}$$, where $$R$$ is the maximum norm of any data point and $$\gamma$$ is the margin (the closest any data point is to the separating hyperplane).[5][3][6]
+The number of weight updates before convergence is at most $$\frac{R^2}{\gamma^2}$$, where $$R$$ is the maximum norm of any data point and $$\gamma$$ is the margin (the closest any data point is to the separating hyperplane).
 
 ### Summary Table
 
@@ -291,7 +291,7 @@ Both **perceptron** and **Bayes' classifier** are used for classification, but t
 - **Both create linear classifiers** under certain conditions (especially Gaussian-distributed classes with equal covariances).
 - The perceptron finds _some_ separating hyperplane by learning from mistakes, but **doesn't use class probabilities** or data distribution.
 - The Bayes' classifier finds the **optimal linear boundary** (minimizing misclassification rate) when model assumptions hold.
-- In Gaussian settings, the perceptron's separating line can match the Bayes' optimal boundary, but only if the perceptron converges and the data fit the distribution well.[1][3]
+- In Gaussian settings, the perceptron's separating line can match the Bayes' optimal boundary, but only if the perceptron converges and the data fit the distribution well.
 
 ### Key Differences
 
@@ -317,7 +317,7 @@ Suppose you have two classes, each generated from a normal (Gaussian) distributi
 
 ### Batch (Offline) Learning
 
-- **Process:** The neural network is trained using the _entire dataset_ at once. All training examples are passed through the network to compute the total loss (typically averaged or summed). After one pass (epoch), the weights are updated based on the gradient of this total loss, then the process repeats for many epochs until convergence.[2][3][5]
+- **Process:** The neural network is trained using the _entire dataset_ at once. All training examples are passed through the network to compute the total loss (typically averaged or summed). After one pass (epoch), the weights are updated based on the gradient of this total loss, then the process repeats for many epochs until convergence.
 - **Characteristics:**
   - Requires all data to be available before training starts.
   - Updates weights less frequently, often once per epoch.
@@ -327,7 +327,7 @@ Suppose you have two classes, each generated from a normal (Gaussian) distributi
 
 ### On-line (Incremental) Learning
 
-- **Process:** The neural network updates its weights _immediately_ or _periodically_ as each new data point or small batch arrives, instead of using all data at once. Each example (or mini-batch) is used to compute the loss, and an update is made right away.[4][5][2]
+- **Process:** The neural network updates its weights _immediately_ or _periodically_ as each new data point or small batch arrives, instead of using all data at once. Each example (or mini-batch) is used to compute the loss, and an update is made right away.
 - **Characteristics:**
   - Handles continuous data streams efficiently; data can arrive one at a time.
   - The model adapts quickly to new or changing data patterns (good for environments with "concept drift").
@@ -352,12 +352,12 @@ Suppose you have two classes, each generated from a normal (Gaussian) distributi
 ### Bias
 
 - **Bias** is the error from erroneous assumptions in the learning algorithm. It reflects how closely a model's predictions match the true values on average.
-- **High bias** means the model makes systematic errors, usually by oversimplifying the data (e.g., using a linear model for a nonlinear relationship). This leads to **underfitting**, where key patterns in the data are missed.[2][3][5]
+- **High bias** means the model makes systematic errors, usually by oversimplifying the data (e.g., using a linear model for a nonlinear relationship). This leads to **underfitting**, where key patterns in the data are missed.
 
 ### Variance
 
 - **Variance** measures how much a model's predictions change if it is trained on different subsets of the data. It reflects a model's sensitivity to specific training examples, including noise.
-- **High variance** means the model fits the training data very closely—even to noise—resulting in **overfitting** and poor generalization to new (test) data.[3][5][2]
+- **High variance** means the model fits the training data very closely—even to noise—resulting in **overfitting** and poor generalization to new (test) data.
 
 ### How Do Bias and Variance Affect Performance?
 
@@ -365,13 +365,13 @@ Suppose you have two classes, each generated from a normal (Gaussian) distributi
 - **Low bias, high variance:** Model is too complex and memorizes the training data (overfits)—excellent training accuracy but poor test performance.
 - **Balanced bias and variance:** The ideal, where the model learns real patterns and also generalizes well to new data.
 
-> **The bias-variance tradeoff** is about finding the right balance between model complexity and generalization, so your model predicts accurately on both known and unseen data.[1][5][6]
+> **The bias-variance tradeoff** is about finding the right balance between model complexity and generalization, so your model predicts accurately on both known and unseen data.
 
 ## <mark> 12) What is a neural network? Explain different types of activation functions. </mark>
 
 ### What is a Neural Network?
 
-A **neural network** (or artificial neural network, ANN) is a computational model inspired by how the human brain works. It consists of interconnected units called **neurons** arranged in layers—**input layer**, **hidden layers**, and **output layer**. Each neuron receives inputs, processes them via weighted connections and a bias, and then passes the result through an **activation function**. This structure allows neural networks to learn complex relationships and patterns in data.[2][3][5][6][7]
+A **neural network** (or artificial neural network, ANN) is a computational model inspired by how the human brain works. It consists of interconnected units called **neurons** arranged in layers—**input layer**, **hidden layers**, and **output layer**. Each neuron receives inputs, processes them via weighted connections and a bias, and then passes the result through an **activation function**. This structure allows neural networks to learn complex relationships and patterns in data.
 
 #### Main Components of a Neural Network
 
@@ -379,7 +379,7 @@ A **neural network** (or artificial neural network, ANN) is a computational mode
 - **Hidden Layers:** Process data and extract features via weighted connections and activation functions.
 - **Output Layer:** Produces the network's prediction or result.
 - **Weights & Biases:** Parameters adjusted during training to minimize prediction errors.
-- **Activation Functions:** Introduce non-linearity, enabling the network to learn complex mappings.[4][7][2]
+- **Activation Functions:** Introduce non-linearity, enabling the network to learn complex mappings.
 
 ### Different Types of Activation Functions
 
@@ -431,9 +431,9 @@ Activation functions control how a neuron "fires" based on the input sum, introd
 
 ### What is a Perceptron?
 
-A **perceptron** is the most basic type of artificial neural network, introduced by Frank Rosenblatt in 1957. It is designed for **binary classification**, meaning it learns to categorize input data into one of two classes—such as 0 or 1, or positive and negative.[1][2]
+A **perceptron** is the most basic type of artificial neural network, introduced by Frank Rosenblatt in 1957. It is designed for **binary classification**, meaning it learns to categorize input data into one of two classes—such as 0 or 1, or positive and negative.
 
-The perceptron acts as a simple decision-making unit. You can think of it as a mathematical model of a single neuron: it takes multiple input values (features), multiplies each by a "weight" (which measures importance), sums the results along with a **bias** term, and passes the total through an **activation function**—typically a step function. If the result is above a certain threshold, the output is 1; otherwise, it's 0.[2][3][5]
+The perceptron acts as a simple decision-making unit. You can think of it as a mathematical model of a single neuron: it takes multiple input values (features), multiplies each by a "weight" (which measures importance), sums the results along with a **bias** term, and passes the total through an **activation function**—typically a step function. If the result is above a certain threshold, the output is 1; otherwise, it's 0.
 
 ### Mathematical Formula
 
@@ -450,7 +450,7 @@ $$
 
 ### Perceptron Learning Algorithm
 
-The **perceptron learning algorithm** is a simple supervised learning method that allows the perceptron to "learn" the correct weights and bias needed to classify training data correctly (when the data is _linearly separable_).[3][1][2]
+The **perceptron learning algorithm** is a simple supervised learning method that allows the perceptron to "learn" the correct weights and bias needed to classify training data correctly (when the data is _linearly separable_).
 
 ### Step-by-Step Procedure:
 
@@ -479,14 +479,14 @@ The **perceptron learning algorithm** is a simple supervised learning method tha
 
 ### Backpropagation in Neural Networks
 
-**Backpropagation** is the core algorithm used to train neural networks by minimizing the difference (error) between the network's predicted outputs and the actual target values. It enables the network to learn by adjusting its weights and biases so that the predictions become more accurate over time.[1][2][3]
+**Backpropagation** is the core algorithm used to train neural networks by minimizing the difference (error) between the network's predicted outputs and the actual target values. It enables the network to learn by adjusting its weights and biases so that the predictions become more accurate over time.
 
 ### How Backpropagation Works
 
 1. **Forward Pass:** Input data is fed through the network layer by layer, producing an output. This involves calculating weighted sums and applying activation functions at each neuron.
-2. **Loss Calculation:** The predicted output is compared to the true output using a loss (cost) function (e.g., mean squared error or cross-entropy) to measure how far off the prediction is.[3][4][6]
-3. **Backward Pass:** The loss is propagated backward from the output layer to the input layer. Here, the **gradient** of the loss with respect to each weight and bias is computed using the chain rule from calculus.[2][6][3]
-4. **Weight Update:** Using the computed gradients, weights and biases are updated (often via gradient descent) to reduce the loss. This process is repeated for many iterations (epochs) until the network's error stabilizes at a minimum value.[2][3]
+2. **Loss Calculation:** The predicted output is compared to the true output using a loss (cost) function (e.g., mean squared error or cross-entropy) to measure how far off the prediction is.
+3. **Backward Pass:** The loss is propagated backward from the output layer to the input layer. Here, the **gradient** of the loss with respect to each weight and bias is computed using the chain rule from calculus.
+4. **Weight Update:** Using the computed gradients, weights and biases are updated (often via gradient descent) to reduce the loss. This process is repeated for many iterations (epochs) until the network's error stabilizes at a minimum value.
 
 ### Key Points
 
@@ -507,20 +507,20 @@ Suppose you're training a neural network for handwriting recognition:
 
 ### Early-Stopping Criterion in Neural Networks
 
-**Early stopping** is a regularization technique used during neural network training to prevent overfitting and improve generalization to unseen data. It works by monitoring the model’s performance on a validation set during training (for example, validation loss or accuracy) rather than training only on the training set.[1][2][5]
+**Early stopping** is a regularization technique used during neural network training to prevent overfitting and improve generalization to unseen data. It works by monitoring the model’s performance on a validation set during training (for example, validation loss or accuracy) rather than training only on the training set.
 
 ### How Early Stopping Works
 
 1. **Split data:** Divide your dataset into training and validation sets.
 2. **Train model:** Let the network train as usual, but after each epoch (or a set number of epochs), check the model’s performance on the validation set.
 3. **Monitor improvement:** If the model’s performance on the validation set stops improving (for instance, the validation loss stops decreasing), set a “patience” threshold—a number of epochs to wait for improvement before stopping.
-4. **Stop training:** If no improvement is seen over the patience period, halt training and revert to the model weights from the epoch with the best validation performance.[2][6]
+4. **Stop training:** If no improvement is seen over the patience period, halt training and revert to the model weights from the epoch with the best validation performance.
 
 ### Importance of Early Stopping
 
 - **Prevents overfitting:** It stops training before the model memorizes noise in the training data, improving its ability to generalize to new data.
 - **Saves resources:** Training halts as soon as further optimization on the training set would hurt real-world performance, reducing computation time and costs.
-- **No model change required:** It’s simple to implement and doesn’t require altering your neural network architecture.[5][7][2]
+- **No model change required:** It’s simple to implement and doesn’t require altering your neural network architecture.
 
 ### Recap
 
@@ -542,12 +542,12 @@ Early stopping uses a validation set to decide _when_ to stop training for the b
 | 1   | 0   | 1       |
 | 1   | 1   | 0       |
 
-- **Key Challenge:** The XOR function is **not linearly separable**—you cannot draw a straight line to separate the output classes in a 2D input space.[1][2][5]
+- **Key Challenge:** The XOR function is **not linearly separable**—you cannot draw a straight line to separate the output classes in a 2D input space.
 - **Single-layer perceptron limitation:** A single-layer perceptron can only solve problems where a straight line splits the input classes (like AND, OR, etc.)—it fails with XOR.
 
 ### Why Can’t a Single-Layer Perceptron Solve XOR?
 
-- For XOR, plotting (A, B) pairs on a graph puts the output 1s and 0s in such a way that no line divides them cleanly. This makes the problem **non-linearly separable**.[2][5][1]
+- For XOR, plotting (A, B) pairs on a graph puts the output 1s and 0s in such a way that no line divides them cleanly. This makes the problem **non-linearly separable**.
 
 ### How a Multilayer Perceptron (MLP) Solves XOR
 
@@ -556,7 +556,7 @@ Early stopping uses a validation set to decide _when_ to stop training for the b
   1. **Input Layer:** Takes in A and B.
   2. **Hidden Layer:** Consists of at least two neurons (usually with a nonlinear activation like sigmoid or ReLU), letting the network learn nonlinear relationships.
   3. **Output Layer:** Combines the hidden nodes’ outputs (again via weights and nonlinear activation) to produce the final XOR result.
-- **Key idea:** The hidden layer transforms the input space so the outputs become linearly separable for the final layer—now a line (or hyperplane) can split the classes.[5][6][2]
+- **Key idea:** The hidden layer transforms the input space so the outputs become linearly separable for the final layer—now a line (or hyperplane) can split the classes.
 - **Training:** The network learns the right weights for this transformation using **backpropagation** and gradient descent.
 
 #### Visual intuition:
@@ -582,7 +582,7 @@ $$
 Entropy(S) = - p_{Yes} \log_2 p_{Yes} - p_{No} \log_2 p_{No}
 $$
 
-where $$ p*{Yes} $$ is the proportion of 'Yes' instances and $$ p*{No} $$ is the proportion of 'No' instances in the dataset.[1][3]
+where $$ p*{Yes} $$ is the proportion of 'Yes' instances and $$ p*{No} $$ is the proportion of 'No' instances in the dataset.
 
 ### 2. How to Calculate Root Node Entropy
 
@@ -612,7 +612,7 @@ You would do this for the entire dataset before splitting on "Outlook". This val
 
 ### 3. Why Do This?
 
-- **Purpose:** Entropy measures how impure or uncertain the dataset is at the root. When you split the data by 'Outlook', you'll calculate the new (weighted) entropies for each branch, and the difference (information gain) tells you if 'Outlook' is a good splitting attribute.[3][1]
+- **Purpose:** Entropy measures how impure or uncertain the dataset is at the root. When you split the data by 'Outlook', you'll calculate the new (weighted) entropies for each branch, and the difference (information gain) tells you if 'Outlook' is a good splitting attribute.
 
 ## <mark> 18) For data points (1,2), (2,4), (5,6), (6,8), perform K-means clustering with K=2, initial centroids = (1,2), (5,6). Show cluster updates for two iterations. </mark>
 
