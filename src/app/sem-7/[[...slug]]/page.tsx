@@ -8,7 +8,6 @@ import {
 import { notFound } from "next/navigation";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getMDXComponents } from "@/mdx-components";
-import { ViewOptions } from "../../../components/page-actions";
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -19,9 +18,6 @@ export default async function Page(props: {
 
   const MDXContent = page.data.body;
 
-  const owner = "devakapatel";
-  const repo = "t9-fuma";
-
   return (
     <DocsPage
       toc={page.data.toc}
@@ -31,12 +27,6 @@ export default async function Page(props: {
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
-        <div className="flex flex-row gap-2 items-center border-b pt-2 pb-6 mb-6">
-          <ViewOptions
-            markdownUrl={`${page.url}`}
-            githubUrl={`https://github.com/${owner}/${repo}/tree/main/content${page.url}`}
-          />
-        </div>
         <MDXContent
           components={getMDXComponents({
             // this allows you to link to other pages with relative file paths
