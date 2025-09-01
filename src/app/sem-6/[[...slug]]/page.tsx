@@ -1,19 +1,19 @@
-import { aboutSource } from '@/lib/source';
+import { sem6Source } from "@/src/lib/source";
 import {
   DocsPage,
   DocsBody,
   DocsDescription,
   DocsTitle,
-} from 'fumadocs-ui/page';
-import { notFound } from 'next/navigation';
-import { createRelativeLink } from 'fumadocs-ui/mdx';
-import { getMDXComponents } from '@/mdx-components';
+} from "fumadocs-ui/page";
+import { notFound } from "next/navigation";
+import { createRelativeLink } from "fumadocs-ui/mdx";
+import { getMDXComponents } from "@/mdx-components";
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
 }) {
   const params = await props.params;
-  const page = aboutSource.getPage(params.slug);
+  const page = sem6Source.getPage(params.slug);
   if (!page) notFound();
 
   const MDXContent = page.data.body;
@@ -26,7 +26,7 @@ export default async function Page(props: {
         <MDXContent
           components={getMDXComponents({
             // this allows you to link to other pages with relative file paths
-            a: createRelativeLink(aboutSource, page),
+            a: createRelativeLink(sem6Source, page),
           })}
         />
       </DocsBody>
@@ -35,14 +35,14 @@ export default async function Page(props: {
 }
 
 export async function generateStaticParams() {
-  return aboutSource.generateParams();
+  return sem6Source.generateParams();
 }
 
 export async function generateMetadata(props: {
   params: Promise<{ slug?: string[] }>;
 }) {
   const params = await props.params;
-  const page = aboutSource.getPage(params.slug);
+  const page = sem6Source.getPage(params.slug);
   if (!page) notFound();
 
   return {

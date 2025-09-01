@@ -1,4 +1,9 @@
-import { aboutSource, sem5Source, sem6Source, sem7Source } from "@/lib/source";
+import {
+  aboutSource,
+  sem5Source,
+  sem6Source,
+  sem7Source,
+} from "@/src/lib/source";
 import { createSearchAPI } from "fumadocs-core/search/server";
 
 export const revalidate = false;
