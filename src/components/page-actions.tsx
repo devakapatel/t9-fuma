@@ -105,7 +105,7 @@ export function ViewOptions({
         Open
         <ChevronDown className="size-3.5 text-fd-muted-foreground" />
       </PopoverTrigger>
-      <PopoverContent className="flex flex-col overflow-auto">
+      <PopoverContent align="start" className="flex flex-col overflow-auto">
         {items.map((item) => (
           <a
             key={item.href}
