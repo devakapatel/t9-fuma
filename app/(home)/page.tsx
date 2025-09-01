@@ -21,25 +21,25 @@ const Page: React.FC = () => {
   const actionButtons = [
     {
       label: "Join WhatsApp Group",
-      href: "/about",
+      href: "https://chat.whatsapp.com/JuvHVkzVjc41ywITKe23h0",
       icon: MessageCircle,
       description: "Connect with peers",
     },
     {
       label: "Submit Material",
-      href: "/contact",
+      href: "https://tally.so/r/nr6d2N",
       icon: Send,
       description: "Share resources",
     },
     {
       label: "Feedback & Queries",
-      href: "/privacy",
+      href: "https://tally.so/r/w48opO",
       icon: Star,
       description: "Help us improve",
     },
     {
       label: "About T9",
-      href: "/careers",
+      href: "/about",
       icon: Info,
       description: "Learn more",
     },
