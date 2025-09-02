@@ -6,7 +6,7 @@ export default function Hello() {
   const [msg, setMsg] = useState<string>("");
 
   useEffect(() => {
-    fetch("https://api.yourdomain.com/hello.php", {
+    fetch("https://remoteserver.liveblog365.com/hello.php", {
       method: "GET",
       credentials: "omit",
     })
