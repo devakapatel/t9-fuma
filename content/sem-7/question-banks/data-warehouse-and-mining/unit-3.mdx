@@ -6,24 +6,26 @@ title: Unit 3
 
 Market Basket Analysis (MBA) is a data mining technique used to discover relationships and associations between items that are frequently bought together. It's a key part of **association rule mining**, which is based on the theory that if a customer buys a certain group of items, they are more likely to buy another specific item. The goal is to identify strong "if-then" patterns, or **association rules**, from large transaction datasets.
 
-For example, a classic association rule is `{Diapers} → {Baby Wipes}`, meaning that customers who buy diapers are also likely to buy baby wipes.  This information can be used to optimize store layouts, create product bundles, and personalize recommendations.
+For example, a classic association rule is `{Diapers} → {Baby Wipes}`, meaning that customers who buy diapers are also likely to buy baby wipes. This information can be used to optimize store layouts, create product bundles, and personalize recommendations.
 
 The process of mining these patterns involves two main steps:
 
 ### 1. Frequent Itemset Mining
+
 An **itemset** is a collection of one or more items. A **frequent itemset** is an itemset that appears in a minimum number of transactions, defined by a metric called **support**.
 
-* **Support:** This is the measure of how frequently an itemset appears in the dataset. It's calculated as the proportion of transactions that contain the itemset.
-    $$\text{Support}(A \cup B) = \frac{\text{Number of transactions containing both A and B}}{\text{Total number of transactions}}$$
-* **Apriori Algorithm:** One of the most common algorithms for finding frequent itemsets. It works by first finding all frequent single items, then using those to generate candidate frequent pairs, and so on. A key principle is that if an itemset is frequent, all of its subsets must also be frequent. This allows the algorithm to "prune" (or eliminate) many candidate itemsets, making the process more efficient.
+- **Support:** This is the measure of how frequently an itemset appears in the dataset. It's calculated as the proportion of transactions that contain the itemset.
+  $$\text{Support}(A \cup B) = \frac{\text{Number of transactions containing both A and B}}{\text{Total number of transactions}}$$
+- **Apriori Algorithm:** One of the most common algorithms for finding frequent itemsets. It works by first finding all frequent single items, then using those to generate candidate frequent pairs, and so on. A key principle is that if an itemset is frequent, all of its subsets must also be frequent. This allows the algorithm to "prune" (or eliminate) many candidate itemsets, making the process more efficient.
 
 ### 2. Association Rule Generation
+
 Once all frequent itemsets are identified, the next step is to generate association rules from them. Each rule is a statement of the form **A → B**, where A is the **antecedent** (the items already in the basket) and B is the **consequent** (the items likely to be bought next). The strength and significance of these rules are measured using two key metrics:
 
-* **Confidence:** This measures the likelihood that item B is purchased when item A is present in the transaction. It's the conditional probability of B given A.
-    $$\text{Confidence}(A \rightarrow B) = \frac{\text{Support}(A \cup B)}{\text{Support}(A)}$$
-* **Lift:** This measures the strength of the association between A and B, taking into account the popularity of B. A lift value of **1** means there is no association. A lift **greater than 1** suggests a positive correlation (A and B are more likely to be bought together), while a lift **less than 1** suggests a negative correlation.
-    $$\text{Lift}(A \rightarrow B) = \frac{\text{Support}(A \cup B)}{\text{Support}(A) \times \text{Support}(B)}$$
+- **Confidence:** This measures the likelihood that item B is purchased when item A is present in the transaction. It's the conditional probability of B given A.
+  $$\text{Confidence}(A \rightarrow B) = \frac{\text{Support}(A \cup B)}{\text{Support}(A)}$$
+- **Lift:** This measures the strength of the association between A and B, taking into account the popularity of B. A lift value of **1** means there is no association. A lift **greater than 1** suggests a positive correlation (A and B are more likely to be bought together), while a lift **less than 1** suggests a negative correlation.
+  $$\text{Lift}(A \rightarrow B) = \frac{\text{Support}(A \cup B)}{\text{Support}(A) \times \text{Support}(B)}$$
 
 ## <mark> 2) What is Association Rule Mining? Explain it with an example. </mark>
 
@@ -44,7 +46,7 @@ where $$X$$ and $$Y$$ are itemsets, with $$X$$ as the antecedent (if part) and $
 Consider a transaction dataset from a supermarket:
 
 | Transaction ID | Items Purchased           |
-|----------------|---------------------------|
+| -------------- | ------------------------- |
 | 1              | Bread, Milk               |
 | 2              | Bread, Diaper, Beer, Eggs |
 | 3              | Milk, Diaper, Beer, Coke  |
@@ -102,7 +104,7 @@ The **Apriori algorithm** is a classic and influential algorithm used for **asso
 
 The algorithm works in a "breadth-first" manner, starting with single items and progressively generating larger itemsets. It has two main phases:
 
-1.  **Join Step:** This involves generating candidate itemsets of size *k* from the frequent itemsets of size *k-1*.
+1.  **Join Step:** This involves generating candidate itemsets of size _k_ from the frequent itemsets of size _k-1_.
 2.  **Prune Step:** This uses the Apriori property to remove candidate itemsets that are guaranteed to be infrequent.
 
 ---
@@ -113,57 +115,63 @@ Let's use a small transactional database with a minimum support threshold of 50%
 
 **Transactional Database:**
 
-| **Transaction ID** | **Items** |
-| :--- | :--- |
-| T1 | `{A, B, C}` |
-| T2 | `{A, C, D}` |
-| T3 | `{B, C, E}` |
-| T4 | `{A, B, C, E}` |
+| **Transaction ID** | **Items**      |
+| :----------------- | :------------- |
+| T1                 | `{A, B, C}`    |
+| T2                 | `{A, C, D}`    |
+| T3                 | `{B, C, E}`    |
+| T4                 | `{A, B, C, E}` |
 
 #### Step 1: Find Frequent 1-Itemsets ($L_1$)
+
 First, we count the frequency of each individual item.
 
 | **Itemset** | **Count** | **Is Frequent?** |
-| :--- | :--- | :--- |
-| `{A}` | 3 | Yes (3/4 = 75%) |
-| `{B}` | 3 | Yes (3/4 = 75%) |
-| `{C}` | 4 | Yes (4/4 = 100%) |
-| `{D}` | 1 | No (1/4 = 25%) |
-| `{E}` | 2 | Yes (2/4 = 50%) |
+| :---------- | :-------- | :--------------- |
+| `{A}`       | 3         | Yes (3/4 = 75%)  |
+| `{B}`       | 3         | Yes (3/4 = 75%)  |
+| `{C}`       | 4         | Yes (4/4 = 100%) |
+| `{D}`       | 1         | No (1/4 = 25%)   |
+| `{E}`       | 2         | Yes (2/4 = 50%)  |
 
 The frequent 1-itemsets are $L_1$ = **`{A, B, C, E}`**.
 
 #### Step 2: Generate and Prune 2-Itemsets ($C_2$)
+
 **Generate:** We combine the items from $L_1$ to create candidate 2-itemsets: `{A,B}, {A,C}, {A,E}, {B,C}, {B,E}, {C,E}`.
 
 **Prune:** Since all subsets of a frequent itemset must be frequent, there's no pruning to do at this step. We then count their frequencies.
 
 | **Itemset** | **Count** | **Is Frequent?** |
-| :--- | :--- | :--- |
-| `{A, B}` | 2 | Yes (50%) |
-| `{A, C}` | 3 | Yes (75%) |
-| `{A, E}` | 1 | No (25%) |
-| `{B, C}` | 3 | Yes (75%) |
-| `{B, E}` | 2 | Yes (50%) |
-| `{C, E}` | 2 | Yes (50%) |
+| :---------- | :-------- | :--------------- |
+| `{A, B}`    | 2         | Yes (50%)        |
+| `{A, C}`    | 3         | Yes (75%)        |
+| `{A, E}`    | 1         | No (25%)         |
+| `{B, C}`    | 3         | Yes (75%)        |
+| `{B, E}`    | 2         | Yes (50%)        |
+| `{C, E}`    | 2         | Yes (50%)        |
 
 The frequent 2-itemsets are $L_2$ = **`{A,B}, {A,C}, {B,C}, {B,E}, {C,E}`**.
 
 #### Step 3: Generate and Prune 3-Itemsets ($C_3$)
+
 **Generate:** We combine itemsets from $L_2$ to form candidate 3-itemsets. From `{A,B}` and `{A,C}`, we get `{A, B, C}`. From `{B,C}` and `{B,E}`, we get `{B, C, E}`.
 So, our candidates are $C_3$ = **`{A, B, C}, {B, C, E}`**.
 
 **Prune:** Now we apply the Apriori property. For each candidate in $C_3$, we check if all of its 2-itemset subsets are in $L_2$.
-* **Candidate `{A, B, C}`:** Its subsets are `{A,B}, {A,C}, {B,C}`. All three are in $L_2$. So, this candidate is kept.
-* **Candidate `{A, B, E}`:** Its subsets are `{A,B}, {A,E}, {B,E}`. Since `{A,E}` is not in $L_2$, this candidate is pruned without even checking the database.
+
+- **Candidate `{A, B, C}`:** Its subsets are `{A,B}, {A,C}, {B,C}`. All three are in $L_2$. So, this candidate is kept.
+- **Candidate `{A, B, E}`:** Its subsets are `{A,B}, {A,E}, {B,E}`. Since `{A,E}` is not in $L_2$, this candidate is pruned without even checking the database.
 
 **Count:** We check the database for the remaining candidates.
-* **`{A, B, C}`:** Appears in T1 and T4. Count = 2.
-* **`{B, C, E}`:** Appears in T3 and T4. Count = 2.
+
+- **`{A, B, C}`:** Appears in T1 and T4. Count = 2.
+- **`{B, C, E}`:** Appears in T3 and T4. Count = 2.
 
 Both are frequent. So, the frequent 3-itemsets are $L_3$ = **`{A, B, C}, {B, C, E}`**.
 
 #### Step 4: Generate and Prune 4-Itemsets ($C_4$)
+
 We combine the itemsets from $L_3$. The only possible combination is `{A, B, C, E}`.
 **Prune:** The subsets of `{A, B, C, E}` are `{A, B, C}, {A, B, E}, {A, C, E}, {B, C, E}`. We know from our previous steps that `{A, B, E}` is not a frequent 3-itemset. Therefore, the candidate `{A, B, C, E}` is pruned.
 
@@ -171,32 +179,32 @@ The algorithm stops because no more frequent itemsets can be generated. The fina
 
 ## <mark> 5) State the Apriori Property. Generate large itemsets and association rules using Apriori algorithm on the following data set with minimum support value = 50% and minimum confidence value = 75%. </mark>
 
-| TID | Items Purchased                  |
-|-----|----------------------------------|
-| T1  | Bread, Cheese, Egg, Juice        |
-| T2  | Bread, Cheese, Juice             |
-| T3  | Bread, Milk, Yogurt              |
-| T4  | Bread, Juice, Milk               |
-| T5  | Cheese, Juice, Milk              |
+| TID | Items Purchased           |
+| --- | ------------------------- |
+| T1  | Bread, Cheese, Egg, Juice |
+| T2  | Bread, Cheese, Juice      |
+| T3  | Bread, Milk, Yogurt       |
+| T4  | Bread, Juice, Milk        |
+| T5  | Cheese, Juice, Milk       |
 
 The **Apriori property** is a key principle in association rule mining. It states that if an itemset is **frequent**, then all of its subsets must also be **frequent**. Conversely, if an itemset is **infrequent**, then all of its supersets must also be infrequent. This property allows the algorithm to prune the search space efficiently.
 
 ### Generating Large Itemsets
 
-The minimum support threshold is 50%. Since there are 5 transactions, an itemset must appear in at least 3 transactions to be considered frequent (5 * 0.50 = 2.5, rounded up to 3).
+The minimum support threshold is 50%. Since there are 5 transactions, an itemset must appear in at least 3 transactions to be considered frequent (5 \* 0.50 = 2.5, rounded up to 3).
 
 #### Step 1: Find Frequent 1-Itemsets ($L_1$)
 
 We count the frequency of each individual item.
 
-| Itemset | Count | Is Frequent? |
-| :--- | :--- | :--- |
-| `{Bread}` | 4 | Yes (4/5 = 80%) |
-| `{Cheese}` | 3 | Yes (3/5 = 60%) |
-| `{Egg}` | 1 | No (1/5 = 20%) |
-| `{Juice}` | 4 | Yes (4/5 = 80%) |
-| `{Milk}` | 3 | Yes (3/5 = 60%) |
-| `{Yogurt}` | 1 | No (1/5 = 20%) |
+| Itemset    | Count | Is Frequent?    |
+| :--------- | :---- | :-------------- |
+| `{Bread}`  | 4     | Yes (4/5 = 80%) |
+| `{Cheese}` | 3     | Yes (3/5 = 60%) |
+| `{Egg}`    | 1     | No (1/5 = 20%)  |
+| `{Juice}`  | 4     | Yes (4/5 = 80%) |
+| `{Milk}`   | 3     | Yes (3/5 = 60%) |
+| `{Yogurt}` | 1     | No (1/5 = 20%)  |
 
 The frequent 1-itemsets are $L_1$ = **`{Bread}, {Cheese}, {Juice}, {Milk}`**.
 
@@ -204,14 +212,14 @@ The frequent 1-itemsets are $L_1$ = **`{Bread}, {Cheese}, {Juice}, {Milk}`**.
 
 We generate candidate 2-itemsets from $L_1$ and then count their frequencies.
 
-| Itemset | Count | Is Frequent? |
-| :--- | :--- | :--- |
-| `{Bread, Cheese}` | 2 | No (40%) |
-| `{Bread, Juice}` | 3 | Yes (60%) |
-| `{Bread, Milk}` | 2 | No (40%) |
-| `{Cheese, Juice}` | 2 | No (40%) |
-| `{Cheese, Milk}` | 1 | No (20%) |
-| `{Juice, Milk}` | 2 | No (40%) |
+| Itemset           | Count | Is Frequent? |
+| :---------------- | :---- | :----------- |
+| `{Bread, Cheese}` | 2     | No (40%)     |
+| `{Bread, Juice}`  | 3     | Yes (60%)    |
+| `{Bread, Milk}`   | 2     | No (40%)     |
+| `{Cheese, Juice}` | 2     | No (40%)     |
+| `{Cheese, Milk}`  | 1     | No (20%)     |
+| `{Juice, Milk}`   | 2     | No (40%)     |
 
 The frequent 2-itemsets are $L_2$ = **`{Bread, Juice}`**.
 
@@ -228,15 +236,17 @@ We now generate rules from the frequent itemsets, with a minimum confidence of 7
 #### From $L_2$ = `{Bread, Juice}`
 
 We can generate two rules:
+
 1.  **`{Bread} → {Juice}`**
-    * **`Support({Bread, Juice})`** = 3/5 = 60%
-    * **Confidence** = $\frac{\text{Support}(\text{{Bread, Juice}})}{\text{Support}(\text{{Bread}})} = \frac{60\%}{80\%} = 75\%$
-    * Since the confidence is 75%, this is a **strong rule**.
+
+    - **`Support({Bread, Juice})`** = 3/5 = 60%
+    - **Confidence** = $\frac{\text{Support}(\text{{Bread, Juice}})}{\text{Support}(\text{{Bread}})} = \frac{60\%}{80\%} = 75\%$
+    - Since the confidence is 75%, this is a **strong rule**.
 
 2.  **`{Juice} → {Bread}`**
-    * **`Support({Bread, Juice})`** = 3/5 = 60%
-    * **Confidence** = $\frac{\text{Support}(\text{{Bread, Juice}})}{\text{Support}(\text{{Juice}})} = \frac{60\%}{80\%} = 75\%$
-    * Since the confidence is 75%, this is also a **strong rule**.
+    - **`Support({Bread, Juice})`** = 3/5 = 60%
+    - **Confidence** = $\frac{\text{Support}(\text{{Bread, Juice}})}{\text{Support}(\text{{Juice}})} = \frac{60\%}{80\%} = 75\%$
+    - Since the confidence is 75%, this is also a **strong rule**.
 
 No other strong rules can be generated from the given dataset based on the minimum support and confidence thresholds.
 
@@ -246,10 +256,10 @@ The **Apriori algorithm** has several drawbacks that can make it inefficient, es
 
 ### Drawbacks of Apriori Algorithm
 
-  * **Computational Complexity:** Apriori is computationally expensive and slow because it requires **multiple scans** of the entire database. For each iteration, the algorithm must read through the dataset again to count the support of the new candidate itemsets.
-  * **Memory Overhead:** The algorithm generates and stores a vast number of **candidate itemsets**, which can consume significant memory. The number of candidate sets can grow exponentially, especially with a low minimum support threshold.
-  * **Performance with Sparse Data:** Apriori performs poorly when the data is sparse, as it still generates a large number of candidate sets, most of which will be pruned later.
-  * **Difficulty with Low Support:** When the minimum support threshold is set too low, the number of candidate itemsets explodes, making the algorithm extremely inefficient.
+- **Computational Complexity:** Apriori is computationally expensive and slow because it requires **multiple scans** of the entire database. For each iteration, the algorithm must read through the dataset again to count the support of the new candidate itemsets.
+- **Memory Overhead:** The algorithm generates and stores a vast number of **candidate itemsets**, which can consume significant memory. The number of candidate sets can grow exponentially, especially with a low minimum support threshold.
+- **Performance with Sparse Data:** Apriori performs poorly when the data is sparse, as it still generates a large number of candidate sets, most of which will be pruned later.
+- **Difficulty with Low Support:** When the minimum support threshold is set too low, the number of candidate itemsets explodes, making the algorithm extremely inefficient.
 
 ### FP-Growth Algorithm
 
@@ -285,12 +295,12 @@ A **single-dimensional association rule** is an association rule that involves o
 
 Consider a supermarket's transactional database, where the only dimension is the `items_purchased`.
 
-| **Transaction ID** | **Items Purchased** |
-| :--- | :--- |
-| T100 | `{Milk, Bread, Butter}` |
-| T200 | `{Milk, Butter, Cookies}` |
-| T300 | `{Milk, Eggs}` |
-| T400 | `{Bread, Butter, Eggs}` |
+| **Transaction ID** | **Items Purchased**       |
+| :----------------- | :------------------------ |
+| T100               | `{Milk, Bread, Butter}`   |
+| T200               | `{Milk, Butter, Cookies}` |
+| T300               | `{Milk, Eggs}`            |
+| T400               | `{Bread, Butter, Eggs}`   |
 
 A single-dimensional association rule mined from this data could be:
 
@@ -308,9 +318,9 @@ A **multi-dimensional association rule** is an association rule that involves at
 
 Consider a data warehouse that contains information about customer demographics and their transactions. The dimensions could include:
 
-* **Age:** The customer's age group.
-* **City:** The customer's city of residence.
-* **Items:** The items purchased by the customer.
+- **Age:** The customer's age group.
+- **City:** The customer's city of residence.
+- **Items:** The items purchased by the customer.
 
 A **multi-dimensional association rule** mined from this data could be:
 
@@ -328,11 +338,11 @@ A **multilevel association rule** is a type of association rule that finds relat
 
 Imagine a retail database with detailed sales records for a variety of food products. We can organize these products into a **concept hierarchy**:
 
-* **Level 0 (All)**: `All Items`
-* **Level 1**: `Food`
-* **Level 2**: `Dairy`, `Bakery`
-* **Level 3**: `Milk`, `Cheese`, `Bread`, `Cake`
-* **Level 4 (Specific items)**: `Whole Milk`, `Skim Milk`, `White Bread`, `Rye Bread`
+- **Level 0 (All)**: `All Items`
+- **Level 1**: `Food`
+- **Level 2**: `Dairy`, `Bakery`
+- **Level 3**: `Milk`, `Cheese`, `Bread`, `Cake`
+- **Level 4 (Specific items)**: `Whole Milk`, `Skim Milk`, `White Bread`, `Rye Bread`
 
 Using multilevel association rule mining, we can find relationships across these levels. A single-level rule might find a strong association between `{Whole Milk}` and `{White Bread}`. However, a multilevel rule could reveal a more general and often more significant pattern:
 
@@ -341,6 +351,7 @@ Using multilevel association rule mining, we can find relationships across these
 This rule indicates that customers who buy any type of dairy product are also likely to buy any type of bakery item. This is a more powerful insight than a rule about two specific items, as it can be applied to a wider range of products for cross-selling and strategic planning.
 
 To find these rules, the algorithm can either:
+
 1.  **Uniform Support:** Use the same minimum support threshold for all levels of the hierarchy. This can be problematic as specific items at lower levels will naturally have lower support.
 2.  **Reduced Support:** Use a lower minimum support threshold for lower levels of the hierarchy. This is often more effective, as it allows for the discovery of interesting but less frequent patterns.
 
@@ -362,9 +373,9 @@ Constraint-based association rule mining is a method that allows a user or analy
 
 For example, a user could set constraints such as:
 
-* **Rule Form:** The rule must be of the form `P(x) → Q(x)`, where P and Q are specific predicates.
-* **Item Constraints:** The rule must include a specific item, like "laptops."
-* **Data Constraints:** The rule must apply only to customers in a certain region, such as "California."
+- **Rule Form:** The rule must be of the form `P(x) → Q(x)`, where P and Q are specific predicates.
+- **Item Constraints:** The rule must include a specific item, like "laptops."
+- **Data Constraints:** The rule must apply only to customers in a certain region, such as "California."
 
 By applying these constraints, the algorithm can drastically reduce the search space and produce a smaller, more focused set of meaningful rules. This approach is much more efficient than generating all possible rules and then manually filtering them.
 
@@ -377,50 +388,55 @@ Classification is a supervised machine learning process that categorizes data in
 The classification process typically follows these steps:
 
 1.  **Training Phase (Learning):**
-    * **Data Collection & Preprocessing:** A dataset is collected. This data is then cleaned, transformed, and prepared for the model. For classification, the key is that this data includes **features** (the attributes used for prediction) and a corresponding **class label** (the correct answer). For example, a dataset of emails would include features like word frequency and sender information, along with a label of either "spam" or "not spam."
-    * **Model Training:** A classification algorithm (e.g., Decision Tree, Naive Bayes) is used to analyze the training data. The algorithm learns the patterns and relationships between the features and the class labels. The output of this phase is a **classifier**, which is the trained model.
+
+    - **Data Collection & Preprocessing:** A dataset is collected. This data is then cleaned, transformed, and prepared for the model. For classification, the key is that this data includes **features** (the attributes used for prediction) and a corresponding **class label** (the correct answer). For example, a dataset of emails would include features like word frequency and sender information, along with a label of either "spam" or "not spam."
+    - **Model Training:** A classification algorithm (e.g., Decision Tree, Naive Bayes) is used to analyze the training data. The algorithm learns the patterns and relationships between the features and the class labels. The output of this phase is a **classifier**, which is the trained model.
 
 2.  **Prediction Phase (Testing):**
-    * **New Data Input:** A new, unlabeled data point is fed into the trained classifier. The model has never seen this data before.
-    * **Class Prediction:** The classifier uses the patterns it learned during the training phase to predict the most likely class for the new data point.
-    * **Evaluation:** The performance of the classifier is evaluated using a separate test dataset. Common evaluation metrics include accuracy, precision, and recall.
+    - **New Data Input:** A new, unlabeled data point is fed into the trained classifier. The model has never seen this data before.
+    - **Class Prediction:** The classifier uses the patterns it learned during the training phase to predict the most likely class for the new data point.
+    - **Evaluation:** The performance of the classifier is evaluated using a separate test dataset. Common evaluation metrics include accuracy, precision, and recall.
 
 ### Example: Spam Detection
 
 Let's illustrate the process with a simple spam detection example.
 
 **Training Phase:**
-* **Dataset:** We have a dataset of 100 emails, each with a label: **spam** or **not spam**.
-* **Features:** We extract features from each email, such as:
-    * `has_nigerian_prince_phrase`: True/False
-    * `word_count`: A number
-    * `contains_link`: True/False
-* **Model:** We use a **Decision Tree** algorithm. The algorithm learns rules from the data, such as: "If `has_nigerian_prince_phrase` is true, the email is likely spam."
-* **Output:** The result is a trained classifier that can now make predictions.
+
+- **Dataset:** We have a dataset of 100 emails, each with a label: **spam** or **not spam**.
+- **Features:** We extract features from each email, such as:
+  - `has_nigerian_prince_phrase`: True/False
+  - `word_count`: A number
+  - `contains_link`: True/False
+- **Model:** We use a **Decision Tree** algorithm. The algorithm learns rules from the data, such as: "If `has_nigerian_prince_phrase` is true, the email is likely spam."
+- **Output:** The result is a trained classifier that can now make predictions.
 
 **Prediction Phase:**
-* **New Email:** A new email arrives. The model extracts its features.
-    * `has_nigerian_prince_phrase`: False
-    * `word_count`: 50
-    * `contains_link`: True
-* **Prediction:** The classifier applies its learned rules to these features. It might conclude that, based on the `contains_link` feature, the email is likely spam.
-* **Result:** The email is sorted into the "spam" folder.
+
+- **New Email:** A new email arrives. The model extracts its features.
+  - `has_nigerian_prince_phrase`: False
+  - `word_count`: 50
+  - `contains_link`: True
+- **Prediction:** The classifier applies its learned rules to these features. It might conclude that, based on the `contains_link` feature, the email is likely spam.
+- **Result:** The email is sorted into the "spam" folder.
 
 ## <mark> 12) Write a short note on descriptive and predictive data mining. </mark>
 
 Descriptive and predictive data mining are two fundamental approaches to analyzing data. They differ in their primary objective and the questions they aim to answer.
 
 ### Descriptive Data Mining
+
 Descriptive data mining focuses on summarizing and describing the characteristics of a dataset to answer the question, **"What has happened?"** It uses historical data to identify patterns, correlations, and trends that already exist. This approach provides insights into the past and present, helping us understand the current state of a business or a system. Common descriptive tasks include:
 
-* **Clustering:** Grouping similar data points together. For example, a company might cluster its customers into different segments based on their buying habits.
-* **Association Rule Mining:** Discovering relationships between items. A classic example is market basket analysis, which finds that customers who buy diapers also tend to buy baby wipes.
+- **Clustering:** Grouping similar data points together. For example, a company might cluster its customers into different segments based on their buying habits.
+- **Association Rule Mining:** Discovering relationships between items. A classic example is market basket analysis, which finds that customers who buy diapers also tend to buy baby wipes.
 
 ### Predictive Data Mining
+
 Predictive data mining uses historical data to make **inferences and forecasts about the future**. It answers the question, **"What is likely to happen?"** This approach builds models from past data and uses them to predict outcomes, identify future trends, or classify new data points. Predictive models are often less accurate than descriptive summaries because they deal with uncertainty. Common predictive tasks include:
 
-* **Classification:** Categorizing new data into predefined classes. For example, a spam filter classifies a new email as either "spam" or "not spam."
-* **Regression:** Forecasting a continuous numerical value. For example, a retail company might use regression to predict next month's sales based on historical data.
+- **Classification:** Categorizing new data into predefined classes. For example, a spam filter classifies a new email as either "spam" or "not spam."
+- **Regression:** Forecasting a continuous numerical value. For example, a retail company might use regression to predict next month's sales based on historical data.
 
 ## <mark> 13) What is Bayesian Classification? Explain Naive Bayes Theorem with a suitable example. </mark>
 
@@ -433,10 +449,11 @@ The Naive Bayes Classifier is a simple yet effective probabilistic classifier ba
 The theorem is expressed as:
 $$P(C|X) = \frac{P(X|C)P(C)}{P(X)}$$
 Where:
-* $P(C|X)$: **Posterior Probability** of class $C$ given the data $X$. This is what we want to find.
-* $P(X|C)$: **Likelihood**, the probability of data $X$ given class $C$.
-* $P(C)$: **Prior Probability** of class $C$.
-* $P(X)$: **Evidence**, the prior probability of data $X$.
+
+- $P(C|X)$: **Posterior Probability** of class $C$ given the data $X$. This is what we want to find.
+- $P(X|C)$: **Likelihood**, the probability of data $X$ given class $C$.
+- $P(C)$: **Prior Probability** of class $C$.
+- $P(X)$: **Evidence**, the prior probability of data $X$.
 
 For a new data point $X$ with features $x_1, x_2, ..., x_n$, the naive assumption allows us to simplify the likelihood:
 $$P(X|C) = P(x_1|C) \times P(x_2|C) \times ... \times P(x_n|C)$$
@@ -447,30 +464,32 @@ The classifier then predicts the class that has the highest posterior probabilit
 
 Imagine we want to classify a fruit as either a **Banana** or an **Orange** based on two features: **Color** (yellow, orange) and **Shape** (long, round). We have a training dataset of 20 fruits:
 
-* **10 Bananas** (9 yellow, 1 orange; 8 long, 2 round)
-* **10 Oranges** (1 yellow, 9 orange; 1 long, 9 round)
+- **10 Bananas** (9 yellow, 1 orange; 8 long, 2 round)
+- **10 Oranges** (1 yellow, 9 orange; 1 long, 9 round)
 
 Now, we have a new fruit with the features: **Color = yellow** and **Shape = long**. Let's use Naive Bayes to classify it.
 
 **Step 1: Calculate Prior Probabilities**
-* $P(\text{Banana}) = \frac{10}{20} = 0.5$
-* $P(\text{Orange}) = \frac{10}{20} = 0.5$
+
+- $P(\text{Banana}) = \frac{10}{20} = 0.5$
+- $P(\text{Orange}) = \frac{10}{20} = 0.5$
 
 **Step 2: Calculate Likelihoods (P(X|C))**
-* **For Banana:**
-    * $P(\text{yellow}|\text{Banana}) = \frac{9}{10} = 0.9$
-    * $P(\text{long}|\text{Banana}) = \frac{8}{10} = 0.8$
-* **For Orange:**
-    * $P(\text{yellow}|\text{Orange}) = \frac{1}{10} = 0.1$
-    * $P(\text{long}|\text{Orange}) = \frac{1}{10} = 0.1$
+
+- **For Banana:**
+  - $P(\text{yellow}|\text{Banana}) = \frac{9}{10} = 0.9$
+  - $P(\text{long}|\text{Banana}) = \frac{8}{10} = 0.8$
+- **For Orange:**
+  - $P(\text{yellow}|\text{Orange}) = \frac{1}{10} = 0.1$
+  - $P(\text{long}|\text{Orange}) = \frac{1}{10} = 0.1$
 
 **Step 3: Calculate Posterior Probabilities (Ignoring P(X))**
 Since $P(X)$ is the same for all classes, we only need to compare the numerators ($P(X|C) \times P(C)$).
 
-* **For Banana:**
-    * $P(\text{yellow, long}|\text{Banana}) \times P(\text{Banana}) = (0.9 \times 0.8) \times 0.5 = 0.36$
-* **For Orange:**
-    * $P(\text{yellow, long}|\text{Orange}) \times P(\text{Orange}) = (0.1 \times 0.1) \times 0.5 = 0.005$
+- **For Banana:**
+  - $P(\text{yellow, long}|\text{Banana}) \times P(\text{Banana}) = (0.9 \times 0.8) \times 0.5 = 0.36$
+- **For Orange:**
+  - $P(\text{yellow, long}|\text{Orange}) \times P(\text{Orange}) = (0.1 \times 0.1) \times 0.5 = 0.005$
 
 **Step 4: Make a Prediction**
 Since the posterior probability is much higher for **Banana** (0.36) than for **Orange** (0.005), the classifier predicts the new fruit is a **Banana**.
@@ -504,10 +523,10 @@ Associative classification is a supervised learning approach that combines two m
 
 Over time, various algorithms have been developed to improve the efficiency and accuracy of associative classification. Here are some of the most notable types:
 
-* **CBA (Classification Based on Associations):** This is one of the earliest and most well-known associative classification algorithms. It uses a modified Apriori algorithm to mine all frequent class association rules that meet a minimum support and confidence threshold. It then builds a classifier by selecting a subset of the highest-confidence rules to form an ordered list. When classifying new data, it uses the first rule in the list that matches the data.
-* **CMAR (Classification based on Multiple Association Rules):** CMAR is an improvement over CBA that uses a more sophisticated approach. Instead of using just one matching rule, it considers **multiple rules** that cover the same instance and uses a statistical analysis (like a chi-square test) to combine their predictions. This often leads to higher accuracy, especially for complex datasets.
-* **CPAR (Classification based on Predictive Association Rules):** CPAR is a more efficient algorithm that directly generates predictive rules from the training data, without the need for a separate candidate generation step like in Apriori. It uses a greedy algorithm that creates and prunes rules in a single pass, making it faster and more scalable than CBA.
-* **ARC (Associative Rule-based Classifier):** ARC is a more recent approach that focuses on improving the pruning and selection of rules to create a smaller, more accurate classifier. It uses techniques to identify and remove redundant or less-useful rules to build a more compact and effective model.
+- **CBA (Classification Based on Associations):** This is one of the earliest and most well-known associative classification algorithms. It uses a modified Apriori algorithm to mine all frequent class association rules that meet a minimum support and confidence threshold. It then builds a classifier by selecting a subset of the highest-confidence rules to form an ordered list. When classifying new data, it uses the first rule in the list that matches the data.
+- **CMAR (Classification based on Multiple Association Rules):** CMAR is an improvement over CBA that uses a more sophisticated approach. Instead of using just one matching rule, it considers **multiple rules** that cover the same instance and uses a statistical analysis (like a chi-square test) to combine their predictions. This often leads to higher accuracy, especially for complex datasets.
+- **CPAR (Classification based on Predictive Association Rules):** CPAR is a more efficient algorithm that directly generates predictive rules from the training data, without the need for a separate candidate generation step like in Apriori. It uses a greedy algorithm that creates and prunes rules in a single pass, making it faster and more scalable than CBA.
+- **ARC (Associative Rule-based Classifier):** ARC is a more recent approach that focuses on improving the pruning and selection of rules to create a smaller, more accurate classifier. It uses techniques to identify and remove redundant or less-useful rules to build a more compact and effective model.
 
 ## <mark> 16) Explain the basics of Back Propagation. Write an algorithm for Back Propagation. </mark>
 
@@ -531,26 +550,26 @@ Here is a simplified algorithm for training a neural network with backpropagatio
 
 2.  **Iterate for each Training Example:** For every training example in the dataset, perform the following steps:
 
-    a.  **Forward Pass:**
-        * Feed the input data forward through the network, calculating the output of each neuron.
-        * For each layer, the output is calculated as:
-            `output = activation_function(weighted_sum_of_inputs)`
+    a. **Forward Pass:**
+    _ Feed the input data forward through the network, calculating the output of each neuron.
+    _ For each layer, the output is calculated as:
+    `output = activation_function(weighted_sum_of_inputs)`
 
-    b.  **Calculate the Error:**
-        * Compare the network's final output to the target output using a loss function (e.g., Mean Squared Error).
-        * `error = target_output - actual_output`
+    b. **Calculate the Error:**
+    _ Compare the network's final output to the target output using a loss function (e.g., Mean Squared Error).
+    _ `error = target_output - actual_output`
 
-    c.  **Backward Pass:**
-        * Starting from the output layer, calculate the error gradient for each neuron. This determines how much each neuron's output contributed to the overall error.
-        * Propagate this error backward through the network, calculating the error gradient for the neurons in the preceding hidden layers.
+    c. **Backward Pass:**
+    _ Starting from the output layer, calculate the error gradient for each neuron. This determines how much each neuron's output contributed to the overall error.
+    _ Propagate this error backward through the network, calculating the error gradient for the neurons in the preceding hidden layers.
 
-    d.  **Update Weights:**
-        * Use the calculated error gradients to adjust the weights. The amount of adjustment is determined by the **learning rate**.
-        * `new_weight = old_weight - (learning_rate * gradient_of_error)`
+    d. **Update Weights:**
+    _ Use the calculated error gradients to adjust the weights. The amount of adjustment is determined by the **learning rate**.
+    _ `new_weight = old_weight - (learning_rate * gradient_of_error)`
 
 3.  **Repeat:** Repeat step 2 for a set number of **epochs** (passes through the entire training dataset) or until the network's performance on a validation set no longer improves.
 
-## <mark> 20) What are the fundamentals of Prediction? Discuss the issues regarding prediction. </mark>
+## <mark> 17) What are the fundamentals of Prediction? Discuss the issues regarding prediction. </mark>
 
 Prediction in data mining is the process of using historical data to forecast a future or unknown value. Unlike descriptive analysis, which summarizes what has happened, prediction aims to answer the question, **"What is likely to happen?"** It's a fundamental part of predictive analytics, enabling proactive, data-driven decisions in various fields like business, science, and finance.
 
@@ -560,45 +579,45 @@ Prediction is a supervised learning task where a model learns from a training da
 
 The fundamentals can be broken down into:
 
-* **Target Variable:** The variable you are trying to predict. It can be a **continuous numerical value** (e.g., house price, temperature) or a **discrete categorical label** (e.g., spam/not spam, disease/no disease).
-* **Input Features:** The attributes or variables used to make the prediction (e.g., number of rooms, square footage).
-* **Model:** The algorithm used to learn the relationship between the features and the target.
-    * **Regression:** Used for predicting continuous values. Techniques include Linear Regression and Time Series Analysis.
-    * **Classification:** Used for predicting categorical labels. Techniques include Decision Trees, Naive Bayes, and Neural Networks.
-* **Evaluation:** Assessing the model's accuracy. This is typically done by comparing the model's predictions on a test dataset with the actual outcomes. Common metrics include Mean Squared Error (for regression) and Accuracy, Precision, and Recall (for classification).
+- **Target Variable:** The variable you are trying to predict. It can be a **continuous numerical value** (e.g., house price, temperature) or a **discrete categorical label** (e.g., spam/not spam, disease/no disease).
+- **Input Features:** The attributes or variables used to make the prediction (e.g., number of rooms, square footage).
+- **Model:** The algorithm used to learn the relationship between the features and the target.
+  - **Regression:** Used for predicting continuous values. Techniques include Linear Regression and Time Series Analysis.
+  - **Classification:** Used for predicting categorical labels. Techniques include Decision Trees, Naive Bayes, and Neural Networks.
+- **Evaluation:** Assessing the model's accuracy. This is typically done by comparing the model's predictions on a test dataset with the actual outcomes. Common metrics include Mean Squared Error (for regression) and Accuracy, Precision, and Recall (for classification).
 
 ### Issues Regarding Prediction
 
 Despite its power, predictive modeling faces several issues that can compromise its accuracy and reliability.
 
-* **Data Quality:** The most critical issue. A model is only as good as the data it's trained on. Problems like **missing values**, **inconsistent data**, and **outliers** can lead to skewed, unreliable predictions. Poor data quality can even cause the model to learn incorrect relationships.
-* **Overfitting and Underfitting:**
-    * **Overfitting:** A model that is too complex for the data will "memorize" the training data, including its noise and random fluctuations. As a result, it performs exceptionally well on the training data but fails to generalize to new data, leading to poor real-world performance.
-    * **Underfitting:** A model that is too simple to capture the underlying patterns in the data. It performs poorly on both the training and test datasets. This can happen when a simple linear model is used for data with complex, non-linear relationships.
-* **Feature Selection:** Not all features in a dataset are equally important. Including **irrelevant or redundant features** can confuse the model, slow down the training process, and even degrade prediction accuracy. The challenge is to identify the most relevant features without losing valuable information.
-* **Bias:** A significant ethical issue. If the historical data used to train the model contains **bias** (e.g., racial, gender, or socioeconomic biases), the model will learn and perpetuate these biases, leading to unfair or discriminatory outcomes. This is a major concern in applications like loan approvals and hiring.
-* **Interpretability:** More complex models, such as neural networks, are often referred to as "black boxes" because it's difficult to understand how they arrive at a particular prediction. In high-stakes fields like medicine or finance, it's crucial to be able to explain the reasoning behind a prediction, which can be a major challenge.
+- **Data Quality:** The most critical issue. A model is only as good as the data it's trained on. Problems like **missing values**, **inconsistent data**, and **outliers** can lead to skewed, unreliable predictions. Poor data quality can even cause the model to learn incorrect relationships.
+- **Overfitting and Underfitting:**
+  - **Overfitting:** A model that is too complex for the data will "memorize" the training data, including its noise and random fluctuations. As a result, it performs exceptionally well on the training data but fails to generalize to new data, leading to poor real-world performance.
+  - **Underfitting:** A model that is too simple to capture the underlying patterns in the data. It performs poorly on both the training and test datasets. This can happen when a simple linear model is used for data with complex, non-linear relationships.
+- **Feature Selection:** Not all features in a dataset are equally important. Including **irrelevant or redundant features** can confuse the model, slow down the training process, and even degrade prediction accuracy. The challenge is to identify the most relevant features without losing valuable information.
+- **Bias:** A significant ethical issue. If the historical data used to train the model contains **bias** (e.g., racial, gender, or socioeconomic biases), the model will learn and perpetuate these biases, leading to unfair or discriminatory outcomes. This is a major concern in applications like loan approvals and hiring.
+- **Interpretability:** More complex models, such as neural networks, are often referred to as "black boxes" because it's difficult to understand how they arrive at a particular prediction. In high-stakes fields like medicine or finance, it's crucial to be able to explain the reasoning behind a prediction, which can be a major challenge.
 
-## <mark> 21) What is classification and prediction? Describe the issues regarding classification and prediction. </mark>
+## <mark> 18) What is classification and prediction? Describe the issues regarding classification and prediction. </mark>
 
 Classification and prediction are both supervised learning techniques in data mining that use a model to make a forecast based on a training dataset. The key difference lies in the type of output they produce. **Classification** predicts a discrete or **categorical label**, while **prediction** forecasts a **continuous numerical value**.
 
 ### Classification and Prediction Explained
 
-* **Classification**
-    * **Goal:** To assign data into predefined classes or labels.
-    * **Output:** A categorical label.
-    * **Examples:**
-        * Classifying an email as "spam" or "not spam."
-        * Categorizing a loan applicant as "safe" or "risky."
-        * Diagnosing a tumor as "malignant" or "benign."
-* **Prediction**
-    * **Goal:** To forecast a future or unknown value.
-    * **Output:** A continuous numerical value.
-    * **Examples:**
-        * Predicting a house's price based on its features.
-        * Forecasting a company's sales for the next quarter.
-        * Predicting the temperature for the next day.
+- **Classification**
+  - **Goal:** To assign data into predefined classes or labels.
+  - **Output:** A categorical label.
+  - **Examples:**
+    - Classifying an email as "spam" or "not spam."
+    - Categorizing a loan applicant as "safe" or "risky."
+    - Diagnosing a tumor as "malignant" or "benign."
+- **Prediction**
+  - **Goal:** To forecast a future or unknown value.
+  - **Output:** A continuous numerical value.
+  - **Examples:**
+    - Predicting a house's price based on its features.
+    - Forecasting a company's sales for the next quarter.
+    - Predicting the temperature for the next day.
 
 Both processes follow a two-step approach: first, a model is trained using a labeled dataset, and second, the trained model is used to make predictions on new, unlabeled data.
 
@@ -606,20 +625,22 @@ Both processes follow a two-step approach: first, a model is trained using a lab
 
 Building a robust and accurate predictive model is challenging due to several issues that can arise throughout the process.
 
-* **Data Preparation:** This is often the most time-consuming and critical issue.
-    * **Data Cleaning:** Real-world data is often noisy, incomplete, or inconsistent. Missing values must be handled (e.g., by filling them in with the mean or a predicted value), and outliers must be smoothed out or removed to prevent them from skewing the model.
-    * **Relevance Analysis:** Not all attributes are useful for prediction. Irrelevant or redundant features can confuse the model and increase training time. Techniques like correlation analysis and feature selection are used to identify and remove these attributes.
-    * **Data Transformation:** Data may need to be transformed to a uniform format. For example, continuous data may be **normalized** to fit a specific range (e.g., [0, 1]) for algorithms sensitive to the magnitude of values.
+- **Data Preparation:** This is often the most time-consuming and critical issue.
 
-* **Model Evaluation and Selection:**
-    * **Overfitting and Underfitting:** An overfitted model learns the training data and its noise too well and performs poorly on new data. An underfitted model is too simple to capture the underlying patterns. The challenge is to find a model with the right complexity to balance these issues.
-    * **Accuracy:** The ultimate goal is to build a model with high accuracy, but it can be difficult to achieve, especially with noisy or complex data. Evaluating accuracy involves testing the model on a separate dataset not used for training.
+  - **Data Cleaning:** Real-world data is often noisy, incomplete, or inconsistent. Missing values must be handled (e.g., by filling them in with the mean or a predicted value), and outliers must be smoothed out or removed to prevent them from skewing the model.
+  - **Relevance Analysis:** Not all attributes are useful for prediction. Irrelevant or redundant features can confuse the model and increase training time. Techniques like correlation analysis and feature selection are used to identify and remove these attributes.
+  - **Data Transformation:** Data may need to be transformed to a uniform format. For example, continuous data may be **normalized** to fit a specific range (e.g., [0, 1]) for algorithms sensitive to the magnitude of values.
 
-* **Scalability:** Many classification and prediction algorithms are computationally expensive. As the size of the dataset grows exponentially, the computational cost to train the model can become unmanageable. The challenge is to find algorithms that are scalable to large data volumes without sacrificing accuracy.
+- **Model Evaluation and Selection:**
+
+  - **Overfitting and Underfitting:** An overfitted model learns the training data and its noise too well and performs poorly on new data. An underfitted model is too simple to capture the underlying patterns. The challenge is to find a model with the right complexity to balance these issues.
+  - **Accuracy:** The ultimate goal is to build a model with high accuracy, but it can be difficult to achieve, especially with noisy or complex data. Evaluating accuracy involves testing the model on a separate dataset not used for training.
+
+- **Scalability:** Many classification and prediction algorithms are computationally expensive. As the size of the dataset grows exponentially, the computational cost to train the model can become unmanageable. The challenge is to find algorithms that are scalable to large data volumes without sacrificing accuracy.
 
 For a detailed look at these concepts and their differences, watch this video on [Classification vs Prediction in Data Mining](https://www.youtube.com/watch?v=jv7XhUFFENw).
 
-## <mark> 22) What is Linear and Non-Linear Regression? Explain it with suitable examples. </mark>
+## <mark> 19) What is Linear and Non-Linear Regression? Explain it with suitable examples. </mark>
 
 **Linear regression** and **non-linear regression** are statistical models used to find a relationship between a dependent variable (the one you want to predict) and one or more independent variables. The key difference lies in the **form of the relationship** they assume.
 
@@ -630,10 +651,11 @@ Linear regression models the relationship between the variables using a **straig
 $$Y = \beta_0 + \beta_1 X$$
 
 Where:
-* $Y$ is the dependent variable.
-* $X$ is the independent variable.
-* $\beta_0$ is the y-intercept.
-* $\beta_1$ is the slope of the line.
+
+- $Y$ is the dependent variable.
+- $X$ is the independent variable.
+- $\beta_0$ is the y-intercept.
+- $\beta_1$ is the slope of the line.
 
 Even if a model includes polynomial terms, it's still considered a linear regression as long as it's linear in the parameters. For example, $Y = \beta_0 + \beta_1 X + \beta_2 X^2$ is a linear regression because the dependent variable is a linear combination of the parameters $\beta_0$, $\beta_1$, and $\beta_2$.
 
