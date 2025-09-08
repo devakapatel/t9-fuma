@@ -107,8 +107,6 @@ The algorithm works in a "breadth-first" manner, starting with single items and 
 1.  **Join Step:** This involves generating candidate itemsets of size _k_ from the frequent itemsets of size _k-1_.
 2.  **Prune Step:** This uses the Apriori property to remove candidate itemsets that are guaranteed to be infrequent.
 
----
-
 ### Example: Finding Frequent Patterns with Apriori
 
 Let's use a small transactional database with a minimum support threshold of 50% (meaning an itemset must appear in at least 2 out of 4 transactions to be considered frequent).
@@ -187,68 +185,107 @@ The algorithm stops because no more frequent itemsets can be generated. The fina
 | T4  | Bread, Juice, Milk        |
 | T5  | Cheese, Juice, Milk       |
 
-The **Apriori property** is a key principle in association rule mining. It states that if an itemset is **frequent**, then all of its subsets must also be **frequent**. Conversely, if an itemset is **infrequent**, then all of its supersets must also be infrequent. This property allows the algorithm to prune the search space efficiently.
+### Apriori Property
 
-### Generating Large Itemsets
+The **Apriori Property** is a fundamental principle used in the Apriori algorithm for market basket analysis. It states that:
 
-The minimum support threshold is 50%. Since there are 5 transactions, an itemset must appear in at least 3 transactions to be considered frequent (5 \* 0.50 = 2.5, rounded up to 3).
+> **If an itemset is frequent, then all of its subsets must also be frequent.**
 
-#### Step 1: Find Frequent 1-Itemsets ($L_1$)
+This property is anti-monotonic, meaning that if an itemset is infrequent, then all of its supersets must also be infrequent. The Apriori algorithm uses this property to efficiently prune the search space of candidate itemsets, significantly reducing the number of combinations that need to be checked.
 
-We count the frequency of each individual item.
+### Apriori Algorithm Walkthrough
 
-| Itemset    | Count | Is Frequent?    |
-| :--------- | :---- | :-------------- |
-| `{Bread}`  | 4     | Yes (4/5 = 80%) |
-| `{Cheese}` | 3     | Yes (3/5 = 60%) |
-| `{Egg}`    | 1     | No (1/5 = 20%)  |
-| `{Juice}`  | 4     | Yes (4/5 = 80%) |
-| `{Milk}`   | 3     | Yes (3/5 = 60%) |
-| `{Yogurt}` | 1     | No (1/5 = 20%)  |
+**Given:**
 
-The frequent 1-itemsets are $L_1$ = **`{Bread}, {Cheese}, {Juice}, {Milk}`**.
+- **Transactions (D):**
+  - T1: {Bread, Cheese, Egg, Juice}
+  - T2: {Bread, Cheese, Juice}
+  - T3: {Bread, Milk, Yogurt}
+  - T4: {Bread, Juice, Milk}
+  - T5: {Cheese, Juice, Milk}
+- **Total Transactions (N) = 5**
+- **Minimum Support (min_sup) = 50% = 2.5 transactions (so we'll use a count of 3)**
+- **Minimum Confidence (min_conf) = 75%**
 
-#### Step 2: Find Frequent 2-Itemsets ($L_2$)
+### Step 1: Generate Frequent 1-Itemsets ($L_1$)
 
-We generate candidate 2-itemsets from $L_1$ and then count their frequencies.
+We count the support for each individual item and prune those that don't meet the minimum support count of 3.
 
-| Itemset           | Count | Is Frequent? |
-| :---------------- | :---- | :----------- |
-| `{Bread, Cheese}` | 2     | No (40%)     |
-| `{Bread, Juice}`  | 3     | Yes (60%)    |
-| `{Bread, Milk}`   | 2     | No (40%)     |
-| `{Cheese, Juice}` | 2     | No (40%)     |
-| `{Cheese, Milk}`  | 1     | No (20%)     |
-| `{Juice, Milk}`   | 2     | No (40%)     |
+| Item   | Count |
+| :----- | :---: |
+| Bread  |   4   |
+| Cheese |   3   |
+| Egg    |   1   |
+| Juice  |   4   |
+| Milk   |   3   |
+| Yogurt |   1   |
 
-The frequent 2-itemsets are $L_2$ = **`{Bread, Juice}`**.
+The frequent 1-itemsets ($L_1$) are those with a count $\ge 3$.
+$L_1$ = {{Bread}, {Cheese}, {Juice}, {Milk}}
 
-#### Step 3: Find Frequent 3-Itemsets ($L_3$)
+### Step 2: Generate Frequent 2-Itemsets ($L_2$)
 
-We try to generate candidate 3-itemsets from $L_2$. Since there is only one frequent 2-itemset, no candidate 3-itemsets can be generated. The algorithm terminates.
+We generate candidate 2-itemsets from $L_1$ and count their support.
 
-The only large itemsets are from $L_1$ and $L_2$.
+| Candidate Itemset | Count |
+| :---------------- | :---: |
+| {Bread, Cheese}   |   2   |
+| {Bread, Juice}    |   3   |
+| {Bread, Milk}     |   2   |
+| {Cheese, Juice}   |   3   |
+| {Cheese, Milk}    |   2   |
+| {Juice, Milk}     |   2   |
 
-### Generating Association Rules
+After pruning, the frequent 2-itemsets ($L_2$) are:
+$L_2$ = {{Bread, Juice}, {Cheese, Juice}}
 
-We now generate rules from the frequent itemsets, with a minimum confidence of 75%.
+### Step 3: Generate Frequent 3-Itemsets ($L_3$)
 
-#### From $L_2$ = `{Bread, Juice}`
+We generate candidate 3-itemsets from $L_2$.
 
-We can generate two rules:
+- There are no common items between {Bread, Juice} and {Cheese, Juice} to form a 3-itemset.
+- The only candidate 3-itemset would be a combination of the two, {Bread, Cheese, Juice}, but this is not a valid join. A proper join from $L_2$ requires both itemsets to have a common prefix. Since there are no proper joins, we cannot generate any candidate 3-itemsets.
 
-1.  **`{Bread} → {Juice}`**
+Since no frequent 3-itemsets can be generated, the algorithm terminates.
 
-    - **`Support({Bread, Juice})`** = 3/5 = 60%
-    - **Confidence** = $\frac{\text{Support}(\text{{Bread, Juice}})}{\text{Support}(\text{{Bread}})} = \frac{60\%}{80\%} = 75\%$
-    - Since the confidence is 75%, this is a **strong rule**.
+The **Large Itemsets** are the frequent itemsets from all steps:
 
-2.  **`{Juice} → {Bread}`**
-    - **`Support({Bread, Juice})`** = 3/5 = 60%
-    - **Confidence** = $\frac{\text{Support}(\text{{Bread, Juice}})}{\text{Support}(\text{{Juice}})} = \frac{60\%}{80\%} = 75\%$
-    - Since the confidence is 75%, this is also a **strong rule**.
+- $L_1$: {Bread}, {Cheese}, {Juice}, {Milk}
+- $L_2$: {Bread, Juice}, {Cheese, Juice}
 
-No other strong rules can be generated from the given dataset based on the minimum support and confidence thresholds.
+### Step 4: Generate Association Rules
+
+We generate rules from the large itemsets and test them against the minimum confidence of 75%. Confidence for a rule $A \rightarrow B$ is calculated as:
+$$\text{Confidence}(A \rightarrow B) = \frac{\text{Support}(A \cup B)}{\text{Support}(A)}$$
+
+#### Rules from {Bread, Juice}
+
+1.  **{Bread} $\rightarrow$ {Juice}**
+
+    - Confidence = Support({Bread, Juice}) / Support({Bread}) = 3 / 4 = 75%
+    - **Rule is valid.**
+
+2.  **{Juice} $\rightarrow$ {Bread}**
+    - Confidence = Support({Bread, Juice}) / Support({Juice}) = 3 / 4 = 75%
+    - **Rule is valid.**
+
+#### Rules from {Cheese, Juice}
+
+3.  **{Cheese} $\rightarrow$ {Juice}**
+
+    - Confidence = Support({Cheese, Juice}) / Support({Cheese}) = 3 / 3 = 100%
+    - **Rule is valid.**
+
+4.  **{Juice} $\rightarrow$ {Cheese}**
+    - Confidence = Support({Cheese, Juice}) / Support({Juice}) = 3 / 4 = 75%
+    - **Rule is valid.**
+
+The **Association Rules** are the rules that meet the minimum confidence threshold:
+
+1.  **{Bread} $\rightarrow$ {Juice}** (Confidence: 75%)
+2.  **{Juice} $\rightarrow$ {Bread}** (Confidence: 75%)
+3.  **{Cheese} $\rightarrow$ {Juice}** (Confidence: 100%)
+4.  **{Juice} $\rightarrow$ {Cheese}** (Confidence: 75%)
 
 ## <mark> 6) What are the drawbacks of Apriori Algorithm? Explain FP Growth Algorithm for mining frequent patterns. </mark>
 
