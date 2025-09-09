@@ -6,16 +6,16 @@ title: Unit 2
 
 ### Cloud Data Management Overview
 
-Managing data in the cloud means putting in place the processes, technologies, and policies required for storing, organizing, securing, and analyzing information across cloud environments. The goal is to keep data **secure, scalable, easily accessible, and compliant with regulations**.[1][2]
+Managing data in the cloud means putting in place the processes, technologies, and policies required for storing, organizing, securing, and analyzing information across cloud environments. The goal is to keep data **secure, scalable, easily accessible, and compliant with regulations**.
 
 ### Key Practices in Cloud Data Management
 
-- **Data Classification & Risk Assessment:** Identify sensitive data and categorize it (e.g., public, internal, confidential) using tagging, metadata, and automated discovery tools, so you can apply correct controls and policies.[5]
-- **Access Controls & Authentication:** Restrict who can view, modify, or delete your cloud data using role-based permissions and strong authentication practices.[2][5]
+- **Data Classification & Risk Assessment:** Identify sensitive data and categorize it (e.g., public, internal, confidential) using tagging, metadata, and automated discovery tools, so you can apply correct controls and policies.
+- **Access Controls & Authentication:** Restrict who can view, modify, or delete your cloud data using role-based permissions and strong authentication practices.
 - **Data Encryption:** Protect data both at rest (stored) and in transit using encryption and secure transmission protocols.
-- **Backup, Recovery & Data Lifecycle:** Automate backups (using strategies like 3-2-1) and set up lifecycle policies to archive or delete data automatically based on retention requirements.[6][2]
-- **Monitoring & Auditing:** Continuously track who is accessing data, use audit logs, and set up systems to detect unauthorized access or suspicious activity.[5]
-- **Compliance & Governance:** Ensure adherence to data regulations like GDPR or HIPAA, using provider certifications and regular audits.[8][2][5]
+- **Backup, Recovery & Data Lifecycle:** Automate backups (using strategies like 3-2-1) and set up lifecycle policies to archive or delete data automatically based on retention requirements.
+- **Monitoring & Auditing:** Continuously track who is accessing data, use audit logs, and set up systems to detect unauthorized access or suspicious activity.
+- **Compliance & Governance:** Ensure adherence to data regulations like GDPR or HIPAA, using provider certifications and regular audits.
 
 ### Role of Data Storage Solutions in the Cloud
 
@@ -24,30 +24,30 @@ Cloud storage solutions form the backbone of cloud data management, with differe
 ### Main Types of Cloud Storage
 
 - **Block Storage:** Used for high-performance requirements like databases and transactional applications. Data is split into fixed-size blocks for fast access.
-  - _Example:_ DigitalOcean NVMe Block Storage, Amazon EBS.[2]
+  - _Example:_ DigitalOcean NVMe Block Storage, Amazon EBS.
 - **Object Storage:** Stores unstructured data (e.g., images, videos, backups) as objects with metadata, great for scalability and cost efficiency.
-  - _Example:_ Amazon S3, DigitalOcean Spaces.[2]
+  - _Example:_ Amazon S3, DigitalOcean Spaces.
 - **File Storage:** Organizes data into folders and files like a regular file system, ideal for shared documents and enterprise office systems.
   - _Example:_ Google Drive, AWS EFS.
-- **Managed Databases:** Cloud providers offer fully managed database solutions—like PostgreSQL, MySQL, MongoDB—handling scaling, backups, and updates for you.[6][2]
+- **Managed Databases:** Cloud providers offer fully managed database solutions—like PostgreSQL, MySQL, MongoDB—handling scaling, backups, and updates for you.
 
 ### Features of Cloud Storage Solutions
 
 - **Scalability:** Easily add or shrink capacity based on demand—scale from gigabytes to petabytes without manual hardware upgrades.
-- **Availability & Redundancy:** Data is often replicated across regions for disaster recovery and business continuity.[2]
-- **Automated Backups & Archiving:** Scheduled backups and lifecycle policies help protect data and keep storage costs predictable.[6][2]
+- **Availability & Redundancy:** Data is often replicated across regions for disaster recovery and business continuity.
+- **Automated Backups & Archiving:** Scheduled backups and lifecycle policies help protect data and keep storage costs predictable.
 - **Accessibility:** Data stored in the cloud can be accessed from anywhere, by authorized users, using APIs or user interfaces.
 - **Security:** Built-in features like encryption, multi-factor authentication, and activity logging keep data safe and compliant.
 
 ### Putting It All Together
 
-Cloud data management uses **cloud-native storage solutions** (like block, object, and database services) together with strict policies (access, encryption, backup, compliance) to ensure data is organized, secure, always available, and cost-effective—supporting both day-to-day operations and regulatory demands.[1][5][2]
+Cloud data management uses **cloud-native storage solutions** (like block, object, and database services) together with strict policies (access, encryption, backup, compliance) to ensure data is organized, secure, always available, and cost-effective—supporting both day-to-day operations and regulatory demands.
 
 ## <mark> 2) What is MapReduce, and how does it facilitate data processing in the cloud? </mark>
 
 ### What is MapReduce?
 
-**MapReduce** is a programming model for processing and generating large data sets by dividing a big job into smaller "map" and "reduce" tasks, which can run in parallel across multiple servers or nodes. It is a core part of the Hadoop ecosystem and allows for efficient, scalable data processing in the cloud.[3][5][6]
+**MapReduce** is a programming model for processing and generating large data sets by dividing a big job into smaller "map" and "reduce" tasks, which can run in parallel across multiple servers or nodes. It is a core part of the Hadoop ecosystem and allows for efficient, scalable data processing in the cloud.
 
 ### How Does MapReduce Work?
 
@@ -57,10 +57,10 @@ Cloud data management uses **cloud-native storage solutions** (like block, objec
 
 ### How MapReduce Facilitates Data Processing in the Cloud
 
-- **Parallelization:** Tasks run simultaneously on many servers, making it possible to process terabytes or petabytes of data much faster than with a single server.[1][3]
+- **Parallelization:** Tasks run simultaneously on many servers, making it possible to process terabytes or petabytes of data much faster than with a single server.
 - **Scalability:** Cloud providers can easily add or remove compute resources. With MapReduce, workloads can grow or shrink as needed, taking advantage of cloud's elasticity.
-- **Fault Tolerance:** If a server or task fails, MapReduce can automatically reschedule the work on another server, minimizing interruptions.[5]
-- **Data Locality:** Instead of sending data to where the code runs, MapReduce executes logic on the server where the data already resides, cutting down network traffic and speeding up processing.[1]
+- **Fault Tolerance:** If a server or task fails, MapReduce can automatically reschedule the work on another server, minimizing interruptions.
+- **Data Locality:** Instead of sending data to where the code runs, MapReduce executes logic on the server where the data already resides, cutting down network traffic and speeding up processing.
 
 **In summary**: MapReduce enables fast, reliable analysis of large cloud datasets by splitting complex work into smaller, distributed tasks that run in parallel, making cloud-based big data projects possible and efficient.
 
@@ -68,16 +68,16 @@ Cloud data management uses **cloud-native storage solutions** (like block, objec
 
 ### OpenStack and Its Role in Cloud Computing
 
-**OpenStack** is an open-source cloud computing platform designed to manage and automate large pools of compute, storage, and networking resources within data centers. Launched in 2010 as a joint project of Rackspace Hosting and NASA, OpenStack has grown to be one of the world’s most active open-source cloud projects.[2][4]
+**OpenStack** is an open-source cloud computing platform designed to manage and automate large pools of compute, storage, and networking resources within data centers. Launched in 2010 as a joint project of Rackspace Hosting and NASA, OpenStack has grown to be one of the world’s most active open-source cloud projects.
 
 ### Key Features of OpenStack
 
-- **Modular and Distributed Architecture:** Composed of independent services (like Nova for compute, Neutron for networking, Swift/Cinder for storage, Keystone for identity, Horizon for dashboard, and more) that can be deployed and customized based on need.[6]
-- **Multi-Tenancy Support:** Allows multiple users or organizations to share cloud infrastructure while keeping their data and workloads isolated.[2]
+- **Modular and Distributed Architecture:** Composed of independent services (like Nova for compute, Neutron for networking, Swift/Cinder for storage, Keystone for identity, Horizon for dashboard, and more) that can be deployed and customized based on need.
+- **Multi-Tenancy Support:** Allows multiple users or organizations to share cloud infrastructure while keeping their data and workloads isolated.
 - **API-Driven Management:** All components communicate through standardized APIs, enabling automation and integration with external systems.
-- **Resource Pooling and Scalability:** Aggregates physical resources into virtual pools, which are dynamically assigned to users. This approach supports efficient scaling and optimized resource usage.[5][7]
-- **Comprehensive Dashboard:** Horizon provides a user-friendly web interface for easy resource management without deep technical expertise.[6][2]
-- **Open Source:** Users and organizations can freely use, modify, and extend OpenStack, avoiding vendor lock-in and expensive proprietary software licenses.[5][2]
+- **Resource Pooling and Scalability:** Aggregates physical resources into virtual pools, which are dynamically assigned to users. This approach supports efficient scaling and optimized resource usage.
+- **Comprehensive Dashboard:** Horizon provides a user-friendly web interface for easy resource management without deep technical expertise.
+- **Open Source:** Users and organizations can freely use, modify, and extend OpenStack, avoiding vendor lock-in and expensive proprietary software licenses.
 
 ### Role in Cloud Computing Environments
 
@@ -89,10 +89,10 @@ OpenStack is mainly used to build and manage **private, public, or hybrid clouds
 
 ### How OpenStack Facilitates Cloud Computing
 
-- **On-Demand Provisioning:** Users can request VM, network, or storage resources via self-service portals or APIs, supporting the cloud's core principle of rapid scalability.[7][5]
-- **Lower OpEx:** Though initial deployment may be complex, operational costs tend to be lower for organizations running large-scale OpenStack environments, making it cost-effective in the long term.[5]
+- **On-Demand Provisioning:** Users can request VM, network, or storage resources via self-service portals or APIs, supporting the cloud's core principle of rapid scalability.
+- **Lower OpEx:** Though initial deployment may be complex, operational costs tend to be lower for organizations running large-scale OpenStack environments, making it cost-effective in the long term.
 - **Cloud-Native Operations:** Unlike traditional virtualization platforms, OpenStack's API-centric model is ideal for automated, programmable, and fast-paced cloud development.
-- **Flexibility and Vendor Independence:** OpenStack supports a wide range of hypervisors, storage backends, and network technologies, helping organizations avoid vendor lock-in and custom-fit their cloud infrastructure.[8][5]
+- **Flexibility and Vendor Independence:** OpenStack supports a wide range of hypervisors, storage backends, and network technologies, helping organizations avoid vendor lock-in and custom-fit their cloud infrastructure.
 
 ### In Summary
 
@@ -108,31 +108,31 @@ Cloud computing has revolutionized the economics of IT by reshaping cost structu
 
 1. **Pay-as-You-Go Pricing**
 
-   - Organizations only pay for computing resources they actually use—eliminating large, upfront capital expenditure on servers, storage, and software.[1][5][6]
+   - Organizations only pay for computing resources they actually use—eliminating large, upfront capital expenditure on servers, storage, and software.
    - This model converts fixed costs (buying infrastructure) into variable costs, making budgeting more predictable.
 
 2. **Operational Expenses (OPEX) vs. Capital Expenses (CAPEX)**
 
-   - Cloud services reduce or eliminate capital investments in hardware and maintenance, shifting spending toward operational expenses (OPEX).[3][5][8]
+   - Cloud services reduce or eliminate capital investments in hardware and maintenance, shifting spending toward operational expenses (OPEX).
    - Upgrades and repairs are managed by the provider, saving on ongoing support, licensing, and administrative costs.
 
 3. **Scalability and Flexibility**
 
-   - Cloud resources can be scaled up or down instantly to match demand, supporting cost optimization and avoiding over-provisioning.[5][6][1]
+   - Cloud resources can be scaled up or down instantly to match demand, supporting cost optimization and avoiding over-provisioning.
    - Businesses pay only for what they consume, reducing waste and improving efficiency.
 
 4. **Economies of Scale**
 
-   - Providers leverage large customer bases and optimized infrastructure, offering high-quality services at lower costs than typical standalone IT setups.[1][5]
+   - Providers leverage large customer bases and optimized infrastructure, offering high-quality services at lower costs than typical standalone IT setups.
 
 5. **Global Reach without Physical IT Expansion**
-   - Cloud enables worldwide access to infrastructure without building local IT facilities, saving substantial time and money.[1]
+   - Cloud enables worldwide access to infrastructure without building local IT facilities, saving substantial time and money.
 
 ### Economic Benefits
 
 1. **Enhanced Productivity**
 
-   - Employees can collaborate and access resources from anywhere, increasing workforce productivity and enabling remote work.[6][1]
+   - Employees can collaborate and access resources from anywhere, increasing workforce productivity and enabling remote work.
    - Cloud-based tools streamline decision-making and project execution.
 
 2. **Business Agility**
@@ -141,40 +141,40 @@ Cloud computing has revolutionized the economics of IT by reshaping cost structu
 
 3. **Disaster Recovery and Business Continuity**
 
-   - Cloud-based disaster recovery is cost-effective and ensures fast recovery after disruptions, safeguarding revenue and reputation.[1]
+   - Cloud-based disaster recovery is cost-effective and ensures fast recovery after disruptions, safeguarding revenue and reputation.
 
 4. **Revenue Growth and Profitability**
 
-   - Companies using cloud often report higher margins, faster growth, and new revenue streams.[2][6]
-   - Example: Deloitte found that small and medium businesses leveraging cloud saw 21% higher profits and 26% faster growth.[2]
+   - Companies using cloud often report higher margins, faster growth, and new revenue streams.
+   - Example: Deloitte found that small and medium businesses leveraging cloud saw 21% higher profits and 26% faster growth.
 
 5. **Cost Optimization and Management**
 
-   - Organizations prioritize cloud cost optimization, aiming to reduce waste and gain better cost visibility.[2]
+   - Organizations prioritize cloud cost optimization, aiming to reduce waste and gain better cost visibility.
    - Automated tools help track usage, forecast expenses, and implement controls.
 
 6. **Sustainability and ESG Goals**
-   - Cloud helps businesses meet environmental goals by optimizing resource use and lowering carbon footprint.[2]
+   - Cloud helps businesses meet environmental goals by optimizing resource use and lowering carbon footprint.
 
 ### Quick Review
 
 - **Cloud's economic impact**: cost savings, global access, flexibility, productivity, resilience, and revenue growth.
-- **Cloud adoption continues to rise**, with end-user public cloud spending forecasted to exceed $723 billion in 2025.[4][9][2]
+- **Cloud adoption continues to rise**, with end-user public cloud spending forecasted to exceed $723 billion in 2025.
 
 ## <mark> 5) What is a Service Level Agreement (SLA), and why is it important in cloud computing? </mark>
 
 ### What is a Service Level Agreement (SLA)?
 
-A **Service Level Agreement (SLA)** is a formal, negotiated contract between a cloud service provider and a customer that clearly defines the provider’s commitments for specific services, along with measurable performance standards (like uptime, response times, and reliability), accountability, and remedies if standards are not met. SLAs may include details about service scope, payment, security, disaster recovery, monitoring, and termination processes—ensuring each party understands their responsibilities and recourse in case of failures.[1][3][4]
+A **Service Level Agreement (SLA)** is a formal, negotiated contract between a cloud service provider and a customer that clearly defines the provider’s commitments for specific services, along with measurable performance standards (like uptime, response times, and reliability), accountability, and remedies if standards are not met. SLAs may include details about service scope, payment, security, disaster recovery, monitoring, and termination processes—ensuring each party understands their responsibilities and recourse in case of failures.
 
 ### Importance of SLA in Cloud Computing
 
-- **Sets Clear Expectations:** SLAs outline _exact_ metrics for service quality, availability, and responsiveness. This helps customers know what to expect and how to measure the cloud provider’s performance.[4][6]
-- **Accountability and Recourse:** If the provider fails to meet agreed-upon standards, the SLA defines penalties (like service credits or financial compensation). This builds trust and offers clients protection against poor service delivery.[1][4]
+- **Sets Clear Expectations:** SLAs outline _exact_ metrics for service quality, availability, and responsiveness. This helps customers know what to expect and how to measure the cloud provider’s performance.
+- **Accountability and Recourse:** If the provider fails to meet agreed-upon standards, the SLA defines penalties (like service credits or financial compensation). This builds trust and offers clients protection against poor service delivery.
 - **Supports Compliance & Governance:** SLAs document obligations around security, privacy, and disaster recovery, helping clients comply with regulations and audit requirements.
-- **Guides Relationship Management:** By formally stating responsibilities of both sides (provider and user), an SLA helps manage the partnership and clarify process for updates, exceptions, or contract termination.[6][4]
+- **Guides Relationship Management:** By formally stating responsibilities of both sides (provider and user), an SLA helps manage the partnership and clarify process for updates, exceptions, or contract termination.
 
-**In short:** SLAs are essential in cloud computing, offering customers assurance, transparency, and legal recourse, while driving service providers to meet high standards and maintain reliable, quality cloud services.[3][4][1]
+**In short:** SLAs are essential in cloud computing, offering customers assurance, transparency, and legal recourse, while driving service providers to meet high standards and maintain reliable, quality cloud services.
 
 ## <mark> 6) Describe resource management strategies in cloud environments. </mark>
 
@@ -186,39 +186,39 @@ Managing cloud resources is essential for optimizing performance, controlling co
 
 - **On-demand provisioning:** Quickly allocate compute, storage, and network resources as needed by workload.
 - **Right-sizing:** Match resources (CPU, memory, storage) to actual workload requirements—avoiding over-provisioning and minimizing waste.
-- **Purchase options:** Leverage on-demand, reserved, and spot instances based on predictability and budget.[5][6]
+- **Purchase options:** Leverage on-demand, reserved, and spot instances based on predictability and budget.
 
 ### 2. Continuous Monitoring & Auditing
 
 - **Resource utilization monitoring:** Track usage and performance (CPU, memory, traffic) using dashboards, alerts, and automated tools.
-- **Regular audits:** Identify underutilized, obsolete, or orphaned resources and decommission them to improve efficiency.[3][6]
+- **Regular audits:** Identify underutilized, obsolete, or orphaned resources and decommission them to improve efficiency.
 
 ### 3. Automated Scaling
 
 - **Vertical scaling:** Increase resources for existing machines (e.g., more CPU/memory).
 - **Horizontal scaling:** Add machines/instances to distribute workloads—often managed via autoscaling groups or Kubernetes.
-- **Scheduling automation:** Automatically start/stop resources during off-peak times or for test/dev environments.[7][5]
+- **Scheduling automation:** Automatically start/stop resources during off-peak times or for test/dev environments.
 
 ### 4. Tagging & Organization
 
 - **Resource tagging:** Use labels (e.g., by project, team, environment) for better organization, cost tracking, and chargeback.
-- **Enforce tagging standards:** Ensure all resources are consistently tagged to enable transparent reporting and accountability.[6]
+- **Enforce tagging standards:** Ensure all resources are consistently tagged to enable transparent reporting and accountability.
 
 ### 5. Optimization & Cost Management
 
 - **Optimize configurations:** Continuously fine-tune instance types, storage classes, and container setups based on real usage.
-- **Cost monitoring tools:** Use built-in and third-party platforms to forecast spending, catch cost anomalies, and generate reports.[2][3][6]
+- **Cost monitoring tools:** Use built-in and third-party platforms to forecast spending, catch cost anomalies, and generate reports.
 - **Regular reviews:** Schedule periodic checks to adjust usage and eliminate waste.
 
 ### 6. Security & Compliance
 
 - **Security policies:** Enforce network isolation, access controls, and data encryption.
-- **Governance:** Tie resource management practices to regulatory requirements and business KPIs.[6]
+- **Governance:** Tie resource management practices to regulatory requirements and business KPIs.
 
 ### 7. Containerization & Multi-Cloud Management
 
 - **Use containers:** Increase resource density and portability (e.g., Docker, Kubernetes) for better utilization.
-- **Multi-cloud strategies:** Balance workloads across multiple clouds to optimize costs, reduce vendor lock-in, and ensure resilience.[5]
+- **Multi-cloud strategies:** Balance workloads across multiple clouds to optimize costs, reduce vendor lock-in, and ensure resilience.
 
 **Quick Review:**
 
@@ -228,7 +228,7 @@ Managing cloud resources is essential for optimizing performance, controlling co
 
 ### Overview
 
-Amazon.com, the world’s largest online retailer, migrated the majority of its Oracle database backups from traditional tape infrastructure to Amazon Simple Storage Service (Amazon S3), a commercial cloud offering provided by Amazon Web Services (AWS).[2]
+Amazon.com, the world’s largest online retailer, migrated the majority of its Oracle database backups from traditional tape infrastructure to Amazon Simple Storage Service (Amazon S3), a commercial cloud offering provided by Amazon Web Services (AWS).
 
 ### Key Features of AWS Used in This Case
 
@@ -261,35 +261,35 @@ Amazon.com, the world’s largest online retailer, migrated the majority of its 
 
 ### What is Virtual Machine Technology?
 
-A **virtual machine (VM)** is a software-based emulation of a physical computer. It operates just like an ordinary computer: running an operating system, storing data, and executing applications. All its resources—CPU, memory, storage, and network interfaces—are provided via virtualization software (the hypervisor), which divides a physical server’s resources so multiple isolated VMs can operate independently and securely on the same hardware.[1][2][4][5][6]
+A **virtual machine (VM)** is a software-based emulation of a physical computer. It operates just like an ordinary computer: running an operating system, storing data, and executing applications. All its resources—CPU, memory, storage, and network interfaces—are provided via virtualization software (the hypervisor), which divides a physical server’s resources so multiple isolated VMs can operate independently and securely on the same hardware.
 
 There are two main types of VMs:
 
 - **System VMs:** Run full operating systems, emulating entire computers. Examples: VMware ESXi, Microsoft Hyper-V, KVM.
-- **Process VMs:** Run a single application or process in isolation; e.g., the Java Virtual Machine (JVM).[4][5]
+- **Process VMs:** Run a single application or process in isolation; e.g., the Java Virtual Machine (JVM).
 
 ### Applications of Virtual Machines in Enterprises
 
 **1. Server Consolidation and Cost Savings**  
-VMs allow many servers to exist virtually on one physical device, reducing hardware footprint and lowering capital and operating expenses.[5][6][4]
+VMs allow many servers to exist virtually on one physical device, reducing hardware footprint and lowering capital and operating expenses.
 
 **2. Development and Testing**  
-Developers spin up new VMs quickly to test applications on different OSes and environments, improving agility and speeding up software delivery.[2][5]
+Developers spin up new VMs quickly to test applications on different OSes and environments, improving agility and speeding up software delivery.
 
 **3. Disaster Recovery and High Availability**  
-VMs can be backed up, replicated, and migrated easily. If hardware fails, workloads can be restored or moved with minimal downtime—ensuring business continuity.[6][2][5]
+VMs can be backed up, replicated, and migrated easily. If hardware fails, workloads can be restored or moved with minimal downtime—ensuring business continuity.
 
 **4. Security and Isolation**  
-VMs provide strong isolation, so viruses or faulty apps running in one VM don’t impact others. Enterprises use VMs to sandbox malware or run insecure applications safely.[2][5]
+VMs provide strong isolation, so viruses or faulty apps running in one VM don’t impact others. Enterprises use VMs to sandbox malware or run insecure applications safely.
 
 **5. Hybrid and Multi-Cloud Deployments**  
-VMs can relocate between on-premises and cloud environments and are essential for hybrid or multi-cloud strategies, enabling flexible resource sharing and scaling.[4][6]
+VMs can relocate between on-premises and cloud environments and are essential for hybrid or multi-cloud strategies, enabling flexible resource sharing and scaling.
 
 **6. Application Modernization and Migration**  
-Old applications can move to VMs, letting enterprises update infrastructure without rewriting software, or migrate workloads to the cloud for better scalability and management.[6]
+Old applications can move to VMs, letting enterprises update infrastructure without rewriting software, or migrate workloads to the cloud for better scalability and management.
 
 **7. Load Balancing and Resource Optimization**  
-Multiple VMs can distribute workloads across available servers, improving responsiveness and utilizing computing capacity efficiently.[5][4]
+Multiple VMs can distribute workloads across available servers, improving responsiveness and utilizing computing capacity efficiently.
 
 ### Quick Review
 
@@ -300,55 +300,55 @@ Multiple VMs can distribute workloads across available servers, improving respon
 
 ### 1. **Performance Overhead**
 
-- Virtual machines (VMs) add an extra software layer—the hypervisor—which can slow down CPU, memory, disk, and network operations compared to running applications directly on hardware. Intensive workloads or "noisy neighbor" situations can cause slowdowns for all users on the same host.[1][3][5]
+- Virtual machines (VMs) add an extra software layer—the hypervisor—which can slow down CPU, memory, disk, and network operations compared to running applications directly on hardware. Intensive workloads or "noisy neighbor" situations can cause slowdowns for all users on the same host.
 
 ### 2. **Complexity in Management**
 
-- Managing many VMs—each with its own OS and applications—requires specialized skills and tools. VM sprawl can occur when too many unneeded VMs exist, making tracking, troubleshooting, and maintaining resources complex.[2][4][9]
+- Managing many VMs—each with its own OS and applications—requires specialized skills and tools. VM sprawl can occur when too many unneeded VMs exist, making tracking, troubleshooting, and maintaining resources complex.
 
 ### 3. **Security Risks**
 
-- Virtualization layers introduce new attack surfaces. Weak isolation can allow attacks to move between VMs (or to the host), and a compromised hypervisor can affect all VMs. Sharing resources with others in a public cloud poses additional risks if not properly secured.[3][4][5][2]
+- Virtualization layers introduce new attack surfaces. Weak isolation can allow attacks to move between VMs (or to the host), and a compromised hypervisor can affect all VMs. Sharing resources with others in a public cloud poses additional risks if not properly secured.
 
 ### 4. **High Initial Investment & Licensing Costs**
 
-- Setting up virtualized infrastructure often needs substantial upfront spending on hardware, software, and training. Plus, some software vendors charge extra for VM licenses which can increase operating costs.[4][7][2][3]
+- Setting up virtualized infrastructure often needs substantial upfront spending on hardware, software, and training. Plus, some software vendors charge extra for VM licenses which can increase operating costs.
 
 ### 5. **Hardware and Compatibility Issues**
 
-- Not every application or legacy system is compatible with virtual environments. Specialized hardware and older machines may not support all virtualization features, causing deployment headaches.[7][8][3][4]
+- Not every application or legacy system is compatible with virtual environments. Specialized hardware and older machines may not support all virtualization features, causing deployment headaches.
 
 ### 6. **Single Point of Failure**
 
-- If the physical host machine fails, all VMs running on it are impacted—potentially causing major downtime unless failover or clustering is in place.[6][1][4]
+- If the physical host machine fails, all VMs running on it are impacted—potentially causing major downtime unless failover or clustering is in place.
 
 ### 7. **Resource Wastage and Storage Challenges**
 
-- Each VM not only uses its own OS resources but also requires storage for system images and snapshots, which can quickly add up in terms of required disk space and management overhead.[5][8][6]
+- Each VM not only uses its own OS resources but also requires storage for system images and snapshots, which can quickly add up in terms of required disk space and management overhead.
 
 ## <mark> 10) What is multitenancy in cloud computing, and how is it implemented using cloud data stores? </mark>
 
 ### Multitenancy in Cloud Computing
 
-**Multitenancy** in cloud computing refers to an architectural model where multiple customers (called "tenants") share the same underlying computing resources—such as servers, databases, and network hardware—while their data, business logic, and privacy remain completely isolated from each other.[1][2][7]
+**Multitenancy** in cloud computing refers to an architectural model where multiple customers (called "tenants") share the same underlying computing resources—such as servers, databases, and network hardware—while their data, business logic, and privacy remain completely isolated from each other.
 
-This setup enables cloud vendors to maximize resource utilization, lower costs, and offer scalable services. Think of it like an apartment building: many residents live in separate apartments (data/application partitions), but share the same overall infrastructure, such as plumbing and electricity (servers, network).[4][7]
+This setup enables cloud vendors to maximize resource utilization, lower costs, and offer scalable services. Think of it like an apartment building: many residents live in separate apartments (data/application partitions), but share the same overall infrastructure, such as plumbing and electricity (servers, network).
 
 ### How Multitenancy Is Implemented Using Cloud Data Stores
 
 To maintain isolation and security while sharing resources, cloud data stores adopt several key strategies:
 
 1. **Logical Data Separation**  
-   Each tenant's data is tagged or partitioned in the data store using unique tenant IDs or schema separation. This ensures no tenant can see or modify another's data, even if they're using the same database instance.[3][6][7]
+   Each tenant's data is tagged or partitioned in the data store using unique tenant IDs or schema separation. This ensures no tenant can see or modify another's data, even if they're using the same database instance.
 
 2. **Access Controls**  
    Strict access rules and authentication mechanisms prevent unauthorized access. Data read/write permissions are checked at every request so tenants' information stays private.
 
 3. **Schema Customization**  
-   Some cloud services allow customized database schemas or configuration for each tenant, supporting different needs while still using the same underlying system.[3]
+   Some cloud services allow customized database schemas or configuration for each tenant, supporting different needs while still using the same underlying system.
 
 4. **Shared Application Instance with Partitioned Data**  
-   A single instance of an application runs on the server, but it accesses tenant-specific data partitions or tables. This is most common in SaaS platforms and large-scale web applications.[2][8][1]
+   A single instance of an application runs on the server, but it accesses tenant-specific data partitions or tables. This is most common in SaaS platforms and large-scale web applications.
 
 5. **Encryption and Auditing**  
    Data is encrypted at rest and in transit, and access is logged for compliance. This helps protect sensitive information in multitenant environments.
@@ -357,7 +357,7 @@ To maintain isolation and security while sharing resources, cloud data stores ad
 
 - **Resource Efficiency:** Maximizes hardware and software use, reducing costs.
 - **Scalability:** Easily accommodates growth in users and data.
-- **Cost Savings:** Multiple tenants sharing infrastructure means lower service prices for everyone.[5][7][1]
+- **Cost Savings:** Multiple tenants sharing infrastructure means lower service prices for everyone.
 
 ### Quick Review
 
