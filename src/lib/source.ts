@@ -1,4 +1,4 @@
-import { about, sem1, sem5, sem6, sem7 } from "@/.source";
+import { about, sem1, sem3, sem5, sem6, sem7 } from "@/.source";
 import { loader } from "fumadocs-core/source";
 
 // See https://fumadocs.vercel.app/docs/headless/source-api for more info
@@ -12,6 +12,12 @@ export const sem1Source = loader({
   // it assigns a URL to your pages
   baseUrl: "/sem-1",
   source: sem1.toFumadocsSource(),
+});
+
+export const sem3Source = loader({
+  // it assigns a URL to your pages
+  baseUrl: "/sem-3",
+  source: sem3.toFumadocsSource(),
 });
 
 export const sem5Source = loader({

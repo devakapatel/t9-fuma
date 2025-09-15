@@ -29,6 +29,16 @@ export const sem1 = defineDocs({
   },
 });
 
+export const sem3 = defineDocs({
+  dir: "content/sem-3",
+  docs: {
+    schema: frontmatterSchema,
+  },
+  meta: {
+    schema: metaSchema,
+  },
+});
+
 export const sem5 = defineDocs({
   dir: "content/sem-5",
   docs: {
