@@ -1,5 +1,6 @@
 import {
   aboutSource,
+  sem1Source,
   sem5Source,
   sem6Source,
   sem7Source,
@@ -10,6 +11,7 @@ export const revalidate = false;
 export const { staticGET: GET } = createSearchAPI("advanced", {
   indexes: [
     ...aboutSource.getPages(),
+    ...sem1Source.getPages(),
     ...sem5Source.getPages(),
     ...sem6Source.getPages(),
     ...sem7Source.getPages(),
