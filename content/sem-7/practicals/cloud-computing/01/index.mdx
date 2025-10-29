@@ -1,0 +1,43 @@
+---
+title: Practical 1
+---
+
+## Aim: Sketch out and analyze the architecture of Cloudsim and identify different entities to understand the structure of CloudSim.
+
+## THEORY:
+
+### 1A. What is Cloudsim?
+
+CloudSim is an open-source framework, which is used to simulate cloud computing infrastructure and services. It is developed by the CLOUDS Lab organization and is written entirely in Java. It is used for modeling and simulating a cloud computing environment as a means for evaluating a hypothesis prior to software development in order to reproduce tests and results. By using CloudSim, developers can focus on specific system design issues that they want to investigate, without getting concerned about details related to cloud-based infrastructures and services.
+
+### 1B. Cloudsim Architecture
+
+The diagram demonstrates the layered architecture of the CloudSim Simulation Toolkit.
+
+- CloudSim Core Simulation Engine: Provides support for modeling and simulation of virtualized Cloud-based data center environments including queuing and processing of events, creation of cloud system entities (like data center, host, virtual machines, brokers, services, etc.) communication between components and management of the simulation clock.
+
+- CloudSim Layer: Provides dedicated management interfaces for Virtual Machines, memory, storage, and bandwidth. Also, it manages the other fundamental issues, such as provisioning of hosts to Virtual Machines, managing application execution, and monitoring dynamic system state (e.g. Network topology, sensors, storage characteristics, etc).
+
+- User Code Layer: This is a custom layer where the user writes their own code to redefine the characteristics of the stimulating environment as per their new research findings.
+
+### 1C. Entities of CloudSim
+
+- Cloudlet: A cloudlet represents a task or workload that needs to be executed in the cloud. It encapsulates the computational requirements, data size, and other parameters of a specific job or application.
+
+- Cloudlet Scheduler: This entity is responsible for scheduling and allocating cloudlets to virtual machines (VMs) in the cloud. It determines the order and placement of cloudlets on VMs based on various scheduling policies.
+
+- Datacenter: A datacenter represents a physical infrastructure that hosts multiple virtual machines. It consists of physical hosts or servers, which are capable of running VMs, and networking components that enable communication among the hosts.
+
+- Datacenter Broker: The Datacenter Broker acts as an intermediary between cloud service users (clients) and the cloud data centers. It receives cloudlet requests from clients and submits them to appropriate data centers for execution.
+
+- Virtual Machine (VM): A VM is a software emulation of a physical computer within which cloudlets are executed. CloudSim allows the creation and management of multiple VMs in a data center.
+
+- Host: A host is a physical machine or server within a data center that can accommodate multiple VMs. It provides computing resources such as CPU, memory, and storage to the VMs.
+
+- CloudSimEntity: This is the base class for all entities in CloudSim. It provides common attributes and methods that are inherited by other entities.
+
+- Data center characteristics: This entity represents the characteristics or properties of a data center, such as its geographical location, power consumption, cost models, and network parameters.
+
+- CloudletSchedulerSpaceShared: It is a specific implementation of a cloudlet scheduler that allocates resources to cloudlets using a space-sharing policy, where each cloudlet is assigned a portion of resources based on its demands.
+
+- CloudSimTags: CloudSim uses tags to identify and categorize different types of events and messages exchanged among entities. CloudSimTags define the constants representing these tags.
