@@ -1,0 +1,26 @@
+---
+title: Practical 8
+---
+
+## Aim: Create virus with python script and implement attack and analyze the effect of various viruses.
+
+### Packet Sniffing
+
+Packet sniffing is the act of intercepting and logging every packet that flows across a network segment.
+
+### Environment & Requirements
+
+|Component|Purpose|
+|---|---|
+|**Python ≥ 3.8**|Scripting language.|
+|**Scapy** (pip install scapy)|Powerful packet-crafting & sniffing library.|
+|**Root / Administrator**|Raw-socket privileges.|
+|**Linux / macOS / Windows**|Any OS with a promiscuous-capable NIC.|
+
+### Python Code (packet_sniffer.py)
+
+`#!/usr/bin/env python3 """ Simple Packet Sniffer using Scapy Captures 10 packets, printing timestamp, source IP, destination IP & protocol. Run as root: sudo python3 packet_sniffer.py """ from datetime import datetime from scapy.all import sniff, IP def show_packet(pkt):     """Callback for every captured packet."""     if IP in pkt: # Make sure it's an IP packet         now = datetime.now().strftime("%H:%M:%S")         src = pkt[IP].src         dst = pkt[IP].dst         proto = pkt[IP].proto # 6 = TCP, 17 = UDP, 1 = ICMP …         print(f"[{now}] {src:>15} -> {dst:<15} proto={proto}") print("Sniffing… (press Ctrl-C to abort)") sniff(count=10, prn=show_packet, store=False) # capture 10 packets then exit`
+
+### Output (10-packet capture)
+
+`[09:10:01] 192.168.1.5 -> 142.250.74.110 proto=6 [09:10:01] 142.250.74.110 -> 192.168.1.5 proto=6 [09:10:02] 192.168.1.5 -> 224.0.0.251 proto=17 [09:10:02] 224.0.0.251 -> 192.168.1.5 proto=17 [09:10:03] 192.168.1.5 -> 192.168.1.1 proto=1 ...`

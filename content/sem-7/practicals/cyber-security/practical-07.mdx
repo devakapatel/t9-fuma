@@ -1,0 +1,39 @@
+---
+title: Practical 7
+---
+
+## Aim: Write a program to sniff packets sent over a network.
+
+### Introduction to Packet Sniffing
+
+Packet sniffing (a.k.a. wire-tapping) is the act of intercepting and logging every packet that flows across a network segment. By forcing a Network-Interface Card (NIC) into promiscuous mode, the host receives frames regardless of the MAC address they were destined for.
+
+### Python Simulation Code: Harmless "Fork Bomb" Behavior
+
+`# Simulated harmless virus behavior - for educational purposes ONLY # WARNING: This script is safe but annoying – opens multiple windows. # Run in a sandboxed or virtual environment only. import os import time import subprocess def harmless_simulation():     print("Starting harmless simulation...")     for i in range(5): # Limit the loop for safety         subprocess.Popen(['notepad.exe']) # On Windows         # For Linux use: subprocess.Popen(['gedit'])         print(f"[{i+1}] Dummy window opened.")         time.sleep(1) if __name__ == "__main__":     harmless_simulation()`
+
+### Analysis of Behavior
+
+|Behavior|Description|
+|---|---|
+|**Window spawning**|Simulates DoS-like effect by opening multiple apps.|
+|**Resource usage**|Shows how malware consumes system resources.|
+|**No damage**|No files are deleted or modified.|
+
+### Types of Malware
+
+|Type|Effect|
+|---|---|
+|**Worm**|Spreads across networks.|
+|**Trojan**|Disguises as legitimate software.|
+|**Ransomware**|Encrypts files and demands payment.|
+|**Spyware**|Collects user data secretly.|
+|**Adware**|Displays unwanted ads.|
+
+### Tools for Safe Malware Testing
+
+|Tool|Use|
+|---|---|
+|**Cuckoo Sandbox**|Malware analysis.|
+|**Remnux VM**|Reverse engineering.|
+|**Any.run**|Online sandbox environment.|

@@ -1,0 +1,40 @@
+---
+title: Practical 2
+---
+
+## **Aim:** Port scanning using Nmap
+
+### **What is Port Scanning?**
+Process of probing a host to determine **open/closed/filtered ports**. Used for:
+- Network diagnostics
+- Security assessments
+- Attack reconnaissance
+
+---
+
+### **6 Port States Recognized by Nmap**
+
+| State            | Meaning |
+|------------------|--------|
+| **Open**         | Application accepting connections |
+| **Closed**       | Port accessible, no service listening |
+| **Filtered**     | Firewall/filter blocking probe |
+| **Unfiltered**   | Port accessible, but state undetermined (e.g., ACK scan) |
+| **Open\|Filtered**| Nmap can't tell (common in UDP/FIN scans) |
+| **Closed\|Filtered** | Ambiguous (e.g., idle scan) |
+
+---
+
+### **Port Scan Commands**
+
+```bash
+nmap [TARGET]                    # Default 1000 ports
+nmap -p 80,443 [TARGET]          # Specific ports
+nmap -p- [TARGET]                # All 65535 ports
+nmap -A [TARGET]                 # Aggressive
+nmap -sV [TARGET]                # Version detection
+nmap -sS [TARGET]                # SYN (stealth)
+nmap -sU [TARGET]                # UDP
+nmap 192.168.1.1-50              # IP range
+nmap 192.168.1.0/24              # Subnet
+```

@@ -1,0 +1,52 @@
+---
+title: Practical 3
+---
+
+## **Aim:** TCP/UDP Connectivity using `netstat` & `nbtstat`
+
+### **Netstat Commands**
+
+| Command           | Description |
+|-------------------|-----------|
+| `netstat -a`      | All connections & listening ports |
+| `netstat -b`      | Executable creating connection |
+| `netstat -e`      | Ethernet stats |
+| `netstat -f`      | FQDN for foreign addresses |
+| `netstat -n`      | Numeric addresses/ports |
+| `netstat -o`      | PID of owning process |
+| `netstat -p tcp`  | Show TCP only |
+| `netstat -r`      | Routing table |
+| `netstat -s`      | Per-protocol stats |
+
+---
+
+### **nbtstat Commands** *(Run in CMD)*
+
+```cmd
+nbtstat -a [REMOTE_NAME]     REMOTE name table by name
+nbtstat -A [IP]              REMOTE name table by IP
+nbtstat -c                   NBT cache
+nbtstat -n                   Local NetBIOS names
+nbtstat -r                   Names resolved by broadcast/WINS
+nbtstat -R                   Purge & reload cache
+nbtstat -S                   Sessions with IP
+nbtstat -s                   Sessions with NETBIOS name
+```
+
+> **Screenshot Equivalent (Text):**
+```cmd
+C:\> nbtstat -A 192.168.1.100
+
+Local Area Connection:
+Node IpAddress: [192.168.1.50] Scope Id: []
+
+           NetBIOS Remote Machine Name Table
+
+       Name               Type         Status
+    ---------------------------------------------
+    LAB-PC-01        <00>  UNIQUE      Registered
+    WORKGROUP        <00>  GROUP       Registered
+    LAB-PC-01        <20>  UNIQUE      Registered
+
+    MAC Address = 00-1A-2B-3C-4D-5E
+```

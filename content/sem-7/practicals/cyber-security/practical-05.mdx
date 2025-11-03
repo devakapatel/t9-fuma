@@ -1,0 +1,62 @@
+---
+title: Practical 5
+---
+
+## **Aim:** Web Application Testing using **DVWA** (Damn Vulnerable Web Application)
+
+### **Introduction to DVWA**
+- **PHP/MySQL** web app
+- **Intentionally vulnerable**
+- Used for **legal penetration testing practice**
+
+**GitHub:** [https://github.com/digininja/DVWA](https://github.com/digininja/DVWA)
+
+---
+
+### **Setup Steps**
+
+#### **Step 1: Install Kali Linux in VirtualBox**
+> Follow: [golinuxcloud.com/install-kali-virtualbox](https://golinuxcloud.com)
+
+#### **Step 2: Install DVWA**
+```bash
+git clone https://github.com/digininja/DVWA.git
+cd DVWA
+cp config/config.inc.php.dist config/config.inc.php
+# Edit DB credentials
+sudo nano config/config.inc.php
+```
+
+```bash
+sudo systemctl start mysql apache2
+```
+
+Access: `http://localhost/dvwa`
+
+---
+
+### **DVWA Modules**
+| Module             | Vulnerability |
+|--------------------|-------------|
+| Brute Force        | Login form |
+| Command Injection  | OS commands |
+| CSRF               | Token bypass |
+| File Inclusion     | LFI/RFI |
+| SQL Injection      | Classic & Blind |
+| Upload             | Unrestricted |
+| XSS (Reflected/Stored) | Cross-site scripting |
+
+---
+
+### **Security Level Configuration**
+```
+DVWA Security → [ Low | Medium | High | Impossible ]
+```
+
+---
+
+### **Important Notes**
+- Run **only in VM**
+- Never on production
+- Ensure **MySQL & Apache** running
+- Edit `config.inc.php` with correct DB user/password

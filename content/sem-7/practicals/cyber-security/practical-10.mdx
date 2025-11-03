@@ -1,0 +1,110 @@
+---
+title: Practical 10
+---
+
+## Aim: Study and Audit of Indus University IT Infrastructure
+
+### 1. Define Audit Scope & Permissions
+
+- **Scope:**
+    - Audit is limited to Indus University's internal network, servers, workstations, Wi-Fi systems, and security infrastructure.
+    - Includes campus Wi-Fi, computer labs, faculty systems, and primary university servers.
+    - Does not include student personal devices or off-campus systems.
+- **Permissions:**
+    - Authorized by university IT admin team.
+    - Read-only access to system configurations and scan reports.
+    - No intrusive testing (e.g., no exploitation or DoS attacks).
+    - All audits conducted during non-peak hours to avoid disruption.
+
+### List of Systems and Networks to be Audited
+
+|Category|System/Device|
+|---|---|
+|**Servers**|Web servers, DB servers, File servers|
+|**Workstations**|Faculty PCs, Lab PCs|
+|**Networking Devices**|Switches, Routers, Firewalls|
+|**Wireless Networks**|Campus Wi-Fi access points|
+|**Endpoints**|Student lab machines, Admin systems|
+|**Security Tools**|Antivirus, Endpoint Detection Systems|
+
+### 2. Identify Permitted Tests
+
+- **Allowed:**
+    - Port scanning and service enumeration (using Nmap).
+    - Vulnerability scanning (using OpenVAS or Nessus).
+    - Endpoint security checks.
+    - Configuration checks.
+    - Passive monitoring and log inspection.
+- **Not Allowed:**
+    - Exploitation of vulnerabilities.
+    - Denial-of-service (DoS) tests.
+    - Modifying system configurations.
+
+### Network Scanning & Mapping
+
+- **Tools Used:** Nmap
+- **Findings:**
+    - Identified live hosts in internal subnet 192.168.29.0/24.
+    - Open ports: 22 (SSH), 80 (HTTP), 443 (HTTPS), 3306 (MySQL).
+    - Services: Apache web server, MySQL database, Remote Desktop (RDP).
+
+### Vulnerability Assessment
+
+- **Tools Used:** OpenVAS
+- **Targets:**
+    - University Web Server: web.indusuniv.edu.
+    - Lab PC IP: 192.168.29.105.
+- **Results:**
+    - Web Server: Apache 2.4.49 (vulnerable to CVE-2021-41773).
+    - MySQL on lab machine not configured with secure root password.
+    - Suggest applying latest security patches.
+
+### Endpoint Security Check
+
+|Parameter|Observation|
+|---|---|
+|**Antivirus**|Installed on most faculty PCs; lab PCs outdated.|
+|**Firewall**|Enabled on all systems, default rules applied.|
+|**OS Updates**|Some lab systems running Win|
+
+### Wi-Fi Security Testing
+
+- **SSID Security:** WPA2 enabled.
+- **MAC Filtering:** Not configured.
+- **Password Strength:** Weak, commonly shared among students.
+- **Captive Portal:** Not enabled.
+- **Recommendations:**
+    - Enforce stronger Wi-Fi passphrases.
+    - Enable guest network isolation.
+    - Add MAC based device filtering.
+
+### Backup and Recovery Review
+
+- **Server Backup:**
+    - Weekly automatic backup configured on DB server.
+    - No cloud backup present.
+- **Lab PCs:**
+    - No data backup implemented.
+- **Recommendations:**
+    - Implement daily incremental + weekly full backups.
+    - Store backup copies in secure off-site or cloud storage.
+
+### Logging and Monitoring
+
+- **Current Setup:**
+    - Web server logs enabled (Apache access/error).
+    - No centralized logging for endpoints or firewall.
+- **Recommendations:**
+    - Deploy centralized log management (e.g., ELK stack).
+    - Monitor for login attempts, malware detections, policy violations.
+
+### Final Report Summary
+
+|Audit Area|Status|Recommendations|
+|---|---|---|
+|Network Security|Moderate|Patch services, limit open ports.|
+|Vulnerability Management|Weak|Regular scans, update vulnerable software.|
+|Endpoint Security|Moderate|Enforce updates, stronger passwords.|
+|Wi-Fi Security|Weak|Change passwords, enable MAC filtering.|
+|Backup & Recovery|Poor|Automate backup system.|
+|Logging|Basic|Centralize and actively monitor.|

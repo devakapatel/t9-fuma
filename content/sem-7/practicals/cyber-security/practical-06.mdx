@@ -1,0 +1,83 @@
+---
+title: Practical 6
+---
+
+## **Aim:** Install VMware Workstation on Ubuntu & Set Up Windows + Kali VMs
+
+### **Introduction to Virtualization**
+Run multiple OS on one machine using **VMware Workstation**.
+
+---
+
+### **Step-by-Step Procedure**
+
+#### **Install VMware on Ubuntu**
+```bash
+cd ~/Downloads
+chmod +x VMware-Player-*.bundle
+sudo ./VMware-Player-*.bundle
+```
+> Launch: `vmplayer`
+
+---
+
+#### **Set Up Windows 11 VM**
+1. Download ISO: [microsoft.com/windows11](https://www.microsoft.com/en-in/software-download/windows11)
+2. New VM → Select ISO
+3. Settings:
+   - Name: `Windows11_VM`
+   - RAM: **4096 MB**
+   - Disk: **50 GB**
+   - Network: **NAT**
+
+---
+
+#### **Set Up Kali Linux VM**
+1. Download: [kali.org/get-kali](https://www.kali.org/get-kali/#kali-installer-images)
+2. New VM → Select ISO
+3. Settings:
+   - Name: `Kali_Linux_VM`
+   - RAM: **4096 MB**
+   - Disk: **40 GB**
+   - Network: **Bridged**
+
+---
+
+### **Screenshots (Text Version)**
+
+#### **VMware Running on Ubuntu**
+```
+┌────────────────────────────────────────────────────────────┐
+│ VMware Workstation 17 - Player                             │
+├────────────────────────────────────────────────────────────┤
+│ [ Windows11_VM ]     [ Kali_Linux_VM ]                     │
+│                                                            │
+│ Windows11_VM       │ Kali_Linux_VM                         │
+│ [Powered On]       │ [Powered Off]                         │
+│ RAM: 4 GB          │ RAM: 4 GB                             │
+│ CPU: 2 cores       │ CPU: 2 cores                          │
+└────────────────────────────────────────────────────────────┘
+```
+
+#### **Windows Desktop in VM**
+```
+┌────────────────────────────────────────────────────────────┐
+│ [Start]  Search  |  File Explorer  |  Settings               │
+├────────────────────────────────────────────────────────────┤
+│                                                            │
+│     ████████   ████████   ████████                         │
+│     ████████   ████████   ████████                         │
+│                                                            │
+│ > This PC                                                  │
+│ > Network                                                  │
+└────────────────────────────────────────────────────────────┘
+```
+
+#### **Kali Terminal**
+```bash
+kali@kali:~$ uname -a
+Linux kali 6.1.0-kali7-amd64 #1 SMP PREEMPT Kali 6.1.25-1kali1 x86_64 GNU/Linux
+
+kali@kali:~$ whoami
+kali
+```

@@ -1,0 +1,77 @@
+---
+title: Practical 4
+---
+
+## **Aim:** Network Vulnerability Scanning using **OpenVAS**
+
+### **What is OpenVAS?**
+OpenVAS (Open Vulnerability Assessment System) is a **free, open-source scanner** for identifying:
+- Misconfigurations
+- Outdated software
+- Weak passwords
+- CVEs
+
+Part of **Greenbone Vulnerability Management (GVM)**.
+
+---
+
+### **OpenVAS GUI Screenshots (Text Version)**
+
+#### **1. Greenbone Security Assistant – Home Screen**
+```
+┌────────────────────────────────────────────────────────────┐
+│ GREENBONE SECURITY ASSISTANT - DASHBOARD                   │
+├────────────────────────────────────────────────────────────┤
+│ Welcome, admin                                             │
+│                                                            │
+│ [ Scan ]  [ Targets ]  [ Tasks ]  [ Reports ]  [ Config ]  │
+│                                                            │
+│ Quick Actions:                                             │
+│   • Create New Target                                      │
+│   • Start New Scan                                         │
+│                                                            │
+│ Recent Activity:                                           │
+│   • Scan "Lab Network" completed (12 vulns)                │
+└────────────────────────────────────────────────────────────┘
+```
+
+#### **2. New Target Creation**
+```
+Create Target
+┌────────────────────────────────────────────────────────────┐
+│ Name:         Lab_Network                                  │
+│ Hosts:        192.168.29.0/24                              │
+│ Alive Test:   ICMP, TCP-ACK, ARP                           │
+│ Port List:    All IANA assigned (1-65535)                  │
+│ [ Save ]       [ Cancel ]                                  │
+└────────────────────────────────────────────────────────────┘
+```
+
+#### **3. Task Creation**
+```
+New Task
+┌────────────────────────────────────────────────────────────┘
+│ Name:         Full_Vuln_Scan_Lab                           │
+│ Target:       Lab_Network                                  │
+│ Scan Config:  Full and Fast                                │
+│ Schedule:     One Time                                     │
+│ [ Create ]                                                 │
+└────────────────────────────────────────────────────────────┘
+```
+
+#### **4. Report Summary (Sample)**
+```
+SCAN REPORT - Lab_Network
+Date: 2025-11-03 | Hosts: 45 | Vulnerabilities: 28
+
+Severity | Count
+─────────┼──────
+High     │  3
+Medium   │ 10
+Low      │ 15
+
+Top Vulnerabilities:
+1. CVE-2021-41773 - Apache 2.4.49 Path Traversal (High)
+2. MySQL Root No Password (High)
+3. SMB Anonymous Access (Medium)
+```

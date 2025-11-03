@@ -1,0 +1,157 @@
+---
+title: Practical 1
+---
+
+## **Aim:** To learn TCP scanning using Nmap
+
+### **What is TCP?**
+TCP (Transmission Control Protocol) is a core protocol of the Internet Protocol Suite. It ensures **reliable, ordered, and error-checked delivery** of data between applications over an IP network.
+
+### **What is Nmap?**
+Nmap (Network Mapper) is an **open-source tool** for **network exploration and security auditing**. It scans IP addresses and ports to identify live hosts, services, and vulnerabilities.
+
+---
+
+### **List of Best Port Scanning Tools**
+
+| **Cross-Platform (Windows & Linux)** | **Windows-Only**       | **Linux-Only**     | **Online Scanners**         |
+|--------------------------------------|------------------------|--------------------|-----------------------------|
+| Nmap                                 | Advanced IP Scanner    | Netcat (nc)        | Shodan                      |
+| Masscan                              |                        | Hping3             | Pentest-Tools Port Scanner  |
+| Unicornscan                          |                        |                    | YouGetSignal                |
+| RustScan                             |                        |                    | IPVoid Port Scanner         |
+| Angry IP Scanner                     |                        |                    |                             |
+
+---
+
+### **TCP Scanning**
+TCP scanning determines which **TCP ports** on a target are **open**, **closed**, or **filtered**.
+
+---
+
+### **Nmap Scan Commands**
+
+#### **Basic Scans**
+```bash
+# Basic TCP Connect Scan
+nmap [TARGET_IP]
+# Example:
+nmap 192.168.1.1
+```
+
+```bash
+# SYN Scan (Stealth/Half-Open)
+nmap -sS [TARGET_IP]
+# Example:
+nmap -sS 192.168.1.1
+```
+
+```bash
+# Full TCP Connect Scan
+nmap -sT [TARGET_IP]
+# Example:
+nmap -sT 192.168.1.1
+```
+
+#### **Advanced Scans**
+```bash
+# Service Version Detection
+nmap -sV [TARGET_IP]
+# Example:
+nmap -sV 192.168.1.1
+```
+
+```bash
+# OS Detection
+nmap -O [TARGET_IP]
+# Example:
+nmap -O 192.168.1.1
+```
+
+```bash
+# Aggressive Scan (OS + Version + Scripts + Traceroute)
+nmap -A [TARGET_IP]
+# Example:
+nmap -A 192.168.1.1
+```
+
+```bash
+# SYN + OS + Version
+nmap -sS -O -sV [TARGET_IP]
+# Example:
+nmap -sS -O -sV 192.168.1.1
+```
+
+#### **Stealth Scans**
+| Scan Type     | Command               | Description |
+|---------------|------------------------|-----------|
+| FIN Scan      | `nmap -sF [TARGET]`    | Sends FIN; open ports ignore, closed send RST |
+| Xmas Scan     | `nmap -sX [TARGET]`    | FIN+URG+PUSH flags set |
+| ACK Scan      | `nmap -sA [TARGET]`    | Determines filtered/unfiltered |
+| Window Scan   | `nmap -sW [TARGET]`    | Uses TCP window size |
+| Maimon Scan   | `nmap -sM [TARGET]`    | FIN+ACK probe |
+
+#### **UDP Scanning**
+```bash
+nmap -sU [TARGET]
+nmap -sU -sV [TARGET]  # With version detection
+```
+
+#### **Scan Targeting**
+```bash
+# Specific ports
+nmap -p 80,443 [TARGET]
+
+# All ports
+nmap -p- [TARGET]
+
+# Port range
+nmap -p 1-1000 [TARGET]
+
+# Top N ports
+nmap --top-ports 100 [TARGET]
+```
+
+#### **Script Scanning (NSE)**
+```bash
+nmap -sC [TARGET]                    # Default scripts
+nmap --script http-vuln-cve2014-0160 [TARGET]  # Specific script
+```
+
+#### **Output Options**
+```bash
+nmap -oX scan_results.xml [TARGET]   # XML
+nmap -oN scan_results.txt [TARGET]   # Normal
+nmap -oG scan_results.gnmap [TARGET] # Grepable
+```
+
+#### **Timing & Performance**
+```bash
+nmap -T4 [TARGET]   # Fast
+nmap -T1 [TARGET]   # Slow/Stealth
+```
+
+#### **Multiple Targets**
+```bash
+nmap 192.168.1.1-100
+nmap -iL targets.txt
+```
+
+---
+
+### **How to Install Zenmap (GUI for Nmap)**
+
+#### **Windows**
+1. Download: [https://nmap.org/download.html](https://nmap.org/download.html)
+2. Run `.exe` installer → Includes **Nmap + Zenmap**
+3. Launch: **Start Menu → Zenmap GUI**
+
+#### **Linux (Ubuntu/Debian)**
+```bash
+sudo apt update
+sudo apt install zenmap
+```
+> *Note: Zenmap is deprecated in newer distros. Use `.deb` from [nmap.org/dist/](https://nmap.org/dist/) if needed.*
+
+#### **macOS**
+> Zenmap not supported. Use CLI Nmap or third-party GUIs (e.g., NmapSI4).
