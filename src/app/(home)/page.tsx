@@ -56,7 +56,7 @@ const Page: React.FC = () => {
   const announcements = [
     {
       href: "https://play.google.com/store/apps/details?id=com.nikk797edu.scoop",
-      text: "Check out my friend's app Scoop on Google Play",
+      text: "Check out my friend's app Scoop on Google Play - for complement material",
       icon: Megaphone,
     },
   ];
