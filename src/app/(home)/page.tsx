@@ -75,23 +75,7 @@ const Page: React.FC = () => {
           </p>
         </div>
 
-        {/* Announcements */}
-        {announcements.map((a) => (
-          <Link
-            key={a.href}
-            href={a.href}
-            className="block mb-8 group"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="bg-fd-card p-4 rounded-lg shadow border border-fd-border flex items-center justify-center gap-3 hover:shadow-md transition-shadow">
-              <a.icon className="w-5 h-5 text-fd-primary" />
-              <span className="text-fd-foreground font-medium group-hover:underline">
-                {a.text}
-              </span>
-            </div>
-          </Link>
-        ))}
+        {/* Announcements moved below Connect & Contribute */}
 
         {/* Semester Grid */}
         <div className="mb-8">
@@ -126,6 +110,23 @@ const Page: React.FC = () => {
             </h2>
           </div>
 
+          {/* Announcements */}
+          {announcements.map((a) => (
+            <Link
+              key={a.href}
+              href={a.href}
+              className="block mb-8 group"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="bg-fd-card p-4 rounded-lg shadow border border-fd-border flex items-center justify-center gap-3 hover:shadow-md transition-shadow">
+                <a.icon className="w-5 h-5 text-fd-primary" />
+                <span className="text-fd-foreground font-medium group-hover:underline">
+                  {a.text}
+                </span>
+              </div>
+            </Link>
+          ))}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {actionButtons.map((action) => (
               <Link
