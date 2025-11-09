@@ -2,7 +2,15 @@
 
 import Link from "next/link";
 import React from "react";
-import { BookOpen, Users, MessageCircle, Info, Send, Star } from "lucide-react";
+import {
+  BookOpen,
+  Users,
+  MessageCircle,
+  Info,
+  Send,
+  Star,
+  Megaphone,
+} from "lucide-react";
 import { HomeLayout } from "fumadocs-ui/layouts/home";
 import { baseOptions } from "@/src/app/layout.config";
 
@@ -45,11 +53,19 @@ const Page: React.FC = () => {
     },
   ];
 
+  const announcements = [
+    {
+      href: "https://play.google.com/store/apps/details?id=com.nikk797edu.scoop",
+      text: "Check out my friend's app Scoop on Google Play",
+      icon: Megaphone,
+    },
+  ];
+
   return (
     <HomeLayout {...baseOptions}>
       <div className="container mx-auto px-4 py-8">
         {/* Main Heading */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <h1 className="text-4xl font-bold text-fd-foreground mb-4 mt-8">
             Welcome to T9
           </h1>
@@ -58,6 +74,24 @@ const Page: React.FC = () => {
             Assignments, Practicals, and more
           </p>
         </div>
+
+        {/* Announcements */}
+        {announcements.map((a) => (
+          <Link
+            key={a.href}
+            href={a.href}
+            className="block mb-8 group"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="bg-fd-card p-4 rounded-lg shadow border border-fd-border flex items-center justify-center gap-3 hover:shadow-md transition-shadow">
+              <a.icon className="w-5 h-5 text-fd-primary" />
+              <span className="text-fd-foreground font-medium group-hover:underline">
+                {a.text}
+              </span>
+            </div>
+          </Link>
+        ))}
 
         {/* Semester Grid */}
         <div className="mb-8">
