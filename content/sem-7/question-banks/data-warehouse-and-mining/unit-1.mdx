@@ -332,7 +332,7 @@ OLAP (Online Analytical Processing) enables users to analyze multidimensional da
 
 #### 1. Roll-up (Consolidation)
 
-**Example:**  
+**Example:**
 Sales data is initially available by city. Rolling up aggregates sales to the country or region level.
 
 ```
@@ -351,7 +351,7 @@ Country: [India]
 
 #### 2. Drill-down
 
-**Example:**  
+**Example:**
 Starting with sales by country, drill-down reveals sales by region, then by city.
 
 ```
@@ -370,7 +370,7 @@ City: [Ahmedabad, Surat, Mumbai]
 
 #### 3. Slice
 
-**Example:**  
+**Example:**
 Selecting sales data for a specific time period (e.g., Q1).
 
 ```
@@ -387,7 +387,7 @@ After Slice: Only Q1 data
 
 #### 4. Dice
 
-**Example:**  
+**Example:**
 Selecting sales for Q1 and Q2 in Toronto and Vancouver for Mobile and Modem.
 
 ```
@@ -404,7 +404,7 @@ Dice:     [Q1/Q2, Toronto/Vancouver, Mobile/Modem]
 
 #### 5. Pivot (Rotate)
 
-**Example:**  
+**Example:**
 Changing the view from "Sales by Product and Time" to "Sales by Time and Product."
 
 ```
@@ -474,7 +474,6 @@ Below is a simplified diagram of a typical data warehouse architecture:
 
 ![1-10-1.png](./1-10-1.png)
 ![1-10-2.png](./1-10-2.png)
-![1-10-3.png](./1-10-3.png)
 
 ### Explanation
 
@@ -581,7 +580,7 @@ This setup allows queries such as, "What were the total sales of smartphones in 
 
 Imagine a Rubik’s cube where each side represents a different dimension (time, product, location). Each cell in the cube contains a fact (e.g., sales), and users can rotate or slice the cube to view data from any perspective.
 
-> **"Data is the new oil, and multidimensional models are the refineries."**  
+> **"Data is the new oil, and multidimensional models are the refineries."**
 > — Clive Humby, Data Scientist
 
 ### Summary Table
@@ -603,7 +602,7 @@ Here are concise descriptions of the three key data warehouse design schemas:
 
 ### **(a) Star Schema**
 
-- **Definition:**  
+- **Definition:**
   The star schema is a simple and widely used data warehouse design. It consists of a central fact table connected to multiple dimension tables, forming a star-like structure.
 - **Structure:**
   - **Fact Table:** Contains quantitative data (facts) such as sales, revenue, or transactions.
@@ -620,7 +619,7 @@ Here are concise descriptions of the three key data warehouse design schemas:
 
 ### **(b) Snowflake Schema**
 
-- **Definition:**  
+- **Definition:**
   The snowflake schema is an extension of the star schema where dimension tables are normalized into multiple related tables, creating a snowflake-like structure.
 - **Structure:**
   - **Fact Table:** Central table with business metrics.
@@ -637,7 +636,7 @@ Here are concise descriptions of the three key data warehouse design schemas:
 
 ### **(c) Fact Constellation Schema (Galaxy Schema)**
 
-- **Definition:**  
+- **Definition:**
   The fact constellation schema (also called galaxy schema) is a more complex arrangement where multiple fact tables share dimension tables.
 - **Structure:**
   - **Multiple Fact Tables:** Each fact table is connected to its own set of dimension tables.
@@ -729,7 +728,7 @@ OLAP (Online Analytical Processing) enables users to analyze multidimensional da
 
 ### **a) Roll-up Operation**
 
-- **Description:**  
+- **Description:**
   The roll-up (or drill-up) operation aggregates data by climbing up a concept hierarchy within a dimension or by reducing the number of dimensions. It summarizes data to a higher, less detailed level.
 - **How it works:**
   - **Climbing up a hierarchy:** For example, moving from “city” to “state” to “country” in a location dimension.
@@ -744,7 +743,7 @@ OLAP (Online Analytical Processing) enables users to analyze multidimensional da
 
 ### **b) Drill Down Operation**
 
-- **Description:**  
+- **Description:**
   Drill down is the reverse of roll-up. It navigates from a higher summary level to a more detailed level within a dimension or by adding new dimensions.
 - **How it works:**
   - **Stepping down a hierarchy:** For example, moving from “quarter” to “month” in a time dimension.
@@ -759,7 +758,7 @@ OLAP (Online Analytical Processing) enables users to analyze multidimensional da
 
 ### **c) Slice Operation**
 
-- **Description:**  
+- **Description:**
   The slice operation selects a single value for one dimension to create a sub-cube from the original cube.
 - **How it works:**
   - **Selects one dimension:** For example, viewing sales for the year 2020 in a cube with dimensions: time, product, and location.
@@ -774,7 +773,7 @@ OLAP (Online Analytical Processing) enables users to analyze multidimensional da
 
 ### **d) Dice Operation**
 
-- **Description:**  
+- **Description:**
   The dice operation selects a sub-cube by specifying values for two or more dimensions.
 - **How it works:**
   - **Selects multiple dimensions:** For example, viewing sales for specific quarters, products, and locations.
@@ -789,7 +788,7 @@ OLAP (Online Analytical Processing) enables users to analyze multidimensional da
 
 ### **e) Pivot Operation**
 
-- **Description:**  
+- **Description:**
   The pivot (or rotate) operation changes the dimensional orientation of the data cube, allowing users to view data from different perspectives.
 - **How it works:**
   - **Rotates axes:** For example, swapping rows and columns in a report.
