@@ -8,7 +8,8 @@ import {
 } from "@/src/lib/source";
 import { createSearchAPI } from "fumadocs-core/search/server";
 
-export const { GET } = createSearchAPI("advanced", {
+export const revalidate = false;
+export const { staticGET: GET } = createSearchAPI("advanced", {
   indexes: [
     ...aboutSource.getPages(),
     ...sem1Source.getPages(),
