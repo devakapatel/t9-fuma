@@ -1,5 +1,7 @@
 # t9
 
+[![gitcgr](https://gitcgr.com/badge/devakapatel/t9-fuma.svg)](https://gitcgr.com/devakapatel/t9-fuma)
+
 This is a Next.js application generated with
 [Create Fumadocs](https://github.com/fuma-nama/fumadocs).
 
