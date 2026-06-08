@@ -14,26 +14,26 @@
     "fumadocs-core": "15.5.1",
     "fumadocs-mdx": "11.6.7",
     "fumadocs-ui": "15.5.1",
-    "katex": "^0.16.25",
+    "katex": "^0.16.47",
     "lucide-react": "^0.515.0",
-    "mermaid": "^11.12.1",
+    "mermaid": "^11.15.0",
     "next": "15.3.3",
     "next-themes": "^0.4.6",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
-    "tailwind-merge": "^3.4.0"
+    "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.16",
-    "@tailwindcss/postcss": "^4.1.17",
-    "@types/mdx": "^2.0.13",
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/mdx": "^2.0.14",
     "@types/node": "22.15.28",
-    "@types/react": "^19.2.4",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.17",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.0",
     "typescript": "^5.9.3"
   }
 }
